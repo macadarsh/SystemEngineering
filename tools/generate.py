@@ -109,9 +109,70 @@ MODULES = [
         ],
     },
     {
-        "file": "chapter-2.html", "title": "Chapter 2",
-        "lede": "This chapter is awaiting content.",
-        "blocks": [("note", "Coming soon", "Content for Chapter 2 will be added here. Provide the source material and it will be curated into this page.")],
+        "file": "chapter-2.html",
+        "title": "Chapter 2",
+        "lede": "System Life Cycle Concepts, Models, and Processes — life-cycle stages and decision gates, the sequential / incremental / evolutionary model families, and the four ISO/IEC/IEEE 15288 process groups. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 2.",
+        "blocks": [
+            ("h2", "Life-cycle terms and concepts"),
+            ("p", "The purpose of systems engineering is to realise a system successfully while balancing competing stakeholder objectives. A practical way to manage that is to break the whole effort into transformational <strong>stages</strong>, checking at the end of each stage whether the system characteristics are satisfied, the risk is acceptable, and the system is ready to move on. Progress between stages is gated by explicit decision points called <strong>decision gates</strong>. By analogy with the stages a living thing passes through, this whole set of stages is the <strong>system life cycle</strong>."),
+            ("h3", "Life-cycle characteristics"),
+            ("p", "Stages are not necessarily sequential or one-off. They can be entered as many times as needed, can overlap, and often run concurrently. Major system elements, enabling systems, and the constituents of a system-of-systems each have their own life cycles, which must be integrated so that a coherent system of interest is delivered and used over time. Stages typically have entry and exit gates: entry gates check that the criteria are met and resources are available; exit gates check that the stage's objectives are achieved and the risk of proceeding is acceptable."),
+            ("h3", "Typical life-cycle stages"),
+            ("p", "A commonly used set of stages (from ISO/IEC/IEEE 15288) spans the conception through retirement of the system:"),
+            ("ul", [
+                "<strong>Concept</strong> — explore needs, feasibility, and candidate solution concepts.",
+                "<strong>Development</strong> — define requirements and architecture, then design and build the system.",
+                "<strong>Production</strong> — manufacture or construct the system and its elements.",
+                "<strong>Utilization</strong> — operate the system to deliver its intended service.",
+                "<strong>Support</strong> — provide the logistics, maintenance, and services that sustain operation.",
+                "<strong>Retirement</strong> — withdraw and dispose of the system or its elements."]),
+            ("p", "Different industries use different names for these stages (commercial, defence, and space sectors each have their own labels), and the relative time spent in each varies enormously — a product might reach the field in a couple of years and then stay in use for decades."),
+            ("h3", "Decision gates"),
+            ("p", "A decision gate is a risk-managing checkpoint, usually at the start and end of a stage, often run as a project milestone or review. Its goals are to confirm that system maturity is on track, that deliverables still satisfy the business case, that resources are sufficient, that open issues are addressed, and that the risk of going forward is acceptable."),
+            ("p", "At each gate the typical options are: begin the next stage; continue the current stage (perhaps after rework); return to an earlier stage; hold the project; or terminate it. Approval should rest on evidence of meeting the agreed criteria. Balancing the formality and frequency of gates is a critical success factor — a superficial review or a skipped gate tends to cause costly problems later. Agile approaches still make these decisions, but at a more frequent, smaller-scope, and less formal cadence."),
+            ("h3", "Technical reviews and audits"),
+            ("p", "A <strong>technical review</strong> assesses a project's progress against its technical requirements at logical transition points, using agreed criteria. An <strong>audit</strong> is a detailed check that products and their definition information actually conform to requirements and to the released configuration. Both are planned in the project's Systems Engineering Management Plan (SEMP) and may form part of decision gates."),
+            ("p", "Representative reviews and audits include the System Requirements Review (SRR), Preliminary Design Review (PDR), Critical Design Review (CDR), Test Readiness Review (TRR), System Verification Review (SVR), Production Readiness Review (PRR), and the Functional and Physical Configuration Audits (FCA / PCA). The exact set is tailored to the project and the life-cycle model in use."),
+
+            ("h2", "Life-cycle model approaches"),
+            ("p", "A life-cycle <em>model</em> is the framework within which stages and their transitions are planned and carried out. Models are commonly grouped into three families, distinguished by how much of the requirements are known at the start, how many iterations are planned, and whether there are multiple deployments:"),
+            ("raw", """
+<table>
+  <thead><tr><th>Approach</th><th>Requirements set at start</th><th>Planned iterations</th><th>Multiple deployments</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Sequential</strong></td><td>Full</td><td>Single</td><td>No</td></tr>
+    <tr><td><strong>Incremental</strong></td><td>Full</td><td>Multiple</td><td>Potential</td></tr>
+    <tr><td><strong>Evolutionary</strong></td><td>Partial</td><td>Multiple</td><td>Typically</td></tr>
+  </tbody>
+</table>
+"""),
+            ("h3", "Sequential methods"),
+            ("p", "Sequential models flow through linear stages, each depending on the deliverables of the previous one (with feedback), ending in a single delivery. Their strengths are predictability, stability, repeatability, and high assurance, which suits large coordinated teams and safety- or security-critical products. The classic example is the <strong>waterfall</strong> model; the <strong>SE Vee model</strong> is another, associating each definition stage on the left with a corresponding test stage on the right. The left of the Vee evolves the baseline from stakeholder requirements to system requirements to architecture to element definitions; the right integrates, verifies, and validates the elements back up. Even within the Vee, the processes are applied concurrently, iteratively, and recursively at each level of the hierarchy."),
+            ("h3", "Incremental methods"),
+            ("p", "Incremental approaches deliver an initial capability and then add to it through successive deliveries, aiming for rapid value and responsiveness. The full set of capabilities is usually known up front, but development is split into increments to absorb technical risk and insert newer technology. A steady cadence between increments helps planning. The Incremental Commitment Spiral Model (ICSM) is one example, addressing requirements and solutions concurrently and proceeding to the next spiral only when the risks are acceptable."),
+            ("h3", "Evolutionary methods"),
+            ("p", "When the final requirements are unknown or only partly known — common in novel systems, R&amp;D, and systems-of-systems — an evolutionary approach provides adaptability. Cycles are planned regularly, each producing a deployable version, and the requirements are progressively refined cycle by cycle. <strong>Agile</strong> methods are a widely used type of evolutionary development."),
+            ("note", "Choosing an approach", "There is no universal best model. Selection depends on factors such as environment stability, risk, novelty and complexity, integrity needs (safety, security, privacy), available budget and enabling systems, and required conformance to standards. Organisations should keep asking which approach, or combination, fits the situation."),
+
+            ("h2", "System life-cycle processes"),
+            ("p", "A <strong>process</strong> is a series of activities and tasks performed to achieve outcomes for a stated purpose. ISO/IEC/IEEE 15288 (2023) provides a common framework of system life-cycle processes, organised into four groups. They are not meant to be run once in a straight line — they are applied <strong>concurrently, iteratively, and recursively</strong> throughout the life cycle."),
+            ("h3", "Concurrency, iteration, and recursion"),
+            ("ul", [
+                "<strong>Concurrency</strong> — running two or more processes in parallel at the same level of the hierarchy (for example, risk management and measurement running continuously together).",
+                "<strong>Iteration</strong> — repeatedly applying and cycling between processes at a level to absorb new decisions and understanding (for example, between system requirements and architecture definition).",
+                "<strong>Recursion</strong> — reapplying the same set of processes, tailored, at each successive level of the hierarchy, where the outputs at one level become inputs to the next."]),
+            ("h3", "Agreement processes"),
+            ("p", "Establish an agreement between two parties for the acquisition or supply of systems, elements, products, or services. They comprise the <strong>Acquisition</strong> and <strong>Supply</strong> processes. SE practitioners contribute impact assessments, trade studies, and risk assessments to support these agreements."),
+            ("h3", "Organizational project-enabling processes"),
+            ("p", "Provide the organisational environment and resources that projects need. They comprise <strong>Life Cycle Model Management, Infrastructure Management, Portfolio Management, Human Resource Management, Quality Management,</strong> and <strong>Knowledge Management</strong>."),
+            ("h3", "Technical management processes"),
+            ("p", "Plan, assess, and control the technical effort. They comprise <strong>Project Planning, Project Assessment and Control, Decision Management, Risk Management, Configuration Management, Information Management, Measurement,</strong> and <strong>Quality Assurance</strong>."),
+            ("h3", "Technical processes"),
+            ("p", "Turn needs into a realised, operated, and eventually retired system. They comprise <strong>Business or Mission Analysis, Stakeholder Needs and Requirements Definition, System Requirements Definition, System Architecture Definition, Design Definition, System Analysis, Implementation, Integration, Verification, Transition, Validation, Operation, Maintenance,</strong> and <strong>Disposal</strong>."),
+            ("p", "In the handbook, each process is described with a consistent structure — purpose, description, inputs/outputs, activities, and common approaches — and illustrated with an input–process–output (IPO) diagram. The individual technical processes are explored in more depth in later chapters."),
+
+            ("tip", "Source", "This chapter summarises, in our own words for learning, the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 2, ‘System Life Cycle Concepts, Models, and Processes,’ which draws on ISO/IEC/IEEE 15288 and 24748. Consult the handbook for the authoritative text."),
+        ],
     },
     {
         "file": "chapter-3.html", "title": "Chapter 3",
