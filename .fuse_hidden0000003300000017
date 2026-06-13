@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A structured, self-paced path through the fundamentals of systems engineering — chapters, a study plan, practice Q/A, and case studies.">
+<title>Learn System Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700;800&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<script>(function(){try{var d=document.documentElement,ls=localStorage;var t=ls.getItem('lse-theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');d.setAttribute('data-theme',t);var f=ls.getItem('lse-font');if(f)d.setAttribute('data-font',f);d.setAttribute('data-density',ls.getItem('lse-density')||'cozy');var s=parseFloat(ls.getItem('lse-fs'));if(!isNaN(s))d.style.setProperty('--fs-scale',s);}catch(e){}})();</script>
+</head>
+<body><header class="nav">
+  <button class="iconbtn nav__burger" aria-label="Open navigation">&#9776;</button>
+  <a class="nav__brand" href="index.html">
+    <span class="nav__logo">SE</span>
+    <span class="nav__brand-text">Learn System Engineering<small>Foundations → Practitioner</small></span>
+  </a>
+  <nav class="nav__links" aria-label="Primary"><a class="navlink js-nav-modules" href="chapter-1.html">Chapters</a><a class="navlink" href="weekly-plan.html">Weekly Plan</a><a class="navlink" href="practice-questions.html">Practice Q/A</a><a class="navlink" href="case-studies.html">Case Studies</a><a class="navlink" href="podcast.html">Podcast</a><a class="navlink" href="what-is-incose.html">About INCOSE</a></nav>
+  <div class="nav__spacer"></div>
+  <div class="nav__tools">
+    <button class="searchbtn js-search-open" aria-label="Search">
+      <span>&#128269;</span><span class="searchbtn__txt">Search</span><kbd>Ctrl K</kbd>
+    </button>
+    <button class="iconbtn js-appearance" aria-label="Appearance settings" title="Appearance (background, font, density, size)" aria-haspopup="dialog" aria-expanded="false">Aa</button>
+  </div>
+</header><div class="appearance__backdrop js-appearance-backdrop" hidden></div>
+<div class="appearance" id="appearance-panel" role="dialog" aria-label="Appearance settings" hidden>
+  <div class="appearance__group">
+    <p class="appearance__label">Background</p>
+    <div class="seg seg--2">
+      <button class="seg__btn js-bg" data-bg="light"><span class="swatch swatch--light"></span>Light</button>
+      <button class="seg__btn js-bg" data-bg="sepia"><span class="swatch swatch--sepia"></span>Sepia</button>
+      <button class="seg__btn js-bg" data-bg="dim"><span class="swatch swatch--dim"></span>Dim</button>
+      <button class="seg__btn js-bg" data-bg="dark"><span class="swatch swatch--dark"></span>Dark</button>
+    </div>
+  </div>
+  <div class="appearance__group">
+    <p class="appearance__label">Font</p>
+    <div class="seg seg--2">
+      <button class="seg__btn js-font" data-font="sans"><span class="preview-sans">Ag</span>Sans</button>
+      <button class="seg__btn js-font" data-font="serif"><span class="preview-serif">Ag</span>Serif</button>
+      <button class="seg__btn js-font" data-font="legible"><span class="preview-legible">Ag</span>Hyperlegible</button>
+      <button class="seg__btn js-font" data-font="lexend"><span class="preview-lexend">Ag</span>Lexend</button>
+    </div>
+  </div>
+  <div class="appearance__group">
+    <p class="appearance__label">Text density</p>
+    <div class="seg seg--3">
+      <button class="seg__btn js-density" data-density="compact">Compact</button>
+      <button class="seg__btn js-density" data-density="cozy">Cozy</button>
+      <button class="seg__btn js-density" data-density="comfortable">Comfortable</button>
+    </div>
+  </div>
+  <div class="appearance__group">
+    <p class="appearance__label">Text size</p>
+    <div class="seg seg--4">
+      <button class="seg__btn js-size" data-size="0.9"><span class="size-glyph" style="font-size:12px">A</span>S</button>
+      <button class="seg__btn js-size" data-size="1"><span class="size-glyph" style="font-size:15px">A</span>M</button>
+      <button class="seg__btn js-size" data-size="1.12"><span class="size-glyph" style="font-size:18px">A</span>L</button>
+      <button class="seg__btn js-size" data-size="1.25"><span class="size-glyph" style="font-size:21px">A</span>XL</button>
+    </div>
+  </div>
+  <button class="appearance__reset js-appearance-reset">Reset to defaults</button>
+</div><div class="backdrop"></div><div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search">
+  <div class="search-box">
+    <div class="search-box__input">
+      <span>&#128269;</span>
+      <input id="search-input" type="text" placeholder="Search modules, topics, questions…" autocomplete="off" spellcheck="false">
+      <button class="esc js-search-close" aria-label="Close search">Esc</button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div><aside class="sidebar sidebar--drawer"><div class="sidebar__mobhead">
+    <span class="sidebar__title" style="padding:0">Browse</span>
+    <button class="iconbtn iconbtn--ghost js-drawer-close" aria-label="Close navigation">&times;</button>
+  </div><nav id="sidebar-nav" aria-label="Site index"></nav></aside><div class="home"><section class="hero">
+      <span class="hero__eyebrow">Foundations &middot; Self-paced</span>
+      <h1>Learn System Engineering</h1>
+      <p>A structured path from the core ideas of systems engineering to confident, practical understanding — organised into chapters, a study plan, practice Q/A, and case studies.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a class="btn" href="chapter-1.html">Start with Chapter 1 &rarr;</a>
+        <a class="btn btn--ghost" href="weekly-plan.html">See the 8-week plan</a>
+      </div>
+    </section><section class="section">
+      <h2>Explore</h2>
+      <p class="section__intro">Everything is organised into a few clear areas — pick where to start.</p>
+      <div class="grid grid--3"><a class="card" href="chapter-1.html"><span class="card__icon">📚</span><h3>Chapters</h3><p>Five chapters, each with a Quick Recap, Core Concepts, and Detailed Review.</p><span class="card__more">Browse chapters &rarr;</span></a><a class="card" href="weekly-plan.html"><span class="card__icon">🗓️</span><h3>8-Week Study Plan</h3><p>An eight-week roadmap pairing chapters with small, practical tasks.</p><span class="card__more">View the plan &rarr;</span></a><a class="card" href="practice-questions.html"><span class="card__icon">✅</span><h3>Practice Q/A</h3><p>Self-check questions for each chapter, with model answers to reveal when ready.</p><span class="card__more">Try the questions &rarr;</span></a><a class="card" href="case-studies.html"><span class="card__icon">🔎</span><h3>Case Studies</h3><p>Short, illustrative examples of systems-engineering ideas in the real world.</p><span class="card__more">Read case studies &rarr;</span></a><a class="card" href="what-is-incose.html"><span class="card__icon">🏛️</span><h3>About INCOSE</h3><p>The global systems-engineering body, its handbook, and the SEP certification exams.</p><span class="card__more">Learn about INCOSE &rarr;</span></a></div>
+    </section><footer class="footer">
+      <h2>Get in touch</h2>
+      <p>Spotted something to fix, or want a topic covered in more depth? I’d love to hear from you.</p>
+      <a class="btn" href="mailto:mac.adarsh@gmail.com">Send a message</a>
+      <div class="footer__legal">&copy; Adarsh Mishra. Built as a learning resource. All rights reserved.</div>
+    </footer></div><button class="back-to-top" aria-label="Back to top">&#8593;</button><script src="assets/site-data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

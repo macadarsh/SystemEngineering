@@ -150,32 +150,82 @@
     return s.toLowerCase().replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-");
   }
   function buildToc() {
-    var toc = $("#toc-list");
     var article = $(".content__inner");
     if (!article) return;
+    var toc   = $("#toc-list");
     var heads = $$("h2, h3", article);
-    if (!toc) { addAnchors(heads); return; }
-    if (!heads.length) { toc.innerHTML = '<p class="toc__empty">No sections on this page.</p>'; return; }
+    if (!heads.length) {
+      if (toc) toc.innerHTML = '<p class="toc__empty">No sections on this page.</p>';
+      return;
+    }
 
-    var html = "";
-    heads.forEach(function (h) {
-      if (!h.id) h.id = slugify(h.textContent);
+    heads.forEach(function (h) { if (!h.id) h.id = slugify(h.textContent); });
+    var linkHtml = heads.map(function (h) {
       var lvl = h.tagName === "H3" ? " lvl-3" : "";
-      html += '<a class="toc-link' + lvl + '" href="#' + h.id + '">' + esc(h.textContent) + "</a>";
-    });
-    toc.innerHTML = html;
+      return '<a class="toc-link' + lvl + '" href="#' + h.id + '">' + esc(h.textContent) + "</a>";
+    }).join("");
+
+    if (toc) toc.innerHTML = linkHtml;
     addAnchors(heads);
 
-    // scroll spy — highlights the right-hand on-page TOC
-    var links = $$(".toc-link", toc);
+    // scroll spy keeps both the right-hand TOC and the section-jump popover in sync
+    var tocLinks  = toc ? $$(".toc-link", toc) : [];
+    var jumpLinks = buildSectionJump(linkHtml);
     function spy() {
       var pos = window.scrollY + (parseInt(getComputedStyle(document.documentElement).getPropertyValue("--nav-h")) || 62) + 24;
       var idx = 0;
       heads.forEach(function (h, i) { if (h.offsetTop <= pos) idx = i; });
-      links.forEach(function (l, i) { l.classList.toggle("is-active", i === idx); });
+      tocLinks.forEach(function (l, i) { l.classList.toggle("is-active", i === idx); });
+      jumpLinks.forEach(function (l, i) { l.classList.toggle("is-active", i === idx); });
     }
     window.addEventListener("scroll", throttle(spy, 100));
     spy();
+  }
+
+  /* Floating "jump to a section" control (down-arrow, top-right).
+     Appears after the reader scrolls down a little; opens a popover listing
+     the same sections as the right-hand panel — handy on mobile, where that
+     panel is hidden. Returns the popover's links so scroll-spy can track them. */
+  function buildSectionJump(linkHtml) {
+    var btn = document.createElement("button");
+    btn.className = "sectjump";
+    btn.setAttribute("aria-label", "Jump to a section on this page");
+    btn.setAttribute("aria-haspopup", "true");
+    btn.setAttribute("aria-expanded", "false");
+    btn.innerHTML = '<span class="sectjump__chev" aria-hidden="true">' +
+      '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+      'stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">' +
+      '<polyline points="6 9 12 15 18 9"></polyline></svg></span>';
+
+    var backdrop = document.createElement("div");
+    backdrop.className = "sectjump-backdrop"; backdrop.hidden = true;
+
+    var panel = document.createElement("div");
+    panel.className = "sectjump-panel";
+    panel.setAttribute("role", "dialog");
+    panel.setAttribute("aria-label", "Sections on this page");
+    panel.hidden = true;
+    panel.innerHTML = '<p class="sectjump-panel__title">In this article</p>' + linkHtml;
+
+    document.body.appendChild(backdrop);
+    document.body.appendChild(panel);
+    document.body.appendChild(btn);
+
+    function open()  { panel.hidden = false; backdrop.hidden = false; btn.classList.add("is-open");    btn.setAttribute("aria-expanded", "true"); }
+    function close() { panel.hidden = true;  backdrop.hidden = true;  btn.classList.remove("is-open"); btn.setAttribute("aria-expanded", "false"); }
+
+    btn.addEventListener("click", function (e) { e.stopPropagation(); panel.hidden ? open() : close(); });
+    backdrop.addEventListener("click", close);
+    $$("a", panel).forEach(function (a) { a.addEventListener("click", close); });
+    window.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+
+    // visible only once scrolled down a bit; hidden (and closed) back at the top
+    window.addEventListener("scroll", throttle(function () {
+      if (window.scrollY > 300) { btn.classList.add("is-visible"); }
+      else { btn.classList.remove("is-visible"); close(); }
+    }, 150));
+
+    return $$("a", panel);
   }
   function addAnchors(heads) {
     heads.forEach(function (h) {

@@ -156,9 +156,11 @@
 
 /* ----- Reset / base ----- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); overflow-x: clip; }
 body {
   margin: 0;
+  overflow-x: clip;                        /* never allow sideways scroll on mobile */
+  -webkit-tap-highlight-color: transparent;/* no grey flash on tap (app-like) */
   font-family: var(--font-body, var(--sans));
   font-size: calc(16px * var(--fs-scale));
   line-height: var(--lh);
@@ -181,13 +183,13 @@ code, pre { font-family: var(--mono); }
   position: sticky; top: 0; z-index: 50;
   height: var(--nav-h);
   display: flex; align-items: center; gap: 14px;
-  padding: 0 18px;
+  padding: 0 max(18px, env(safe-area-inset-right)) 0 max(18px, env(safe-area-inset-left));
   background: color-mix(in srgb, var(--bg-elev) 86%, transparent);
   backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid var(--border);
 }
 .nav__brand {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: 10px; min-width: 0; flex: 0 1 auto;
   font-weight: 800; letter-spacing: -.2px; color: var(--text);
   white-space: nowrap;
 }
@@ -212,7 +214,7 @@ code, pre { font-family: var(--mono); }
 
 .nav__spacer { flex: 1 1 auto; }
 
-.nav__tools { display: flex; align-items: center; gap: 6px; }
+.nav__tools { display: flex; align-items: center; gap: 6px; flex: 0 0 auto; }
 .iconbtn {
   width: 38px; height: 38px; flex: 0 0 auto;
   display: grid; place-items: center;
@@ -528,7 +530,9 @@ mark { background: var(--accent-soft); color: var(--accent); border-radius: 3px;
 .backdrop.is-open { display: block; }
 
 .back-to-top {
-  position: fixed; right: 18px; bottom: 18px; z-index: 40;
+  position: fixed; z-index: 40;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
   width: 44px; height: 44px; border-radius: 50%;
   display: grid; place-items: center;
   background: var(--accent); color: #fff; border: none; cursor: pointer;
@@ -583,6 +587,57 @@ mark { background: var(--accent-soft); color: var(--accent); border-radius: 3px;
 .appearance__backdrop { position: fixed; inset: 0; z-index: 89; }
 .appearance__backdrop[hidden] { display: none; }
 
+/* ====================================================================
+   SECTION JUMP — floating in-page navigation (down-arrow, top-right)
+   Appears after the reader scrolls down; opens the page's section list.
+   Most useful where the right-hand TOC is hidden (tablet / mobile).
+   ==================================================================== */
+.sectjump {
+  position: fixed; z-index: 80;
+  top: calc(var(--nav-h) + 10px);
+  right: max(14px, env(safe-area-inset-right));
+  width: 42px; height: 42px; border-radius: 12px;
+  display: grid; place-items: center;
+  background: var(--accent); color: var(--accent-text, #fff);
+  border: none; cursor: pointer; box-shadow: var(--shadow-md);
+  opacity: 0; transform: translateY(-8px) scale(.96); pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease, filter .15s ease;
+}
+.sectjump.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.sectjump:hover { filter: brightness(1.06); }
+.sectjump__chev { display: grid; place-items: center; transition: transform .2s ease; }
+.sectjump.is-open .sectjump__chev { transform: rotate(180deg); }
+
+.sectjump-panel {
+  position: fixed; z-index: 81;
+  top: calc(var(--nav-h) + 60px);
+  right: max(14px, env(safe-area-inset-right));
+  width: min(320px, calc(100vw - 28px));
+  max-height: min(70vh, 540px); overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--bg-elev); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow-lg); padding: 10px;
+}
+.sectjump-panel[hidden] { display: none; }
+.sectjump-panel__title {
+  font-size: 11px; font-weight: 800; letter-spacing: .8px; text-transform: uppercase;
+  color: var(--text-faint); margin: 4px 8px 10px;
+}
+.sectjump-panel a {
+  display: block; padding: 9px 12px; border-radius: 9px;
+  color: var(--text-muted); font-size: 14px; line-height: 1.35;
+}
+.sectjump-panel a:hover { background: var(--bg-hover); color: var(--text); text-decoration: none; }
+.sectjump-panel a.lvl-3 { padding-left: 26px; font-size: 13px; }
+.sectjump-panel a.is-active { color: var(--accent); background: var(--accent-soft); font-weight: 700; }
+.sectjump-backdrop { position: fixed; inset: 0; z-index: 79; }
+.sectjump-backdrop[hidden] { display: none; }
+
+/* on wide screens the right-hand TOC already serves this purpose */
+@media (min-width: 1181px) {
+  .sectjump, .sectjump-panel, .sectjump-backdrop { display: none !important; }
+}
+
 /* visual separation between sidebar groups (Resources vs Modules) */
 .sidebar__group + .sidebar__group {
   border-top: 1px solid var(--border); padding-top: 16px; margin-top: 6px;
@@ -608,6 +663,10 @@ mark { background: var(--accent-soft); color: var(--accent); border-radius: 3px;
   .searchbtn .searchbtn__txt, .searchbtn kbd { display: none; }
   .searchbtn { width: 38px; padding: 0; justify-content: center; }
 
+  /* brand must shrink/truncate so the search + appearance tools stay on-screen */
+  .nav__brand { flex: 0 1 auto; min-width: 0; overflow: hidden; }
+  .nav__brand-text { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
   .sidebar {
     position: fixed; top: 0; left: 0; z-index: 70;
     width: min(86vw, 320px); height: 100vh;
@@ -631,9 +690,13 @@ mark { background: var(--accent-soft); color: var(--accent); border-radius: 3px;
   .sidebar--drawer { display: none; }        /* homepage: drawer only, no desktop column */
 }
 
-@media (max-width: 480px) {
-  .nav { gap: 8px; padding: 0 12px; }
+/* hide the brand subtitle on phones so the title truncates cleanly */
+@media (max-width: 600px) {
   .nav__brand-text small { display: none; }
+}
+
+@media (max-width: 480px) {
+  .nav { gap: 8px; padding: 0 max(12px, env(safe-area-inset-right)) 0 max(12px, env(safe-area-inset-left)); }
   .hero { padding-left: 16px; padding-right: 16px; }
   .section { padding-left: 18px; padding-right: 18px; }
 }
