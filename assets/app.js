@@ -108,21 +108,41 @@
       g.items.forEach(function (it) {
         var kids = it.children || [];
         var childHere = kids.some(function (ch) { return ch.href === currentFile; });
-        var active = (it.href === currentFile || childHere) ? " is-active" : "";
+        var selfHere = it.href === currentFile;
+        var active = (selfHere || childHere) ? " is-active" : "";
         var num = it.num ? '<span class="num">' + esc(it.num) + "</span>" : '<span class="num"></span>';
-        html += '<a class="sidebar__link' + active + '" href="' + it.href + '">' + num + "<span>" + esc(it.label) + "</span></a>";
         if (kids.length) {
+          var expanded = selfHere || childHere;  // active parent auto-expands
+          html += '<div class="sidebar__item' + (expanded ? " is-expanded" : "") + '">';
+          html += '<div class="sidebar__row">';
+          html += '<a class="sidebar__link' + active + '" href="' + it.href + '">' + num + "<span>" + esc(it.label) + "</span></a>";
+          html += '<button class="sidebar__caret" aria-label="Toggle ' + esc(it.label) + '" aria-expanded="' + (expanded ? "true" : "false") + '"><span class="chev">&#9656;</span></button>';
+          html += "</div>";
           html += '<div class="sidebar__sub">';
           kids.forEach(function (ch) {
             var ca = ch.href === currentFile ? " is-active" : "";
             html += '<a class="sidebar__sublink' + ca + '" href="' + ch.href + '">' + esc(ch.label) + "</a>";
           });
-          html += "</div>";
+          html += "</div></div>";
+        } else {
+          html += '<a class="sidebar__link' + active + '" href="' + it.href + '">' + num + "<span>" + esc(it.label) + "</span></a>";
         }
       });
       html += "</div>";
     });
     host.innerHTML = html;
+
+    // caret toggles expand/collapse without navigating
+    $$(".sidebar__caret", host).forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var item = btn.closest(".sidebar__item");
+        if (!item) return;
+        var open = item.classList.toggle("is-expanded");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    });
   }
 
   /* ---------------------------------------------- ON-PAGE TOC + SCROLL SPY */

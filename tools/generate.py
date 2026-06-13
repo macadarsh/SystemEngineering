@@ -192,20 +192,16 @@ MODULES = [
 
 WEEKLY_PLAN_TABLE = """
 <table>
-  <thead><tr><th>Week</th><th>Focus</th><th>Module(s)</th><th>Do this week</th></tr></thead>
+  <thead><tr><th>Week</th><th>Focus</th><th>Chapter</th><th>Do this week</th></tr></thead>
   <tbody>
-    <tr><td>1</td><td>Orientation</td><td>Introduction to Systems Engineering</td><td>Read Module 1; write your own one-line definition of a system.</td></tr>
-    <tr><td>2</td><td>Mindset</td><td>Systems Thinking &amp; Core Concepts</td><td>Sketch the boundary &amp; interfaces of a system you know.</td></tr>
-    <tr><td>3</td><td>The journey</td><td>The SE Lifecycle &amp; Process Models</td><td>Map the Vee model onto a past project.</td></tr>
-    <tr><td>4</td><td>Needs</td><td>Stakeholder Needs &amp; Requirements</td><td>Write 5 requirements that pass the ‘good requirement’ test.</td></tr>
-    <tr><td>5</td><td>Structure</td><td>System Architecture &amp; Design</td><td>Draw a functional vs physical view of one product.</td></tr>
-    <tr><td>6</td><td>Modelling</td><td>Modelling &amp; MBSE (SysML)</td><td>Explore the four SysML pillars with a small example.</td></tr>
-    <tr><td>7</td><td>Review</td><td>Modules 1–6</td><td>Revision + first practice question set.</td></tr>
-    <tr><td>8</td><td>Proving it</td><td>Integration, Verification &amp; Validation</td><td>Pick a requirement; choose a verification method.</td></tr>
-    <tr><td>9</td><td>Uncertainty</td><td>Risk &amp; Decision Management</td><td>Build a small risk register with handling strategies.</td></tr>
-    <tr><td>10</td><td>Control</td><td>Configuration &amp; Change Management</td><td>Define a baseline and a change-control flow.</td></tr>
-    <tr><td>11</td><td>Leading the work</td><td>Technical &amp; Project Management + Specialty Engineering</td><td>Outline a one-page SEMP; list the key ‘-ilities’.</td></tr>
-    <tr><td>12</td><td>End of life &amp; wrap-up</td><td>Operations, Maintenance &amp; Disposal</td><td>Full revision + second practice set + a case study.</td></tr>
+    <tr><td>1</td><td>Foundations</td><td>Chapter 1 — Quick Recap &amp; Core Concepts</td><td>Read the Ch1 recap and core; write your own one-line definition of a system.</td></tr>
+    <tr><td>2</td><td>Foundations deep-dive</td><td>Chapter 1 — Detailed Review + Practice</td><td>Work through the Ch1 detailed review; attempt the Chapter 1 Practice Q/A.</td></tr>
+    <tr><td>3</td><td>Life cycle</td><td>Chapter 2 — Quick Recap &amp; Core Concepts</td><td>Read the Ch2 recap and core; sketch the Vee model from memory.</td></tr>
+    <tr><td>4</td><td>Life cycle deep-dive</td><td>Chapter 2 — Detailed Review + Practice</td><td>Work through the Ch2 detailed review; attempt the Chapter 2 Practice Q/A.</td></tr>
+    <tr><td>5</td><td>Chapter 3</td><td>Chapter 3 — all sub-sections</td><td>Recap → Core → Detailed; then attempt the Chapter 3 Practice Q/A.</td></tr>
+    <tr><td>6</td><td>Chapter 4</td><td>Chapter 4 — all sub-sections</td><td>Recap → Core → Detailed; then attempt the Chapter 4 Practice Q/A.</td></tr>
+    <tr><td>7</td><td>Chapter 5</td><td>Chapter 5 — all sub-sections</td><td>Recap → Core → Detailed; then attempt the Chapter 5 Practice Q/A.</td></tr>
+    <tr><td>8</td><td>Consolidate</td><td>Review + Case Studies</td><td>Revisit weak areas, read the case studies, and do a full mock self-test.</td></tr>
   </tbody>
 </table>
 """
@@ -213,12 +209,12 @@ WEEKLY_PLAN_TABLE = """
 SECTION_PAGES = [
     {
         "file": "weekly-plan.html",
-        "title": "12-Week Study Plan",
-        "section_label": "Weekly Plan",
-        "lede": "A week-by-week roadmap through the modules, with a small task each week to turn reading into practice. Adjust the pace to suit you.",
+        "title": "8-Week Study Plan",
+        "section_label": "Study Plan",
+        "lede": "An eight-week roadmap through the five chapters, with a small task each week to turn reading into practice. Adjust the pace to suit you.",
         "blocks": [
             ("h2", "How to use this plan"),
-            ("p", "Each week pairs one or two modules with a short, concrete task. The goal is steady progress and a habit of applying ideas, not racing to the end. Use the review weeks to consolidate before moving on."),
+            ("p", "Each week pairs a chapter (or part of one) with a short, concrete task. The goal is steady progress and a habit of applying ideas, not racing to the end. Use the final week to consolidate before moving on."),
             ("h2", "The plan"),
             ("raw", WEEKLY_PLAN_TABLE),
             ("h2", "Tips for sticking with it"),
@@ -579,7 +575,7 @@ def landing_page(title, lede, crumbs, tile_sets):
 
 
 def home_page():
-    doc = head(BRAND["name"], "A structured, self-paced path through the fundamentals of systems engineering — modules, a weekly plan, practice questions, and case studies.")
+    doc = head(BRAND["name"], "A structured, self-paced path through the fundamentals of systems engineering — chapters, a study plan, practice Q/A, and case studies.")
     doc += nav_block()
     doc += APPEARANCE_PANEL
     doc += BACKDROP
@@ -592,17 +588,17 @@ def home_page():
     doc += """<section class="hero">
       <span class="hero__eyebrow">Foundations &middot; Self-paced</span>
       <h1>%s</h1>
-      <p>A structured path from the core ideas of systems engineering to confident, practical understanding — organised into modules, a weekly plan, practice questions, and case studies.</p>
+      <p>A structured path from the core ideas of systems engineering to confident, practical understanding — organised into chapters, a study plan, practice Q/A, and case studies.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
         <a class="btn" href="%s">Start with Chapter 1 &rarr;</a>
-        <a class="btn btn--ghost" href="weekly-plan.html">See the 12-week plan</a>
+        <a class="btn btn--ghost" href="weekly-plan.html">See the 8-week plan</a>
       </div>
     </section>""" % (BRAND["name"], MODULES[0]["file"])
 
     # Explore — one tile per area of the site
     explore = [
         ("\U0001F4DA", "Chapters", "Five chapters, each with a Quick Recap, Core Concepts, and Detailed Review.", MODULES[0]["file"], "Browse chapters"),
-        ("\U0001F5D3️", "12-Week Study Plan", "A week-by-week roadmap pairing chapters with small, practical tasks.", "weekly-plan.html", "View the plan"),
+        ("\U0001F5D3️", "8-Week Study Plan", "An eight-week roadmap pairing chapters with small, practical tasks.", "weekly-plan.html", "View the plan"),
         ("✅", "Practice Q/A", "Self-check questions for each chapter, with model answers to reveal when ready.", "practice-questions.html", "Try the questions"),
         ("\U0001F50E", "Case Studies", "Short, illustrative examples of systems-engineering ideas in the real world.", "case-studies.html", "Read case studies"),
         ("\U0001F3DB️", "About INCOSE", "The global systems-engineering body, its handbook, and the SEP certification exams.", "what-is-incose.html", "Learn about INCOSE"),
@@ -659,12 +655,12 @@ def build_site_data():
         return d
 
     resources_items = [
-        ritem("weekly-plan.html"),
-        {"num": "", "label": "Practice Q/A", "href": "practice-questions.html", "children": practice_children},
-        ritem("case-studies.html"),
-        {"num": "", "label": "Podcast", "href": "podcast.html", "children": podcast_children},
         ritem("what-is-incose.html"),
         ritem("incose-exams.html"),
+        ritem("weekly-plan.html"),
+        ritem("case-studies.html"),
+        {"num": "", "label": "Practice Q/A", "href": "practice-questions.html", "children": practice_children},
+        {"num": "", "label": "Podcast", "href": "podcast.html", "children": podcast_children},
     ]
 
     groups = [

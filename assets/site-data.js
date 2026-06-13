@@ -7,8 +7,23 @@ window.SITE = {
       "items": [
         {
           "num": "",
-          "label": "12-Week Study Plan",
+          "label": "What is INCOSE?",
+          "href": "what-is-incose.html"
+        },
+        {
+          "num": "",
+          "label": "INCOSE Exams & Certification",
+          "href": "incose-exams.html"
+        },
+        {
+          "num": "",
+          "label": "8-Week Study Plan",
           "href": "weekly-plan.html"
+        },
+        {
+          "num": "",
+          "label": "Case Studies",
+          "href": "case-studies.html"
         },
         {
           "num": "",
@@ -39,11 +54,6 @@ window.SITE = {
         },
         {
           "num": "",
-          "label": "Case Studies",
-          "href": "case-studies.html"
-        },
-        {
-          "num": "",
           "label": "Podcast",
           "href": "podcast.html",
           "children": [
@@ -68,16 +78,6 @@ window.SITE = {
               "href": "podcast-chapter-5.html"
             }
           ]
-        },
-        {
-          "num": "",
-          "label": "What is INCOSE?",
-          "href": "what-is-incose.html"
-        },
-        {
-          "num": "",
-          "label": "INCOSE Exams & Certification",
-          "href": "incose-exams.html"
         }
       ]
     },
@@ -464,30 +464,30 @@ window.SITE = {
       "snippet": ""
     },
     {
-      "title": "12-Week Study Plan",
+      "title": "8-Week Study Plan",
       "href": "weekly-plan.html",
-      "section": "Weekly Plan",
+      "section": "Study Plan",
       "keywords": "",
-      "snippet": "A week-by-week roadmap through the modules, with a small task each week to turn reading into practice. Adjust the pace to suit you."
+      "snippet": "An eight-week roadmap through the five chapters, with a small task each week to turn reading into practice. Adjust the pace to suit you."
     },
     {
       "title": "How to use this plan",
       "href": "weekly-plan.html#how-to-use-this-plan",
-      "section": "12-Week Study Plan",
+      "section": "8-Week Study Plan",
       "keywords": "",
       "snippet": ""
     },
     {
       "title": "The plan",
       "href": "weekly-plan.html#the-plan",
-      "section": "12-Week Study Plan",
+      "section": "8-Week Study Plan",
       "keywords": "",
       "snippet": ""
     },
     {
       "title": "Tips for sticking with it",
       "href": "weekly-plan.html#tips-for-sticking-with-it",
-      "section": "12-Week Study Plan",
+      "section": "8-Week Study Plan",
       "keywords": "",
       "snippet": ""
     },

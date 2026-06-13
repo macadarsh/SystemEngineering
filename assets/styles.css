@@ -284,13 +284,27 @@ code, pre { font-family: var(--mono); }
 }
 .sidebar__link.is-active .num { color: var(--accent); }
 
+/* collapsible parent rows (chapters, Practice Q/A, Podcast) */
+.sidebar__row { display: flex; align-items: center; gap: 2px; }
+.sidebar__row .sidebar__link { flex: 1 1 auto; min-width: 0; }
+.sidebar__caret {
+  flex: 0 0 auto; width: 26px; height: 30px; border: none; background: transparent;
+  color: var(--text-faint); cursor: pointer; border-radius: 7px;
+  display: grid; place-items: center; font-size: 11px; line-height: 1;
+}
+.sidebar__caret:hover { background: var(--bg-hover); color: var(--text); }
+.sidebar__caret .chev { transition: transform .15s ease; display: inline-block; }
+.sidebar__item.is-expanded > .sidebar__row .sidebar__caret .chev { transform: rotate(90deg); }
+
 /* nested chapter sub-sections (Quick Recap / Core Concepts / Detailed Review) */
 .sidebar__sub {
   margin: 1px 0 6px 23px;
   border-left: 1px solid var(--border);
   padding-left: 6px;
-  display: flex; flex-direction: column;
+  display: none;            /* collapsed by default */
+  flex-direction: column;
 }
+.sidebar__item.is-expanded > .sidebar__sub { display: flex; }
 .sidebar__sublink {
   display: block; padding: 5px 10px; border-radius: 8px;
   color: var(--text-faint); font-size: 12.5px; line-height: 1.3;
