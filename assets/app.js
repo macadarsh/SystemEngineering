@@ -239,82 +239,341 @@
   }
 
   /* ----------------------------------------------------------------- SEARCH */
-  function initSearch() {
-    var overlay = $("#search-overlay");
-    if (!overlay) return;
-    var input   = $("#search-input");
-    var results = $("#search-results");
-    var idx = SITE.search || [];
-    var activeIdx = -1;
+  /* Full-text search across every page. The index (window.SEARCH_DOCS, built
+     by tools/build_search_index.py and shipped as assets/search-index.js) is
+     loaded lazily. Query syntax mirrors the reference site:
+       "exact phrase"   words must appear together
+       +required        the page must contain this word
+       plain words      match ANY; pages with more matches rank higher
+     Results are tiles (one per page) with per-section snippets; clicking a hit
+     jumps to the exact spot on the real page and highlights the term. */
 
-    function open() {
-      overlay.classList.add("is-open");
-      input.value = ""; render("");
-      setTimeout(function () { input.focus(); }, 30);
-    }
-    function close() { overlay.classList.remove("is-open"); }
+  var SEARCH = null;          // overlay element (built once)
+  var SEARCH_DOCS = null;     // the index, once loaded
+  var _searchQuery = "";
+  var _idxLoading = false, _idxCallbacks = [];
 
-    function render(q) {
-      activeIdx = -1;
-      q = q.trim().toLowerCase();
-      var list;
-      if (!q) {
-        list = idx.slice(0, 8);
-      } else {
-        list = idx.map(function (it) {
-          var hay = (it.title + " " + it.section + " " + (it.keywords || "") + " " + (it.snippet || "")).toLowerCase();
-          var score = 0;
-          q.split(/\s+/).forEach(function (term) {
-            if (!term) return;
-            if (it.title.toLowerCase().indexOf(term) >= 0) score += 5;
-            if (hay.indexOf(term) >= 0) score += 1;
-          });
-          return { it: it, score: score };
-        }).filter(function (x) { return x.score > 0; })
-          .sort(function (a, b) { return b.score - a.score; })
-          .slice(0, 12).map(function (x) { return x.it; });
-      }
-      if (!list.length) {
-        results.innerHTML = '<div class="search-empty">No results for &ldquo;' + esc(q) + '&rdquo;</div>';
-        return;
-      }
-      results.innerHTML = list.map(function (it, i) {
-        return '<a class="search-result" data-i="' + i + '" href="' + it.href + '">' +
-          '<div class="search-result__title">' + hl(it.title, q) + "</div>" +
-          '<div class="search-result__meta">' + esc(it.section) + "</div>" +
-          (it.snippet ? '<div class="search-result__snippet">' + hl(it.snippet, q) + "</div>" : "") +
-          "</a>";
-      }).join("");
+  function loadSearchIndex(cb) {
+    if (window.SEARCH_DOCS) { SEARCH_DOCS = window.SEARCH_DOCS; if (cb) cb(); return; }
+    if (cb) _idxCallbacks.push(cb);
+    if (_idxLoading) return;
+    _idxLoading = true;
+    var s = document.createElement("script");
+    s.src = "assets/search-index.js";
+    function done() {
+      SEARCH_DOCS = window.SEARCH_DOCS || [];
+      _idxLoading = false;
+      var cbs = _idxCallbacks; _idxCallbacks = [];
+      cbs.forEach(function (f) { f(); });
     }
-    function setActive(d) {
-      var items = $$(".search-result", results);
-      if (!items.length) return;
-      activeIdx = (activeIdx + d + items.length) % items.length;
-      items.forEach(function (el, i) {
-        el.classList.toggle("is-active", i === activeIdx);
-        if (i === activeIdx) el.scrollIntoView({ block: "nearest" });
+    s.onload = done; s.onerror = done;
+    document.head.appendChild(s);
+  }
+
+  /* "phrase" / +required / plain terms ---------------------------------- */
+  function parseQuery(q) {
+    var phrases = [];
+    var rest = String(q).replace(/"([^"]+)"/g, function (m, p) {
+      var t = p.trim().toLowerCase(); if (t) phrases.push(t); return " ";
+    });
+    var required = [], terms = [];
+    rest.split(/\s+/).forEach(function (tok) {
+      tok = tok.trim(); if (!tok) return;
+      if (tok.charAt(0) === "+" && tok.length > 1) required.push(tok.slice(1).toLowerCase());
+      else terms.push(tok.toLowerCase());
+    });
+    return { phrases: phrases, required: required, terms: terms,
+             tokens: phrases.concat(required, terms) };
+  }
+
+  /* Rank pages; collect up to 4 section hits each, with context lines. */
+  function runSearch(q) {
+    var p = parseQuery(q);
+    if (!p.tokens.length) return [];
+    var results = [];
+    (SEARCH_DOCS || []).forEach(function (entry) {
+      var titleLower = (entry.pageTitle + " " + (entry.moduleTitle || "")).toLowerCase();
+      var combined = (titleLower + "\n" +
+        entry.sections.map(function (s) { return s.lines.join("\n"); }).join("\n")).toLowerCase();
+
+      if (!p.phrases.every(function (t) { return combined.indexOf(t) >= 0; })) return;
+      if (!p.required.every(function (t) { return combined.indexOf(t) >= 0; })) return;
+      if (p.terms.length && !p.terms.some(function (t) { return combined.indexOf(t) >= 0; })) return;
+
+      var score = 0;
+      p.tokens.forEach(function (t) { if (titleLower.indexOf(t) >= 0) score += 5; });
+      var matches = [];
+      entry.sections.forEach(function (sec) {
+        var headingLower = sec.heading.toLowerCase();
+        sec.lines.forEach(function (line, li) {
+          var lower = line.toLowerCase();
+          var tok = null;
+          for (var k = 0; k < p.tokens.length; k++) {
+            if (lower.indexOf(p.tokens[k]) >= 0) { tok = p.tokens[k]; break; }
+          }
+          if (!tok) return;
+          score += 1 + (headingLower.indexOf(tok) >= 0 ? 1 : 0);
+          if (matches.length < 4) {
+            matches.push({
+              sectionId: sec.id, heading: sec.heading, token: tok, line: line,
+              prev: li > 0 ? sec.lines[li - 1] : "",
+              next: li < sec.lines.length - 1 ? sec.lines[li + 1] : ""
+            });
+          }
+        });
       });
+      if (!matches.length) {  // matched only in the title
+        var ttok = p.tokens[0];
+        for (var j = 0; j < p.tokens.length; j++) {
+          if (titleLower.indexOf(p.tokens[j]) >= 0) { ttok = p.tokens[j]; break; }
+        }
+        matches.push({ sectionId: (entry.sections[0] || {}).id || "", heading: "Page title",
+                       token: ttok, line: entry.pageTitle, prev: "", next: "" });
+      }
+      results.push({ href: entry.href, pageTitle: entry.pageTitle,
+                     moduleTitle: entry.moduleTitle, matches: matches, score: score });
+    });
+    results.sort(function (a, b) { return b.score - a.score; });
+    return results;
+  }
+
+  /* Bold every occurrence of token inside an (escaped) line. */
+  function emph(line, token) {
+    var out = esc(line);
+    if (!token) return out;
+    var rx = new RegExp("(" + token.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "ig");
+    return out.replace(rx, '<strong class="so-kw">$1</strong>');
+  }
+  /* Compact snippet: ~4 words either side of the matched word. */
+  function compactSnippet(line, token) {
+    var words = line.split(/\s+/);
+    var first = token.split(" ")[0];
+    var wi = -1;
+    for (var k = 0; k < words.length; k++) {
+      if (words[k].toLowerCase().indexOf(first) >= 0) { wi = k; break; }
     }
+    if (wi < 0) wi = 0;
+    var start = Math.max(0, wi - 4), end = Math.min(words.length, wi + 5);
+    var snip = words.slice(start, end).join(" ");
+    if (start > 0) snip = "… " + snip;
+    if (end < words.length) snip += " …";
+    return emph(snip, token);
+  }
 
-    input.addEventListener("input", function () { render(input.value); });
-    overlay.addEventListener("click", function (e) { if (e.target === overlay) close(); });
-    $(".js-search-close") && $(".js-search-close").addEventListener("click", close);
+  function renderResultsHTML(q, results) {
+    if (!results.length) {
+      return '<div class="so-empty">No matches for <strong>' + esc(q) + '</strong>.' +
+        '<br>Try fewer or different words, the <code>"exact phrase"</code> / <code>+word</code> ' +
+        'helpers, or the “Try the web” button above.</div>';
+    }
+    var grid = results.map(function (p) {
+      var hits = p.matches.map(function (m) {
+        var compact = '<span class="so-hit-compact">' + compactSnippet(m.line, m.token) + '</span>';
+        var detail = '<span class="so-hit-detail">';
+        if (m.prev) detail += '<span class="so-ctx">' + emph(m.prev, m.token) + '</span>';
+        detail += '<span class="so-cur">' + emph(m.line, m.token) + '</span>';
+        if (m.next) detail += '<span class="so-ctx">' + emph(m.next, m.token) + '</span>';
+        detail += '</span>';
+        return '<button class="so-hit" type="button" ' +
+          'data-href="' + esc(p.href) + '" data-sec="' + esc(m.sectionId) + '" ' +
+          'data-hl="' + esc(m.token) + '">' +
+          '<span class="so-hit-sec">' + esc(m.heading) + '</span>' +
+          compact + detail + '</button>';
+      }).join("");
+      return '<div class="so-tile">' +
+        '<div class="so-tile-title">' + esc(p.pageTitle) + '</div>' +
+        (p.moduleTitle ? '<div class="so-tile-module">' + esc(p.moduleTitle) + '</div>' : "") +
+        hits + '</div>';
+    }).join("");
+    return '<div class="so-grid">' + grid + '</div>';
+  }
 
+  /* Build the overlay once, reusing the page's existing #search-overlay node. */
+  function ensureSearchOverlay() {
+    if (SEARCH) return SEARCH;
+    var ov = $("#search-overlay");
+    if (!ov) { ov = document.createElement("div"); ov.id = "search-overlay"; document.body.appendChild(ov); }
+    ov.className = "search-overlay";
+    ov.setAttribute("role", "dialog");
+    ov.setAttribute("aria-modal", "true");
+    ov.setAttribute("aria-label", "Search");
+    ov.hidden = true;
+    ov.innerHTML =
+      '<div class="so-panel">' +
+        '<div class="so-bar">' +
+          '<span class="so-bar-ic" aria-hidden="true">&#128269;</span>' +
+          '<input class="so-input" id="search-input" type="text" placeholder="Search the site…" ' +
+            'aria-label="Search" autocomplete="off" spellcheck="false">' +
+          '<button class="so-go" type="button">Search</button>' +
+          '<a class="so-tips-toggle" role="button" tabindex="0">How to search better &#9662;</a>' +
+          '<button class="so-close js-search-close" type="button" aria-label="Close search" title="Close (Esc)">&#10005;</button>' +
+        '</div>' +
+        '<div class="so-tips" hidden>' +
+          '<strong>Search tips</strong>' +
+          '<ul>' +
+            '<li><b>Exact phrase</b> — wrap words in quotes: <code>"life cycle"</code> finds those words together.</li>' +
+            '<li><b>Require a word</b> — put <code>+</code> in front: <code>+risk +process</code> returns only pages containing <em>both</em>.</li>' +
+            '<li><b>Any words</b> — plain words match pages containing <em>any</em> of them; pages with more matches rank higher.</li>' +
+            '<li><b>Combine them</b> — e.g. <code>+verification "decision gate"</code>.</li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="so-toolbar">' +
+          '<button class="so-google" type="button">&#127760; Don\'t find it here? Try the web …</button>' +
+          '<span class="so-count"></span>' +
+          '<button class="so-detail-toggle" type="button">See more details …</button>' +
+        '</div>' +
+        '<div class="so-results" id="search-results"></div>' +
+      '</div>' +
+      '<button class="so-totop" type="button" title="Back to top" aria-label="Back to top">&#8593;</button>';
+    SEARCH = ov;
+
+    var qa = function (sel) { return ov.querySelector(sel); };
+    var input = qa(".so-input");
+    qa(".so-close").addEventListener("click", closeSearch);
+    qa(".so-go").addEventListener("click", function () { doSearch(input.value); });
     input.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowDown") { e.preventDefault(); setActive(1); }
-      else if (e.key === "ArrowUp") { e.preventDefault(); setActive(-1); }
-      else if (e.key === "Enter") {
-        var items = $$(".search-result", results);
-        var target = activeIdx >= 0 ? items[activeIdx] : items[0];
-        if (target) location.href = target.getAttribute("href");
-      } else if (e.key === "Escape") { close(); }
+      if (e.key === "Enter") { e.preventDefault(); doSearch(input.value); }
+      else if (e.key === "Escape") { closeSearch(); }
     });
+    // live, as-you-type results (debounced)
+    var t;
+    input.addEventListener("input", function () {
+      clearTimeout(t); t = setTimeout(function () { doSearch(input.value); }, 110);
+    });
+    qa(".so-tips-toggle").addEventListener("click", function () {
+      var tips = qa(".so-tips"); tips.hidden = !tips.hidden;
+    });
+    qa(".so-detail-toggle").addEventListener("click", function () {
+      var res = qa(".so-results"); var on = res.classList.toggle("detailed");
+      qa(".so-detail-toggle").textContent = on ? "Show less ▴" : "See more details …";
+    });
+    qa(".so-google").addEventListener("click", function () {
+      var term = (_searchQuery || input.value || "").trim();
+      var url = "https://www.google.com/search?q=" +
+        encodeURIComponent("systems engineering — " + term);
+      window.open(url, "_blank", "noopener");
+    });
+    qa(".so-totop").addEventListener("click", function () { ov.scrollTo({ top: 0, behavior: "smooth" }); });
+    ov.addEventListener("scroll", function () {
+      qa(".so-totop").classList.toggle("visible", ov.scrollTop > 240);
+    }, { passive: true });
+    // delegated click → jump to the exact spot on the real page
+    qa(".so-results").addEventListener("click", function (e) {
+      var hit = e.target.closest && e.target.closest(".so-hit");
+      if (!hit) return;
+      var d = hit.dataset;
+      var qs = "hl=" + encodeURIComponent(d.hl);
+      if (d.sec) qs = "sec=" + encodeURIComponent(d.sec) + "&" + qs;
+      window.location.href = d.href + "?" + qs + (d.sec ? "#" + d.sec : "");
+    });
+    return ov;
+  }
 
-    $$(".js-search-open").forEach(function (b) { b.addEventListener("click", open); });
+  /* Render results for a query into the (already-open) overlay. */
+  function doSearch(q) {
+    q = (q || "").trim();
+    _searchQuery = q;
+    var ov = ensureSearchOverlay();
+    var res = ov.querySelector(".so-results");
+    var count = ov.querySelector(".so-count");
+    if (!SEARCH_DOCS) {
+      res.innerHTML = '<div class="so-empty">Loading search index…</div>';
+      loadSearchIndex(function () { doSearch(q); });
+      return;
+    }
+    res.classList.remove("detailed");
+    ov.querySelector(".so-detail-toggle").textContent = "See more details …";
+    if (!q) {
+      count.textContent = "";
+      res.innerHTML = '<div class="so-empty">Type a keyword to search every page — titles, sections, and content.</div>';
+      return;
+    }
+    var results = runSearch(q);
+    count.textContent = results.length + (results.length === 1 ? " page" : " pages") + " for “" + q + "”";
+    res.innerHTML = renderResultsHTML(q, results);
+  }
+
+  function openSearch(q) {
+    q = (q || "").trim();
+    var ov = ensureSearchOverlay();
+    var input = ov.querySelector(".so-input");
+    input.value = q;
+    ov.hidden = false;
+    document.body.classList.add("search-open");
+    ov.scrollTop = 0;
+    loadSearchIndex(function () { doSearch(q); });
+    setTimeout(function () { input.focus(); }, 50);
+  }
+  function closeSearch() {
+    if (!SEARCH) return;
+    SEARCH.hidden = true;
+    document.body.classList.remove("search-open");
+  }
+
+  function initSearch() {
+    ensureSearchOverlay();   // build + hide now (prevents a flash of the old static overlay)
+    $$(".js-search-open").forEach(function (b) { b.addEventListener("click", function () { openSearch(""); }); });
     window.addEventListener("keydown", function (e) {
-      if ((e.key === "k" && (e.metaKey || e.ctrlKey))) { e.preventDefault(); open(); }
-      else if (e.key === "/" && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); open(); }
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); openSearch(""); }
+      else if (e.key === "/" && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); openSearch(""); }
+      else if (e.key === "Escape" && SEARCH && !SEARCH.hidden) { closeSearch(); }
     });
+    // preload the index when the browser is idle so the first search is instant
+    var idle = window.requestIdleCallback || function (f) { return setTimeout(f, 1200); };
+    idle(function () { loadSearchIndex(); });
+  }
+
+  /* Wrap occurrences of `term` inside root in <mark class="search-hit">; return the first. */
+  function highlightText(root, term) {
+    if (!root || !term) return null;
+    var rx = new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "ig");
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    var nodes = [], n;
+    while ((n = walker.nextNode())) {
+      var pn = n.parentNode;
+      if (!pn || /^(MARK|SCRIPT|STYLE)$/.test(pn.nodeName)) continue;
+      rx.lastIndex = 0;
+      if (rx.test(n.nodeValue)) nodes.push(n);
+    }
+    var first = null;
+    nodes.forEach(function (node) {
+      var s = node.nodeValue, frag = document.createDocumentFragment(), last = 0, m;
+      rx.lastIndex = 0;
+      while ((m = rx.exec(s))) {
+        if (m.index > last) frag.appendChild(document.createTextNode(s.slice(last, m.index)));
+        var mk = document.createElement("mark"); mk.className = "search-hit"; mk.textContent = m[0];
+        frag.appendChild(mk); if (!first) first = mk;
+        last = m.index + m[0].length;
+        if (m.index === rx.lastIndex) rx.lastIndex++;   // guard zero-length
+      }
+      if (last < s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+      node.parentNode.replaceChild(frag, node);
+    });
+    return first;
+  }
+
+  /* If we arrived from a search result (?sec=&hl=), scroll to + highlight it.
+     Must run AFTER buildToc(), which assigns ids to any headings lacking them. */
+  function applySearchDeepLink() {
+    var params = new URLSearchParams(location.search);
+    var sec = params.get("sec"), hl = params.get("hl");
+    if (!sec && !hl) return;
+    history.replaceState(null, "", location.pathname + location.hash);
+    var content = $(".content__inner");
+    if (!content) return;
+    var firstMark = hl ? highlightText(content, hl) : null;
+    var target = null;
+    if (sec) {
+      var secEl = document.getElementById(sec);
+      if (secEl) {
+        var marks = $$("mark.search-hit", content);
+        target = marks.find(function (mk) {
+          return secEl.compareDocumentPosition(mk) & Node.DOCUMENT_POSITION_FOLLOWING;
+        }) || secEl;
+      }
+    }
+    target = target || firstMark;
+    if (target) setTimeout(function () { target.scrollIntoView({ behavior: "smooth", block: "center" }); }, 80);
   }
 
   /* ------------------------------------------------------------ BACK TO TOP */
@@ -373,5 +632,6 @@
     initSearch();
     initBackToTop();
     markActiveNav();
+    applySearchDeepLink();   // after buildToc(): headings now have ids to anchor to
   });
 })();
