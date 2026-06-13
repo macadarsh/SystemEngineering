@@ -302,6 +302,19 @@ code, pre { font-family: var(--mono); }
   font-size: 18.5px; margin: 28px 0 8px;
   scroll-margin-top: calc(var(--nav-h) + 12px);
 }
+.content h4 {
+  font-size: 16px; margin: 20px 0 6px; color: var(--text);
+  scroll-margin-top: calc(var(--nav-h) + 12px);
+}
+/* chapter sub-section dividers: Quick Recap / Core Concepts / Detailed Review */
+.content h2.chsec {
+  border-top: 2px solid var(--border); padding-top: 24px; margin-top: 44px;
+}
+.content h2.chsec::before {
+  content: ""; display: inline-block; width: 22px; height: 3px; border-radius: 2px;
+  background: var(--accent); vertical-align: middle; margin-right: 10px;
+}
+.content h2.chsec:first-of-type { border-top: none; padding-top: 4px; margin-top: 6px; }
 .content p { margin: 0 0 var(--p-gap); }
 .content ul, .content ol { margin: 0 0 16px; padding-left: 22px; }
 .content li { margin: 5px 0; }

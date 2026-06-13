@@ -51,11 +51,11 @@ MODULES = [
         "file": "chapter-1.html",
         "title": "Chapter 1",
         "lede": "Systems Engineering Introduction — what SE is, why it matters, its core systems concepts, its foundations, and its roots in systems thinking. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 1.",
-        "blocks": [
-            ("h2", "What is systems engineering?"),
+        "recap": [
+            ("h3", "What is systems engineering?"),
             ("p", "Systems engineering (SE) is a transdisciplinary and integrative approach to enabling the successful realization, use, and eventual retirement of engineered systems. It draws on systems principles and concepts together with scientific, technological, and management methods. Rather than going deep into a single discipline, SE keeps the whole system in view and makes sure the parts work together to achieve the objectives of the whole."),
             ("p", "SE takes a holistic, balanced, life-cycle perspective. Its responsibility is to deliver systems that are <em>fit for purpose</em> — that accomplish their intended purpose, stay resilient in real-world operation, and avoid or minimise unintended actions, side effects, and consequences."),
-            ("h3", "What SE focuses on"),
+            ("h4", "What SE focuses on"),
             ("ul", [
                 "Establishing and balancing stakeholder goals, needs, operational concepts, and required functionality — starting early in development.",
                 "Choosing an appropriate life-cycle model, process approach, and governance for the level of complexity, uncertainty, and change.",
@@ -64,60 +64,57 @@ MODULES = [
                 "Performing design synthesis and system verification and validation.",
                 "Considering both the problem and solution domains, including the enabling systems and services the solution depends on."]),
             ("note", "The thread running through it all", "Every SE activity exists to manage risk — the risk of not delivering what is needed, of late delivery, of excess cost, and of negative unintended consequences. A useful measure of SE's value is how much it reduces that risk."),
-            ("h3", "What is a system?"),
+            ("h4", "What is a system?"),
             ("p", "A system is an arrangement of parts or elements that together exhibit behaviour or meaning that the individual parts do not. The idea traces to Ludwig von Bertalanffy, who described a system as a whole made of interacting parts. A complete system includes everything needed for self-sufficient use in its environment: equipment, facilities, software, documentation, services, and people."),
             ("p", "An <strong>engineered system</strong> is one deliberately designed or adapted to interact with an anticipated operational environment to achieve one or more intended purposes within applicable constraints. Its elements may include people, products, services, information, processes, and natural elements."),
-            ("h3", "Where SE came from"),
+            ("h4", "Where SE came from"),
             ("p", "Aspects of SE have featured in large technical undertakings throughout history, but it was formalised as an engineering discipline only in the early-to-mid twentieth century. The term ‘systems engineering’ dates to Bell Telephone Laboratories in the early 1940s; multidisciplinary teams such as British air-defence analysis in the 1930s and the RAND Corporation (founded 1946) helped shape the field."),
-
-            ("h2", "Why is systems engineering important?"),
+            ("h3", "Why is systems engineering important?"),
             ("p", "The systems we build keep becoming more complex and interconnected, and complexity is where projects fail — usually at interfaces, in unstated assumptions, or through requirements that never matched the real need. SE is the discipline that manages this complexity so that the whole succeeds, not just the parts."),
             ("p", "Done well, SE reduces risk and improves cost and schedule outcomes: clear, complete, correctly allocated requirements lead to fewer and smaller changes later. Its value shows up across sectors — commercial, defence and government, non-profit, and research — by making development more effective and efficient and by strengthening the capacity to innovate."),
-
-            ("h2", "Systems concepts"),
+            ("h3", "Systems concepts"),
             ("p", "A handful of concepts give the SE practitioner a framework for reasoning about any system and its context."),
-            ("h3", "System boundary and the system of interest (SoI)"),
+            ("h4", "System boundary and the system of interest (SoI)"),
             ("p", "The <strong>system of interest (SoI)</strong> is the system under consideration. The <strong>system boundary</strong> is the line of demarcation that defines what belongs to the SoI and what does not. Everything outside it that interacts with or supports the system is the environment or context — including users and external systems across the whole life cycle, not only during operation."),
-            ("h3", "Black-box and white-box views"),
+            ("h4", "Black-box and white-box views"),
             ("p", "A <strong>black-box</strong> (opaque) view describes a system only by its external attributes — what it does as seen from outside. A <strong>white-box</strong> (transparent) view adds the internal attributes and structure — how it is built. Practitioners use both, and must understand how the two relate."),
-            ("h3", "Emergence"),
+            ("h4", "Emergence"),
             ("p", "Emergence is the phenomenon where the whole exhibits properties that are meaningful only for the whole, not for any single element. Emergent properties arise from interactions among the elements and with the environment, and they can be desirable (reinforcement) or undesirable (interference, resonance). Safety and resilience are classic emergent properties. Because they appear only when parts interact, a major aim of architecture is to reinforce good emergence and prevent bad emergence."),
-            ("h3", "Interfacing, interoperating, and enabling systems"),
+            ("h4", "Interfacing, interoperating, and enabling systems"),
             ("p", "External systems relate to the SoI in different ways. <strong>Interfacing</strong> systems share a boundary and exchange something across it. <strong>Interoperating</strong> systems work together with the SoI toward a shared purpose. <strong>Enabling</strong> systems provide services the SoI needs during one or more life-cycle stages (for example test facilities or production systems) — and may not exist yet, so their timely availability is itself a risk to plan for."),
-            ("h3", "Hierarchy, states, and modes"),
+            ("h4", "Hierarchy, states, and modes"),
             ("p", "Systems are often organised hierarchically — systems contain subsystems, which contain components — although in highly complex systems a clean hierarchy may not exist. A system is in a <strong>state</strong> when its attributes hold steady for a meaningful period; <strong>modes</strong> are defined sets of behaviour the system is designed to operate in. States and modes are fundamental ways of describing system behaviour."),
-            ("h3", "Complexity"),
+            ("h4", "Complexity"),
             ("p", "Complexity arises when a system has many interacting parts whose collective behaviour is hard to predict from the parts alone. It is a central reason SE exists, and it shapes which life-cycle models, methods, and organisational structures are appropriate."),
-
-            ("h2", "Systems engineering foundations"),
+            ("h3", "Systems engineering foundations"),
             ("p", "Beneath the processes, SE rests on foundations that explain how practitioners should think and act."),
-            ("h3", "Uncertainty"),
+            ("h4", "Uncertainty"),
             ("p", "Engineering decisions are made with incomplete knowledge. Recognising and managing uncertainty — about needs, environments, technologies, and outcomes — is intrinsic to good SE and feeds directly into risk management."),
-            ("h3", "Cognitive bias"),
+            ("h4", "Cognitive bias"),
             ("p", "Practitioners are human, and predictable thinking errors — anchoring, optimism, confirmation bias, and others — can distort judgement and decisions. Awareness of cognitive bias helps teams make better, more deliberate choices."),
-            ("h3", "Systems engineering principles"),
+            ("h4", "Systems engineering principles"),
             ("p", "INCOSE has articulated a set of SE principles (with sub-principles) capturing the discipline's enduring basis — for example, that SE spans the entire system life cycle, that complex systems are engineered by complex organisations, that SE integrates engineering and scientific disciplines, and that SE rests on a middle-range set of theories (systems, physical, mathematical, and sociological). These principles guide the choice of life-cycle model, the implementation of processes, and how teams are organised."),
-            ("h3", "Systems engineering heuristics"),
+            ("h4", "Systems engineering heuristics"),
             ("p", "Heuristics are short, natural-language ‘rules of thumb’ that pass on a profession's accumulated wisdom. They are especially useful for complex, ill-structured problems where detailed analysis is impractical. A well-known example: don't assume the original statement of the problem is the right one — failing to reach mutual understanding with stakeholders early is a fundamental cause of failure."),
-
-            ("h2", "System science and systems thinking"),
+            ("h3", "System science and systems thinking"),
             ("p", "SE is informed by <strong>systems science</strong> — a transdisciplinary effort to find patterns and general theories that hold across all kinds of systems, whether physical, natural, engineered, or social. It uses both reductionist explanation (understanding a clock by its mechanism) and holistic explanation (understanding why clocks exist and how they operate in their environment over a life cycle). Foundational strands include von Bertalanffy's General System Theory, Wiener's Cybernetics, and Complexity Theory."),
             ("p", "<strong>Systems thinking</strong> is the practical mindset that makes SE work — a way of looking at a situation in terms of wholes and how their parts interrelate. One useful formulation, DSRP, holds that systems thinking rests on making <em>Distinctions</em>, recognising <em>Systems</em> of parts and wholes, seeing <em>Relationships</em>, and taking <em>Perspectives</em>."),
             ("p", "Good practice balances being <em>systematic</em> (faithfully applying SE processes) with being <em>systemic</em> (applying systems thinking to drive those processes). Where a single method falls short, practitioners draw on many systems methodologies — system dynamics, the viable system model, soft systems methodology, and others — choosing and combining them according to the problem. Using approaches in informed combination this way is called Critical Systems Thinking."),
-
-            ("tip", "Source", "This chapter summarises, in our own words for learning, the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 1, ‘Systems Engineering Introduction.’ Consult the handbook itself for the authoritative text."),
+            ("tip", "Source", "This recap summarises, in our own words for learning, the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 1, ‘Systems Engineering Introduction.’ Consult the handbook for the authoritative text."),
         ],
+        "core": None,
+        "detail": None,
     },
     {
         "file": "chapter-2.html",
         "title": "Chapter 2",
         "lede": "System Life Cycle Concepts, Models, and Processes — life-cycle stages and decision gates, the sequential / incremental / evolutionary model families, and the four ISO/IEC/IEEE 15288 process groups. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 2.",
-        "blocks": [
-            ("h2", "Life-cycle terms and concepts"),
+        "recap": [
+            ("h3", "Life-cycle terms and concepts"),
             ("p", "The purpose of systems engineering is to realise a system successfully while balancing competing stakeholder objectives. A practical way to manage that is to break the whole effort into transformational <strong>stages</strong>, checking at the end of each stage whether the system characteristics are satisfied, the risk is acceptable, and the system is ready to move on. Progress between stages is gated by explicit decision points called <strong>decision gates</strong>. By analogy with the stages a living thing passes through, this whole set of stages is the <strong>system life cycle</strong>."),
-            ("h3", "Life-cycle characteristics"),
+            ("h4", "Life-cycle characteristics"),
             ("p", "Stages are not necessarily sequential or one-off. They can be entered as many times as needed, can overlap, and often run concurrently. Major system elements, enabling systems, and the constituents of a system-of-systems each have their own life cycles, which must be integrated so that a coherent system of interest is delivered and used over time. Stages typically have entry and exit gates: entry gates check that the criteria are met and resources are available; exit gates check that the stage's objectives are achieved and the risk of proceeding is acceptable."),
-            ("h3", "Typical life-cycle stages"),
+            ("h4", "Typical life-cycle stages"),
             ("p", "A commonly used set of stages (from ISO/IEC/IEEE 15288) spans the conception through retirement of the system:"),
             ("ul", [
                 "<strong>Concept</strong> — explore needs, feasibility, and candidate solution concepts.",
@@ -127,14 +124,13 @@ MODULES = [
                 "<strong>Support</strong> — provide the logistics, maintenance, and services that sustain operation.",
                 "<strong>Retirement</strong> — withdraw and dispose of the system or its elements."]),
             ("p", "Different industries use different names for these stages (commercial, defence, and space sectors each have their own labels), and the relative time spent in each varies enormously — a product might reach the field in a couple of years and then stay in use for decades."),
-            ("h3", "Decision gates"),
+            ("h4", "Decision gates"),
             ("p", "A decision gate is a risk-managing checkpoint, usually at the start and end of a stage, often run as a project milestone or review. Its goals are to confirm that system maturity is on track, that deliverables still satisfy the business case, that resources are sufficient, that open issues are addressed, and that the risk of going forward is acceptable."),
             ("p", "At each gate the typical options are: begin the next stage; continue the current stage (perhaps after rework); return to an earlier stage; hold the project; or terminate it. Approval should rest on evidence of meeting the agreed criteria. Balancing the formality and frequency of gates is a critical success factor — a superficial review or a skipped gate tends to cause costly problems later. Agile approaches still make these decisions, but at a more frequent, smaller-scope, and less formal cadence."),
-            ("h3", "Technical reviews and audits"),
+            ("h4", "Technical reviews and audits"),
             ("p", "A <strong>technical review</strong> assesses a project's progress against its technical requirements at logical transition points, using agreed criteria. An <strong>audit</strong> is a detailed check that products and their definition information actually conform to requirements and to the released configuration. Both are planned in the project's Systems Engineering Management Plan (SEMP) and may form part of decision gates."),
             ("p", "Representative reviews and audits include the System Requirements Review (SRR), Preliminary Design Review (PDR), Critical Design Review (CDR), Test Readiness Review (TRR), System Verification Review (SVR), Production Readiness Review (PRR), and the Functional and Physical Configuration Audits (FCA / PCA). The exact set is tailored to the project and the life-cycle model in use."),
-
-            ("h2", "Life-cycle model approaches"),
+            ("h3", "Life-cycle model approaches"),
             ("p", "A life-cycle <em>model</em> is the framework within which stages and their transitions are planned and carried out. Models are commonly grouped into three families, distinguished by how much of the requirements are known at the start, how many iterations are planned, and whether there are multiple deployments:"),
             ("raw", """
 <table>
@@ -146,48 +142,48 @@ MODULES = [
   </tbody>
 </table>
 """),
-            ("h3", "Sequential methods"),
+            ("h4", "Sequential methods"),
             ("p", "Sequential models flow through linear stages, each depending on the deliverables of the previous one (with feedback), ending in a single delivery. Their strengths are predictability, stability, repeatability, and high assurance, which suits large coordinated teams and safety- or security-critical products. The classic example is the <strong>waterfall</strong> model; the <strong>SE Vee model</strong> is another, associating each definition stage on the left with a corresponding test stage on the right. The left of the Vee evolves the baseline from stakeholder requirements to system requirements to architecture to element definitions; the right integrates, verifies, and validates the elements back up. Even within the Vee, the processes are applied concurrently, iteratively, and recursively at each level of the hierarchy."),
-            ("h3", "Incremental methods"),
+            ("h4", "Incremental methods"),
             ("p", "Incremental approaches deliver an initial capability and then add to it through successive deliveries, aiming for rapid value and responsiveness. The full set of capabilities is usually known up front, but development is split into increments to absorb technical risk and insert newer technology. A steady cadence between increments helps planning. The Incremental Commitment Spiral Model (ICSM) is one example, addressing requirements and solutions concurrently and proceeding to the next spiral only when the risks are acceptable."),
-            ("h3", "Evolutionary methods"),
+            ("h4", "Evolutionary methods"),
             ("p", "When the final requirements are unknown or only partly known — common in novel systems, R&amp;D, and systems-of-systems — an evolutionary approach provides adaptability. Cycles are planned regularly, each producing a deployable version, and the requirements are progressively refined cycle by cycle. <strong>Agile</strong> methods are a widely used type of evolutionary development."),
             ("note", "Choosing an approach", "There is no universal best model. Selection depends on factors such as environment stability, risk, novelty and complexity, integrity needs (safety, security, privacy), available budget and enabling systems, and required conformance to standards. Organisations should keep asking which approach, or combination, fits the situation."),
-
-            ("h2", "System life-cycle processes"),
+            ("h3", "System life-cycle processes"),
             ("p", "A <strong>process</strong> is a series of activities and tasks performed to achieve outcomes for a stated purpose. ISO/IEC/IEEE 15288 (2023) provides a common framework of system life-cycle processes, organised into four groups. They are not meant to be run once in a straight line — they are applied <strong>concurrently, iteratively, and recursively</strong> throughout the life cycle."),
-            ("h3", "Concurrency, iteration, and recursion"),
+            ("h4", "Concurrency, iteration, and recursion"),
             ("ul", [
                 "<strong>Concurrency</strong> — running two or more processes in parallel at the same level of the hierarchy (for example, risk management and measurement running continuously together).",
                 "<strong>Iteration</strong> — repeatedly applying and cycling between processes at a level to absorb new decisions and understanding (for example, between system requirements and architecture definition).",
                 "<strong>Recursion</strong> — reapplying the same set of processes, tailored, at each successive level of the hierarchy, where the outputs at one level become inputs to the next."]),
-            ("h3", "Agreement processes"),
+            ("h4", "Agreement processes"),
             ("p", "Establish an agreement between two parties for the acquisition or supply of systems, elements, products, or services. They comprise the <strong>Acquisition</strong> and <strong>Supply</strong> processes. SE practitioners contribute impact assessments, trade studies, and risk assessments to support these agreements."),
-            ("h3", "Organizational project-enabling processes"),
+            ("h4", "Organizational project-enabling processes"),
             ("p", "Provide the organisational environment and resources that projects need. They comprise <strong>Life Cycle Model Management, Infrastructure Management, Portfolio Management, Human Resource Management, Quality Management,</strong> and <strong>Knowledge Management</strong>."),
-            ("h3", "Technical management processes"),
+            ("h4", "Technical management processes"),
             ("p", "Plan, assess, and control the technical effort. They comprise <strong>Project Planning, Project Assessment and Control, Decision Management, Risk Management, Configuration Management, Information Management, Measurement,</strong> and <strong>Quality Assurance</strong>."),
-            ("h3", "Technical processes"),
+            ("h4", "Technical processes"),
             ("p", "Turn needs into a realised, operated, and eventually retired system. They comprise <strong>Business or Mission Analysis, Stakeholder Needs and Requirements Definition, System Requirements Definition, System Architecture Definition, Design Definition, System Analysis, Implementation, Integration, Verification, Transition, Validation, Operation, Maintenance,</strong> and <strong>Disposal</strong>."),
-            ("p", "In the handbook, each process is described with a consistent structure — purpose, description, inputs/outputs, activities, and common approaches — and illustrated with an input–process–output (IPO) diagram. The individual technical processes are explored in more depth in later chapters."),
-
-            ("tip", "Source", "This chapter summarises, in our own words for learning, the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 2, ‘System Life Cycle Concepts, Models, and Processes,’ which draws on ISO/IEC/IEEE 15288 and 24748. Consult the handbook for the authoritative text."),
+            ("p", "In the handbook, each process is described with a consistent structure — purpose, description, inputs/outputs, activities, and common approaches — and illustrated with an input–process–output (IPO) diagram."),
+            ("tip", "Source", "This recap summarises, in our own words for learning, the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 2, ‘System Life Cycle Concepts, Models, and Processes,’ which draws on ISO/IEC/IEEE 15288 and 24748. Consult the handbook for the authoritative text."),
         ],
+        "core": None,
+        "detail": None,
     },
     {
         "file": "chapter-3.html", "title": "Chapter 3",
         "lede": "This chapter is awaiting content.",
-        "blocks": [("note", "Coming soon", "Content for Chapter 3 will be added here. Provide the source material and it will be curated into this page.")],
+        "recap": None, "core": None, "detail": None,
     },
     {
         "file": "chapter-4.html", "title": "Chapter 4",
         "lede": "This chapter is awaiting content.",
-        "blocks": [("note", "Coming soon", "Content for Chapter 4 will be added here. Provide the source material and it will be curated into this page.")],
+        "recap": None, "core": None, "detail": None,
     },
     {
         "file": "chapter-5.html", "title": "Chapter 5",
         "lede": "This chapter is awaiting content.",
-        "blocks": [("note", "Coming soon", "Content for Chapter 5 will be added here. Provide the source material and it will be curated into this page.")],
+        "recap": None, "core": None, "detail": None,
     },
 ]
 # ---------------------------------------------------------------------------
@@ -360,6 +356,8 @@ def render_blocks(blocks):
             out.append('<h2 id="%s">%s</h2>' % (hid, b[1]))
         elif kind == "h3":
             out.append('<h3 id="%s">%s</h3>' % (slug(b[1]), b[1]))
+        elif kind == "h4":
+            out.append('<h4 id="%s">%s</h4>' % (slug(b[1]), b[1]))
         elif kind == "p":
             out.append("<p>%s</p>" % b[1])
         elif kind == "ul":
@@ -376,6 +374,34 @@ def render_blocks(blocks):
         elif kind == "raw":
             out.append(b[1])
     return "\n".join(out), heads
+
+
+# Every chapter is split into these three sub-sections (rendered as h2).
+# A chapter dict supplies blocks under the keys "recap" / "core" / "detail";
+# a missing/empty key renders a "coming soon" placeholder.
+CHAPTER_SECTIONS = [
+    ("Quick Recap", "recap", "A fast, high-level summary of the chapter — the key points at a glance."),
+    ("Core Concepts", "core", "The essential ideas explained with more depth, structure, and examples."),
+    ("Detailed Review", "detail", "A thorough, section-by-section walk through the chapter material."),
+]
+
+
+def is_chapter(page):
+    return any(k in page for k in ("recap", "core", "detail"))
+
+
+def chapter_body(ch):
+    parts = []
+    for title, key, blurb in CHAPTER_SECTIONS:
+        parts.append('<h2 class="chsec" id="%s">%s</h2>' % (slug(title), title))
+        blocks = ch.get(key)
+        if blocks:
+            html_blocks, _ = render_blocks(blocks)
+            parts.append(html_blocks)
+        else:
+            parts.append('<div class="note"><div class="note__label">Coming soon</div>'
+                         '<div>%s This section is being developed and will be added next.</div></div>' % blurb)
+    return "\n".join(parts)
 
 
 # -- shared HTML fragments (token style: @@NAME@@) --------------------------
@@ -502,7 +528,10 @@ def nav_block():
 
 
 def content_page(page, prev_link, next_link, section_label):
-    body, _ = render_blocks(page["blocks"])
+    if is_chapter(page):
+        body = chapter_body(page)
+    else:
+        body, _ = render_blocks(page["blocks"])
     pager = '<div class="pager">'
     if prev_link:
         pager += '<a class="prev" href="%s"><small>&larr; Previous</small>%s</a>' % (prev_link[1], prev_link[0])
@@ -624,11 +653,15 @@ def build_site_data():
     search = []
     # module-level + heading-level entries
     for i, m in enumerate(MODULES, 1):
-        kws = " ".join(h for h in [b[1] for b in m["blocks"] if b[0] == "h2"])
+        ch_blocks = []
+        for key in ("recap", "core", "detail"):
+            if m.get(key):
+                ch_blocks += m[key]
+        heads = [b[1] for b in ch_blocks if b[0] in ("h3", "h4")]
         search.append({"title": m["title"], "href": m["file"],
-                       "section": "Chapter %d" % i, "keywords": kws, "snippet": m["lede"]})
-        for b in m["blocks"]:
-            if b[0] == "h2":
+                       "section": "Chapter %d" % i, "keywords": " ".join(heads), "snippet": m["lede"]})
+        for b in ch_blocks:
+            if b[0] == "h3":
                 search.append({"title": b[1], "href": "%s#%s" % (m["file"], slug(b[1])),
                                "section": m["title"], "keywords": "", "snippet": ""})
     for p in SECTION_PAGES + ABOUT_INCOSE_PAGES:

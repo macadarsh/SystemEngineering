@@ -73,7 +73,7 @@ window.SITE = {
       "title": "Chapter 1",
       "href": "chapter-1.html",
       "section": "Chapter 1",
-      "keywords": "What is systems engineering? Why is systems engineering important? Systems concepts Systems engineering foundations System science and systems thinking",
+      "keywords": "What is systems engineering? What SE focuses on What is a system? Where SE came from Why is systems engineering important? Systems concepts System boundary and the system of interest (SoI) Black-box and white-box views Emergence Interfacing, interoperating, and enabling systems Hierarchy, states, and modes Complexity Systems engineering foundations Uncertainty Cognitive bias Systems engineering principles Systems engineering heuristics System science and systems thinking",
       "snippet": "Systems Engineering Introduction — what SE is, why it matters, its core systems concepts, its foundations, and its roots in systems thinking. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 1."
     },
     {
@@ -115,7 +115,7 @@ window.SITE = {
       "title": "Chapter 2",
       "href": "chapter-2.html",
       "section": "Chapter 2",
-      "keywords": "Life-cycle terms and concepts Life-cycle model approaches System life-cycle processes",
+      "keywords": "Life-cycle terms and concepts Life-cycle characteristics Typical life-cycle stages Decision gates Technical reviews and audits Life-cycle model approaches Sequential methods Incremental methods Evolutionary methods System life-cycle processes Concurrency, iteration, and recursion Agreement processes Organizational project-enabling processes Technical management processes Technical processes",
       "snippet": "System Life Cycle Concepts, Models, and Processes — life-cycle stages and decision gates, the sequential / incremental / evolutionary model families, and the four ISO/IEC/IEEE 15288 process groups. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 2."
     },
     {
