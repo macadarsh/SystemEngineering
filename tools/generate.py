@@ -27,7 +27,7 @@ BRAND = {
 NAV_LINKS = [
     ("Chapters", "chapter-1.html", "js-nav-modules"),
     ("Weekly Plan", "weekly-plan.html", ""),
-    ("Practice", "practice-questions.html", ""),
+    ("Practice Q/A", "practice-questions.html", ""),
     ("Case Studies", "case-studies.html", ""),
     ("Podcast", "podcast.html", ""),
     ("About INCOSE", "what-is-incose.html", ""),
@@ -229,33 +229,6 @@ SECTION_PAGES = [
         ],
     },
     {
-        "file": "practice-questions.html",
-        "title": "Practice Questions",
-        "section_label": "Practice",
-        "lede": "Self-check questions grouped by topic. Try to answer before expanding the model answer.",
-        "blocks": [
-            ("h2", "Fundamentals"),
-            ("qa", ("Why can a system fail even when every component works correctly?",
-                    "Because system behaviour is emergent — it arises from interactions between parts. Faults often live at interfaces or in mismatched assumptions, which component-level testing does not exercise.")),
-            ("qa", ("What distinguishes a systems engineer from a domain specialist?",
-                    "The systems engineer is responsible for the whole and the relationships between parts — balancing needs, defining interfaces, and ensuring overall success — rather than going deepest on any single part.")),
-            ("h2", "Requirements"),
-            ("qa", ("Name three properties of a good requirement.",
-                    "Any of: necessary, unambiguous, verifiable, consistent, feasible, and free of design. A useful quick test is verifiability — if you cannot say how you would prove it, it is not ready.")),
-            ("qa", ("What is requirements traceability and why does it matter?",
-                    "It is the linkage from a need to the requirement, design, and test that address it. It lets you assess the impact of a change before making it, and prove coverage.")),
-            ("h2", "Architecture & V&V"),
-            ("qa", ("What is the difference between verification and validation?",
-                    "Verification checks the system against its requirements (‘built it right’). Validation checks it against the real stakeholder need in its operational context (‘built the right thing’).")),
-            ("qa", ("Why is interface definition so important in architecture?",
-                    "Most integration problems occur at interfaces. Defining them early and unambiguously prevents costly rework when parts are brought together.")),
-            ("h2", "Management"),
-            ("qa", ("What is the purpose of a baseline in configuration management?",
-                    "A baseline is an agreed, recorded snapshot of the system definition. It gives a known reference point so that changes can be made, tracked, and audited deliberately.")),
-            ("note", "Placeholder", "These are generic starter questions. As you curate sources, this page can grow into a full topic-tagged question bank with difficulty levels."),
-        ],
-    },
-    {
         "file": "case-studies.html",
         "title": "Case Studies",
         "section_label": "Case Studies",
@@ -268,15 +241,6 @@ SECTION_PAGES = [
             ("h2", "Designing the -ilities in"),
             ("p", "Systems that were reliable, safe, and maintainable in service almost always treated those properties as first-class requirements from the start, rather than trying to add them late. Retrofitting an ‘-ility’ is expensive and rarely as effective."),
             ("note", "Placeholder", "These vignettes are intentionally generic. Once you supply specific sources, each can become a full case study with background, what happened, and the SE lessons drawn out."),
-        ],
-    },
-    {
-        "file": "podcast.html",
-        "title": "Podcast",
-        "section_label": "Podcast",
-        "lede": "Audio discussions and episodes on systems engineering — coming soon.",
-        "blocks": [
-            ("note", "Coming soon", "This is where podcast episodes and notes will live. Add episode titles, summaries, audio links, and key takeaways here as you publish them."),
         ],
     },
 ]
@@ -379,29 +343,54 @@ def render_blocks(blocks):
 # Every chapter is split into these three sub-sections (rendered as h2).
 # A chapter dict supplies blocks under the keys "recap" / "core" / "detail";
 # a missing/empty key renders a "coming soon" placeholder.
+# Each chapter expands into three separate sub-pages.
+# (Section title, chapter-dict key, filename suffix, icon, blurb)
 CHAPTER_SECTIONS = [
-    ("Quick Recap", "recap", "A fast, high-level summary of the chapter — the key points at a glance."),
-    ("Core Concepts", "core", "The essential ideas explained with more depth, structure, and examples."),
-    ("Detailed Review", "detail", "A thorough, section-by-section walk through the chapter material."),
+    ("Quick Recap", "recap", "quick-recap", "\U0001F4DD", "A fast, high-level summary of the chapter — the key points at a glance."),
+    ("Core Concepts", "core", "core-concepts", "\U0001F4D8", "The essential ideas explained with more depth, structure, and examples."),
+    ("Detailed Review", "detail", "detailed-review", "\U0001F4D6", "A thorough, section-by-section walk through the chapter material."),
 ]
 
 
-def is_chapter(page):
-    return any(k in page for k in ("recap", "core", "detail"))
+def subfile(base, suffix):
+    """chapter-1.html + 'quick-recap' -> chapter-1-quick-recap.html"""
+    return base[:-5] + "-" + suffix + ".html"
 
 
-def chapter_body(ch):
-    parts = []
-    for title, key, blurb in CHAPTER_SECTIONS:
-        parts.append('<h2 class="chsec" id="%s">%s</h2>' % (slug(title), title))
-        blocks = ch.get(key)
-        if blocks:
-            html_blocks, _ = render_blocks(blocks)
-            parts.append(html_blocks)
+def practice_file(i):
+    return "practice-chapter-%d.html" % i
+
+
+def podcast_file(i):
+    return "podcast-chapter-%d.html" % i
+
+
+def promote(blocks):
+    """Bump heading levels up one (h3->h2, h4->h3) for standalone sub-pages."""
+    out = []
+    for b in blocks:
+        if b[0] == "h3":
+            out.append(("h2",) + tuple(b[1:]))
+        elif b[0] == "h4":
+            out.append(("h3",) + tuple(b[1:]))
         else:
-            parts.append('<div class="note"><div class="note__label">Coming soon</div>'
-                         '<div>%s This section is being developed and will be added next.</div></div>' % blurb)
-    return "\n".join(parts)
+            out.append(b)
+    return out
+
+
+def placeholder_blocks(blurb):
+    return [("note", "Coming soon",
+             "%s This section is being developed and will be added next." % blurb)]
+
+
+def render_tiles(tiles):
+    """tiles: list of (icon, title, desc, href, cta)."""
+    cards = "".join(
+        '<a class="card" href="%s"><span class="card__icon">%s</span><h3>%s</h3>'
+        '<p>%s</p><span class="card__more">%s &rarr;</span></a>' % (t[3], t[0], t[1], t[2], t[4])
+        for t in tiles
+    )
+    return '<div class="grid grid--3">%s</div>' % cards
 
 
 # -- shared HTML fragments (token style: @@NAME@@) --------------------------
@@ -527,44 +516,66 @@ def nav_block():
                .replace("@@NAVLINKS@@", nav_links_html()))
 
 
-def content_page(page, prev_link, next_link, section_label):
-    if is_chapter(page):
-        body = chapter_body(page)
-    else:
-        body, _ = render_blocks(page["blocks"])
+def crumbs_html(crumbs):
+    parts = []
+    for i, (label, href) in enumerate(crumbs):
+        last = i == len(crumbs) - 1
+        if href and not last:
+            parts.append('<a href="%s">%s</a>' % (href, html.escape(label)))
+        else:
+            parts.append(html.escape(label))
+    return '<div class="breadcrumb">' + " &rsaquo; ".join(parts) + "</div>"
+
+
+def page_shell(title, lede, crumbs, body, prev_link=None, next_link=None):
     pager = '<div class="pager">'
-    if prev_link:
-        pager += '<a class="prev" href="%s"><small>&larr; Previous</small>%s</a>' % (prev_link[1], prev_link[0])
-    else:
-        pager += "<span></span>"
-    if next_link:
-        pager += '<a class="next" href="%s"><small>Next &rarr;</small>%s</a>' % (next_link[1], next_link[0])
-    else:
-        pager += "<span></span>"
+    pager += ('<a class="prev" href="%s"><small>&larr; Previous</small>%s</a>' % (prev_link[1], prev_link[0])
+              if prev_link else "<span></span>")
+    pager += ('<a class="next" href="%s"><small>Next &rarr;</small>%s</a>' % (next_link[1], next_link[0])
+              if next_link else "<span></span>")
     pager += "</div>"
 
-    doc = head(page["title"] + " · " + BRAND["name"], page["lede"])
+    doc = head(title + " · " + BRAND["name"], lede or title)
     doc += nav_block()
     doc += APPEARANCE_PANEL
     doc += BACKDROP
     doc += SEARCH_OVERLAY
     doc += '<div class="layout">'
-    # left
     doc += '<aside class="sidebar">' + DRAWER_HEAD + '<nav id="sidebar-nav" aria-label="Site index"></nav></aside>'
-    # center
     doc += '<main class="content"><div class="content__inner">'
-    doc += '<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; %s</div>' % html.escape(section_label)
-    doc += '<h1 class="page-title">%s</h1>' % page["title"]
-    doc += '<p class="page-lede">%s</p>' % page["lede"]
+    doc += crumbs_html(crumbs)
+    doc += '<h1 class="page-title">%s</h1>' % title
+    if lede:
+        doc += '<p class="page-lede">%s</p>' % lede
     doc += body
     doc += pager
     doc += "</div></main>"
-    # right
     doc += '<aside class="toc"><p class="toc__title">In this article</p><nav id="toc-list"></nav></aside>'
     doc += "</div>"
     doc += BACK_TO_TOP
     doc += SCRIPTS
     return doc
+
+
+def content_page(page, crumbs, prev_link=None, next_link=None):
+    body, _ = render_blocks(page["blocks"])
+    return page_shell(page["title"], page["lede"], crumbs, body, prev_link, next_link)
+
+
+def prose_page(title, lede, crumbs, blocks, prev_link=None, next_link=None):
+    body, _ = render_blocks(blocks)
+    return page_shell(title, lede, crumbs, body, prev_link, next_link)
+
+
+def landing_page(title, lede, crumbs, tile_sets):
+    """tile_sets: list of (heading, intro_or_None, tiles)."""
+    parts = []
+    for heading, intro, tiles in tile_sets:
+        parts.append('<h2 id="%s">%s</h2>' % (slug(heading), heading))
+        if intro:
+            parts.append("<p>%s</p>" % intro)
+        parts.append(render_tiles(tiles))
+    return page_shell(title, lede, crumbs, "\n".join(parts))
 
 
 def home_page():
@@ -583,16 +594,16 @@ def home_page():
       <h1>%s</h1>
       <p>A structured path from the core ideas of systems engineering to confident, practical understanding — organised into modules, a weekly plan, practice questions, and case studies.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a class="btn" href="%s">Start with Module 1 &rarr;</a>
+        <a class="btn" href="%s">Start with Chapter 1 &rarr;</a>
         <a class="btn btn--ghost" href="weekly-plan.html">See the 12-week plan</a>
       </div>
     </section>""" % (BRAND["name"], MODULES[0]["file"])
 
     # Explore — one tile per area of the site
     explore = [
-        ("\U0001F4DA", "Chapters", "Five chapters. Chapter 1 introduces systems engineering; the rest are coming soon.", MODULES[0]["file"], "Browse chapters"),
-        ("\U0001F5D3️", "12-Week Study Plan", "A week-by-week roadmap pairing modules with small, practical tasks.", "weekly-plan.html", "View the plan"),
-        ("✅", "Practice Questions", "Self-check questions grouped by topic, with model answers to reveal when ready.", "practice-questions.html", "Try the questions"),
+        ("\U0001F4DA", "Chapters", "Five chapters, each with a Quick Recap, Core Concepts, and Detailed Review.", MODULES[0]["file"], "Browse chapters"),
+        ("\U0001F5D3️", "12-Week Study Plan", "A week-by-week roadmap pairing chapters with small, practical tasks.", "weekly-plan.html", "View the plan"),
+        ("✅", "Practice Q/A", "Self-check questions for each chapter, with model answers to reveal when ready.", "practice-questions.html", "Try the questions"),
         ("\U0001F50E", "Case Studies", "Short, illustrative examples of systems-engineering ideas in the real world.", "case-studies.html", "Read case studies"),
         ("\U0001F3DB️", "About INCOSE", "The global systems-engineering body, its handbook, and the SEP certification exams.", "what-is-incose.html", "Learn about INCOSE"),
     ]
@@ -626,48 +637,71 @@ def home_page():
 
 def build_site_data():
     import json
-    def ch_children(m):
-        # nested Quick Recap / Core Concepts / Detailed Review links under each chapter
-        return [{"label": title, "href": "%s#%s" % (m["file"], slug(title))}
-                for title, _key, _blurb in CHAPTER_SECTIONS]
-    module_items = [{"num": str(i), "label": m["title"], "href": m["file"], "children": ch_children(m)}
-                    for i, m in enumerate(MODULES, 1)]
-    # "Resources" group sits above the modules, in an explicit order.
+
+    # Chapters group — each chapter is a landing page with 3 sub-page children
+    module_items = []
+    for i, m in enumerate(MODULES, 1):
+        children = [{"label": title, "href": subfile(m["file"], suffix)}
+                    for title, _k, suffix, _icon, _blurb in CHAPTER_SECTIONS]
+        module_items.append({"num": str(i), "label": m["title"], "href": m["file"], "children": children})
+
+    # Practice Q/A and Podcast each get per-chapter sub-pages as nested children
+    practice_children = [{"label": m["title"], "href": practice_file(i)} for i, m in enumerate(MODULES, 1)]
+    podcast_children = [{"label": m["title"], "href": podcast_file(i)} for i, m in enumerate(MODULES, 1)]
+
     page_by_file = {p["file"]: p for p in (SECTION_PAGES + ABOUT_INCOSE_PAGES)}
 
-    def res_item(fname):
+    def ritem(fname, children=None):
         p = page_by_file[fname]
-        return {"num": "", "label": p["title"], "href": p["file"]}
+        d = {"num": "", "label": p["title"], "href": p["file"]}
+        if children:
+            d["children"] = children
+        return d
 
-    # Same order as the top navigation: Weekly Plan, Practice, Case Studies, About INCOSE
-    resources_order = [
-        "weekly-plan.html",                            # 12-Week Study Plan
-        "practice-questions.html",                     # Practice Questions
-        "case-studies.html",                           # Case Studies
-        "podcast.html",                                # Podcast
-        "what-is-incose.html", "incose-exams.html",    # About INCOSE
+    resources_items = [
+        ritem("weekly-plan.html"),
+        {"num": "", "label": "Practice Q/A", "href": "practice-questions.html", "children": practice_children},
+        ritem("case-studies.html"),
+        {"num": "", "label": "Podcast", "href": "podcast.html", "children": podcast_children},
+        ritem("what-is-incose.html"),
+        ritem("incose-exams.html"),
     ]
-    resources_items = [res_item(f) for f in resources_order]
 
     groups = [
         {"title": "Resources", "items": resources_items},
         {"title": "Chapters", "items": module_items},
     ]
 
+    # ---- search index ----
     search = []
-    # module-level + heading-level entries
     for i, m in enumerate(MODULES, 1):
-        ch_blocks = []
-        for key in ("recap", "core", "detail"):
-            if m.get(key):
-                ch_blocks += m[key]
-        heads = [b[1] for b in ch_blocks if b[0] in ("h3", "h4")]
         search.append({"title": m["title"], "href": m["file"],
-                       "section": "Chapter %d" % i, "keywords": " ".join(heads), "snippet": m["lede"]})
-        for b in ch_blocks:
-            if b[0] == "h3":
-                search.append({"title": b[1], "href": "%s#%s" % (m["file"], slug(b[1])),
-                               "section": m["title"], "keywords": "", "snippet": ""})
+                       "section": "Chapters", "keywords": "", "snippet": m["lede"]})
+        for title, key, suffix, _icon, blurb in CHAPTER_SECTIONS:
+            sub_href = subfile(m["file"], suffix)
+            blocks = m.get(key)
+            pblocks = promote(blocks) if blocks else []
+            heads = [b[1] for b in pblocks if b[0] in ("h2", "h3")]
+            search.append({"title": "%s — %s" % (m["title"], title), "href": sub_href,
+                           "section": m["title"], "keywords": " ".join(heads),
+                           "snippet": (m["lede"] if blocks else blurb)})
+            for b in pblocks:
+                if b[0] == "h2":
+                    search.append({"title": b[1], "href": "%s#%s" % (sub_href, slug(b[1])),
+                                   "section": "%s · %s" % (m["title"], title), "keywords": "", "snippet": ""})
+
+    search.append({"title": "Practice Q/A", "href": "practice-questions.html",
+                   "section": "Practice Q/A", "keywords": "questions exercises self-check",
+                   "snippet": "Self-check questions for each chapter."})
+    search.append({"title": "Podcast", "href": "podcast.html",
+                   "section": "Podcast", "keywords": "audio episodes listen",
+                   "snippet": "Audio discussions for each chapter."})
+    for i, m in enumerate(MODULES, 1):
+        search.append({"title": "Practice Q/A — %s" % m["title"], "href": practice_file(i),
+                       "section": "Practice Q/A", "keywords": "", "snippet": ""})
+        search.append({"title": "Podcast — %s" % m["title"], "href": podcast_file(i),
+                       "section": "Podcast", "keywords": "", "snippet": ""})
+
     for p in SECTION_PAGES + ABOUT_INCOSE_PAGES:
         search.append({"title": p["title"], "href": p["file"],
                        "section": p["section_label"], "keywords": "", "snippet": p["lede"]})
@@ -693,28 +727,75 @@ def write(path, content):
 
 
 def main():
-    write("index.html", home_page())
+    pages = 0
+    write("index.html", home_page()); pages += 1
 
-    # module pages with prev/next
-    n = len(MODULES)
-    for i, m in enumerate(MODULES):
-        prev_link = (MODULES[i - 1]["title"], MODULES[i - 1]["file"]) if i > 0 else None
-        next_link = (MODULES[i + 1]["title"], MODULES[i + 1]["file"]) if i < n - 1 else None
-        write(m["file"], content_page(m, prev_link, next_link, "Chapters"))
+    # ---- Chapters: a landing page + three sub-pages each ----
+    for i, m in enumerate(MODULES, 1):
+        study_tiles = [(icon, title, blurb, subfile(m["file"], suffix), "Open")
+                       for title, _k, suffix, icon, blurb in CHAPTER_SECTIONS]
+        extra_tiles = [
+            ("✅", "Practice Q/A", "Test yourself on %s." % m["title"], practice_file(i), "Practice"),
+            ("\U0001F3A7", "Podcast", "Listen to the %s discussion." % m["title"], podcast_file(i), "Listen"),
+        ]
+        tile_sets = [
+            ("Study this chapter", None, study_tiles),
+            ("Practice & listen", None, extra_tiles),
+        ]
+        write(m["file"], landing_page(m["title"], m["lede"],
+              [("Home", "index.html"), (m["title"], None)], tile_sets)); pages += 1
 
+        subs = [(title, key, suffix, blurb) for title, key, suffix, _icon, blurb in CHAPTER_SECTIONS]
+        for j, (title, key, suffix, blurb) in enumerate(subs):
+            fname = subfile(m["file"], suffix)
+            blocks = m.get(key)
+            page_blocks = promote(blocks) if blocks else placeholder_blocks(blurb)
+            prevl = (subs[j - 1][0], subfile(m["file"], subs[j - 1][2])) if j > 0 else (m["title"], m["file"])
+            nextl = (subs[j + 1][0], subfile(m["file"], subs[j + 1][2])) if j < len(subs) - 1 else None
+            lede = m["lede"] if blocks else ("%s for %s — coming soon." % (title, m["title"]))
+            crumbs = [("Home", "index.html"), (m["title"], m["file"]), (title, None)]
+            write(fname, prose_page("%s — %s" % (m["title"], title), lede, crumbs, page_blocks, prevl, nextl)); pages += 1
+
+    # ---- Practice Q/A: landing + per-chapter pages ----
+    practice_tiles = [("✅", m["title"], "Practice questions for %s." % m["title"], practice_file(i), "Open")
+                      for i, m in enumerate(MODULES, 1)]
+    write("practice-questions.html", landing_page(
+        "Practice Q/A", "Self-check questions for each chapter — pick a chapter to begin.",
+        [("Home", "index.html"), ("Practice Q/A", None)],
+        [("Practice by chapter", None, practice_tiles)])); pages += 1
+    for i, m in enumerate(MODULES, 1):
+        crumbs = [("Home", "index.html"), ("Practice Q/A", "practice-questions.html"), (m["title"], None)]
+        blocks = placeholder_blocks("Practice questions for %s will appear here." % m["title"])
+        write(practice_file(i), prose_page("Practice Q/A — %s" % m["title"],
+              "Self-check questions for %s — coming soon." % m["title"], crumbs, blocks)); pages += 1
+
+    # ---- Podcast: landing + per-chapter pages ----
+    podcast_tiles = [("\U0001F3A7", m["title"], "Podcast episode for %s." % m["title"], podcast_file(i), "Open")
+                     for i, m in enumerate(MODULES, 1)]
+    write("podcast.html", landing_page(
+        "Podcast", "Audio discussions for each chapter — pick a chapter to listen.",
+        [("Home", "index.html"), ("Podcast", None)],
+        [("Podcast by chapter", None, podcast_tiles)])); pages += 1
+    for i, m in enumerate(MODULES, 1):
+        crumbs = [("Home", "index.html"), ("Podcast", "podcast.html"), (m["title"], None)]
+        blocks = placeholder_blocks("The podcast episode and notes for %s will appear here." % m["title"])
+        write(podcast_file(i), prose_page("Podcast — %s" % m["title"],
+              "Podcast for %s — coming soon." % m["title"], crumbs, blocks)); pages += 1
+
+    # ---- Weekly plan & case studies ----
     for p in SECTION_PAGES:
-        write(p["file"], content_page(p, None, None, p["section_label"]))
+        write(p["file"], content_page(p, [("Home", "index.html"), (p["title"], None)])); pages += 1
 
-    # About INCOSE pages (linked prev/next to each other)
+    # ---- About INCOSE pages ----
     a = len(ABOUT_INCOSE_PAGES)
     for i, p in enumerate(ABOUT_INCOSE_PAGES):
-        prev_link = (ABOUT_INCOSE_PAGES[i - 1]["title"], ABOUT_INCOSE_PAGES[i - 1]["file"]) if i > 0 else None
-        next_link = (ABOUT_INCOSE_PAGES[i + 1]["title"], ABOUT_INCOSE_PAGES[i + 1]["file"]) if i < a - 1 else None
-        write(p["file"], content_page(p, prev_link, next_link, p["section_label"]))
+        prevl = (ABOUT_INCOSE_PAGES[i - 1]["title"], ABOUT_INCOSE_PAGES[i - 1]["file"]) if i > 0 else None
+        nextl = (ABOUT_INCOSE_PAGES[i + 1]["title"], ABOUT_INCOSE_PAGES[i + 1]["file"]) if i < a - 1 else None
+        crumbs = [("Home", "index.html"), ("About INCOSE", None), (p["title"], None)]
+        write(p["file"], content_page(p, crumbs, prevl, nextl)); pages += 1
 
     write("assets/site-data.js", build_site_data())
-    print("\nDone. %d modules + %d section pages + %d About-INCOSE pages + homepage."
-          % (n, len(SECTION_PAGES), a))
+    print("\nDone. %d pages written." % pages)
 
 
 if __name__ == "__main__":

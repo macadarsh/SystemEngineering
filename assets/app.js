@@ -106,13 +106,16 @@
       html += '<div class="sidebar__group">';
       html += '<p class="sidebar__title">' + esc(g.title) + "</p>";
       g.items.forEach(function (it) {
-        var active = it.href === currentFile ? " is-active" : "";
+        var kids = it.children || [];
+        var childHere = kids.some(function (ch) { return ch.href === currentFile; });
+        var active = (it.href === currentFile || childHere) ? " is-active" : "";
         var num = it.num ? '<span class="num">' + esc(it.num) + "</span>" : '<span class="num"></span>';
         html += '<a class="sidebar__link' + active + '" href="' + it.href + '">' + num + "<span>" + esc(it.label) + "</span></a>";
-        if (it.children && it.children.length) {
+        if (kids.length) {
           html += '<div class="sidebar__sub">';
-          it.children.forEach(function (ch) {
-            html += '<a class="sidebar__sublink" href="' + ch.href + '">' + esc(ch.label) + "</a>";
+          kids.forEach(function (ch) {
+            var ca = ch.href === currentFile ? " is-active" : "";
+            html += '<a class="sidebar__sublink' + ca + '" href="' + ch.href + '">' + esc(ch.label) + "</a>";
           });
           html += "</div>";
         }
@@ -143,22 +146,13 @@
     toc.innerHTML = html;
     addAnchors(heads);
 
-    // scroll spy — highlights the right-hand TOC and the nested left-panel links
+    // scroll spy — highlights the right-hand on-page TOC
     var links = $$(".toc-link", toc);
-    var subLinks = $$(".sidebar__sublink");
     function spy() {
       var pos = window.scrollY + (parseInt(getComputedStyle(document.documentElement).getPropertyValue("--nav-h")) || 62) + 24;
       var idx = 0;
       heads.forEach(function (h, i) { if (h.offsetTop <= pos) idx = i; });
       links.forEach(function (l, i) { l.classList.toggle("is-active", i === idx); });
-      // active chapter sub-section = most recent .chsec heading at/above scroll
-      var secId = null;
-      heads.forEach(function (h) {
-        if (h.classList.contains("chsec") && h.offsetTop <= pos) secId = h.id;
-      });
-      subLinks.forEach(function (l) {
-        l.classList.toggle("is-active", secId !== null && l.getAttribute("href") === currentFile + "#" + secId);
-      });
     }
     window.addEventListener("scroll", throttle(spy, 100));
     spy();

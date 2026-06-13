@@ -12,8 +12,30 @@ window.SITE = {
         },
         {
           "num": "",
-          "label": "Practice Questions",
-          "href": "practice-questions.html"
+          "label": "Practice Q/A",
+          "href": "practice-questions.html",
+          "children": [
+            {
+              "label": "Chapter 1",
+              "href": "practice-chapter-1.html"
+            },
+            {
+              "label": "Chapter 2",
+              "href": "practice-chapter-2.html"
+            },
+            {
+              "label": "Chapter 3",
+              "href": "practice-chapter-3.html"
+            },
+            {
+              "label": "Chapter 4",
+              "href": "practice-chapter-4.html"
+            },
+            {
+              "label": "Chapter 5",
+              "href": "practice-chapter-5.html"
+            }
+          ]
         },
         {
           "num": "",
@@ -23,7 +45,29 @@ window.SITE = {
         {
           "num": "",
           "label": "Podcast",
-          "href": "podcast.html"
+          "href": "podcast.html",
+          "children": [
+            {
+              "label": "Chapter 1",
+              "href": "podcast-chapter-1.html"
+            },
+            {
+              "label": "Chapter 2",
+              "href": "podcast-chapter-2.html"
+            },
+            {
+              "label": "Chapter 3",
+              "href": "podcast-chapter-3.html"
+            },
+            {
+              "label": "Chapter 4",
+              "href": "podcast-chapter-4.html"
+            },
+            {
+              "label": "Chapter 5",
+              "href": "podcast-chapter-5.html"
+            }
+          ]
         },
         {
           "num": "",
@@ -47,15 +91,15 @@ window.SITE = {
           "children": [
             {
               "label": "Quick Recap",
-              "href": "chapter-1.html#quick-recap"
+              "href": "chapter-1-quick-recap.html"
             },
             {
               "label": "Core Concepts",
-              "href": "chapter-1.html#core-concepts"
+              "href": "chapter-1-core-concepts.html"
             },
             {
               "label": "Detailed Review",
-              "href": "chapter-1.html#detailed-review"
+              "href": "chapter-1-detailed-review.html"
             }
           ]
         },
@@ -66,15 +110,15 @@ window.SITE = {
           "children": [
             {
               "label": "Quick Recap",
-              "href": "chapter-2.html#quick-recap"
+              "href": "chapter-2-quick-recap.html"
             },
             {
               "label": "Core Concepts",
-              "href": "chapter-2.html#core-concepts"
+              "href": "chapter-2-core-concepts.html"
             },
             {
               "label": "Detailed Review",
-              "href": "chapter-2.html#detailed-review"
+              "href": "chapter-2-detailed-review.html"
             }
           ]
         },
@@ -85,15 +129,15 @@ window.SITE = {
           "children": [
             {
               "label": "Quick Recap",
-              "href": "chapter-3.html#quick-recap"
+              "href": "chapter-3-quick-recap.html"
             },
             {
               "label": "Core Concepts",
-              "href": "chapter-3.html#core-concepts"
+              "href": "chapter-3-core-concepts.html"
             },
             {
               "label": "Detailed Review",
-              "href": "chapter-3.html#detailed-review"
+              "href": "chapter-3-detailed-review.html"
             }
           ]
         },
@@ -104,15 +148,15 @@ window.SITE = {
           "children": [
             {
               "label": "Quick Recap",
-              "href": "chapter-4.html#quick-recap"
+              "href": "chapter-4-quick-recap.html"
             },
             {
               "label": "Core Concepts",
-              "href": "chapter-4.html#core-concepts"
+              "href": "chapter-4-core-concepts.html"
             },
             {
               "label": "Detailed Review",
-              "href": "chapter-4.html#detailed-review"
+              "href": "chapter-4-detailed-review.html"
             }
           ]
         },
@@ -123,15 +167,15 @@ window.SITE = {
           "children": [
             {
               "label": "Quick Recap",
-              "href": "chapter-5.html#quick-recap"
+              "href": "chapter-5-quick-recap.html"
             },
             {
               "label": "Core Concepts",
-              "href": "chapter-5.html#core-concepts"
+              "href": "chapter-5-core-concepts.html"
             },
             {
               "label": "Detailed Review",
-              "href": "chapter-5.html#detailed-review"
+              "href": "chapter-5-detailed-review.html"
             }
           ]
         }
@@ -142,93 +186,282 @@ window.SITE = {
     {
       "title": "Chapter 1",
       "href": "chapter-1.html",
+      "section": "Chapters",
+      "keywords": "",
+      "snippet": "Systems Engineering Introduction — what SE is, why it matters, its core systems concepts, its foundations, and its roots in systems thinking. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 1."
+    },
+    {
+      "title": "Chapter 1 — Quick Recap",
+      "href": "chapter-1-quick-recap.html",
       "section": "Chapter 1",
       "keywords": "What is systems engineering? What SE focuses on What is a system? Where SE came from Why is systems engineering important? Systems concepts System boundary and the system of interest (SoI) Black-box and white-box views Emergence Interfacing, interoperating, and enabling systems Hierarchy, states, and modes Complexity Systems engineering foundations Uncertainty Cognitive bias Systems engineering principles Systems engineering heuristics System science and systems thinking",
       "snippet": "Systems Engineering Introduction — what SE is, why it matters, its core systems concepts, its foundations, and its roots in systems thinking. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 1."
     },
     {
       "title": "What is systems engineering?",
-      "href": "chapter-1.html#what-is-systems-engineering",
-      "section": "Chapter 1",
+      "href": "chapter-1-quick-recap.html#what-is-systems-engineering",
+      "section": "Chapter 1 · Quick Recap",
       "keywords": "",
       "snippet": ""
     },
     {
       "title": "Why is systems engineering important?",
-      "href": "chapter-1.html#why-is-systems-engineering-important",
-      "section": "Chapter 1",
+      "href": "chapter-1-quick-recap.html#why-is-systems-engineering-important",
+      "section": "Chapter 1 · Quick Recap",
       "keywords": "",
       "snippet": ""
     },
     {
       "title": "Systems concepts",
-      "href": "chapter-1.html#systems-concepts",
-      "section": "Chapter 1",
+      "href": "chapter-1-quick-recap.html#systems-concepts",
+      "section": "Chapter 1 · Quick Recap",
       "keywords": "",
       "snippet": ""
     },
     {
       "title": "Systems engineering foundations",
-      "href": "chapter-1.html#systems-engineering-foundations",
-      "section": "Chapter 1",
+      "href": "chapter-1-quick-recap.html#systems-engineering-foundations",
+      "section": "Chapter 1 · Quick Recap",
       "keywords": "",
       "snippet": ""
     },
     {
       "title": "System science and systems thinking",
-      "href": "chapter-1.html#system-science-and-systems-thinking",
-      "section": "Chapter 1",
+      "href": "chapter-1-quick-recap.html#system-science-and-systems-thinking",
+      "section": "Chapter 1 · Quick Recap",
       "keywords": "",
       "snippet": ""
     },
     {
+      "title": "Chapter 1 — Core Concepts",
+      "href": "chapter-1-core-concepts.html",
+      "section": "Chapter 1",
+      "keywords": "",
+      "snippet": "The essential ideas explained with more depth, structure, and examples."
+    },
+    {
+      "title": "Chapter 1 — Detailed Review",
+      "href": "chapter-1-detailed-review.html",
+      "section": "Chapter 1",
+      "keywords": "",
+      "snippet": "A thorough, section-by-section walk through the chapter material."
+    },
+    {
       "title": "Chapter 2",
       "href": "chapter-2.html",
+      "section": "Chapters",
+      "keywords": "",
+      "snippet": "System Life Cycle Concepts, Models, and Processes — life-cycle stages and decision gates, the sequential / incremental / evolutionary model families, and the four ISO/IEC/IEEE 15288 process groups. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 2."
+    },
+    {
+      "title": "Chapter 2 — Quick Recap",
+      "href": "chapter-2-quick-recap.html",
       "section": "Chapter 2",
       "keywords": "Life-cycle terms and concepts Life-cycle characteristics Typical life-cycle stages Decision gates Technical reviews and audits Life-cycle model approaches Sequential methods Incremental methods Evolutionary methods System life-cycle processes Concurrency, iteration, and recursion Agreement processes Organizational project-enabling processes Technical management processes Technical processes",
       "snippet": "System Life Cycle Concepts, Models, and Processes — life-cycle stages and decision gates, the sequential / incremental / evolutionary model families, and the four ISO/IEC/IEEE 15288 process groups. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 2."
     },
     {
       "title": "Life-cycle terms and concepts",
-      "href": "chapter-2.html#life-cycle-terms-and-concepts",
-      "section": "Chapter 2",
+      "href": "chapter-2-quick-recap.html#life-cycle-terms-and-concepts",
+      "section": "Chapter 2 · Quick Recap",
       "keywords": "",
       "snippet": ""
     },
     {
       "title": "Life-cycle model approaches",
-      "href": "chapter-2.html#life-cycle-model-approaches",
-      "section": "Chapter 2",
+      "href": "chapter-2-quick-recap.html#life-cycle-model-approaches",
+      "section": "Chapter 2 · Quick Recap",
       "keywords": "",
       "snippet": ""
     },
     {
       "title": "System life-cycle processes",
-      "href": "chapter-2.html#system-life-cycle-processes",
-      "section": "Chapter 2",
+      "href": "chapter-2-quick-recap.html#system-life-cycle-processes",
+      "section": "Chapter 2 · Quick Recap",
       "keywords": "",
       "snippet": ""
     },
     {
+      "title": "Chapter 2 — Core Concepts",
+      "href": "chapter-2-core-concepts.html",
+      "section": "Chapter 2",
+      "keywords": "",
+      "snippet": "The essential ideas explained with more depth, structure, and examples."
+    },
+    {
+      "title": "Chapter 2 — Detailed Review",
+      "href": "chapter-2-detailed-review.html",
+      "section": "Chapter 2",
+      "keywords": "",
+      "snippet": "A thorough, section-by-section walk through the chapter material."
+    },
+    {
       "title": "Chapter 3",
       "href": "chapter-3.html",
-      "section": "Chapter 3",
+      "section": "Chapters",
       "keywords": "",
       "snippet": "This chapter is awaiting content."
+    },
+    {
+      "title": "Chapter 3 — Quick Recap",
+      "href": "chapter-3-quick-recap.html",
+      "section": "Chapter 3",
+      "keywords": "",
+      "snippet": "A fast, high-level summary of the chapter — the key points at a glance."
+    },
+    {
+      "title": "Chapter 3 — Core Concepts",
+      "href": "chapter-3-core-concepts.html",
+      "section": "Chapter 3",
+      "keywords": "",
+      "snippet": "The essential ideas explained with more depth, structure, and examples."
+    },
+    {
+      "title": "Chapter 3 — Detailed Review",
+      "href": "chapter-3-detailed-review.html",
+      "section": "Chapter 3",
+      "keywords": "",
+      "snippet": "A thorough, section-by-section walk through the chapter material."
     },
     {
       "title": "Chapter 4",
       "href": "chapter-4.html",
-      "section": "Chapter 4",
+      "section": "Chapters",
       "keywords": "",
       "snippet": "This chapter is awaiting content."
     },
     {
+      "title": "Chapter 4 — Quick Recap",
+      "href": "chapter-4-quick-recap.html",
+      "section": "Chapter 4",
+      "keywords": "",
+      "snippet": "A fast, high-level summary of the chapter — the key points at a glance."
+    },
+    {
+      "title": "Chapter 4 — Core Concepts",
+      "href": "chapter-4-core-concepts.html",
+      "section": "Chapter 4",
+      "keywords": "",
+      "snippet": "The essential ideas explained with more depth, structure, and examples."
+    },
+    {
+      "title": "Chapter 4 — Detailed Review",
+      "href": "chapter-4-detailed-review.html",
+      "section": "Chapter 4",
+      "keywords": "",
+      "snippet": "A thorough, section-by-section walk through the chapter material."
+    },
+    {
       "title": "Chapter 5",
       "href": "chapter-5.html",
-      "section": "Chapter 5",
+      "section": "Chapters",
       "keywords": "",
       "snippet": "This chapter is awaiting content."
+    },
+    {
+      "title": "Chapter 5 — Quick Recap",
+      "href": "chapter-5-quick-recap.html",
+      "section": "Chapter 5",
+      "keywords": "",
+      "snippet": "A fast, high-level summary of the chapter — the key points at a glance."
+    },
+    {
+      "title": "Chapter 5 — Core Concepts",
+      "href": "chapter-5-core-concepts.html",
+      "section": "Chapter 5",
+      "keywords": "",
+      "snippet": "The essential ideas explained with more depth, structure, and examples."
+    },
+    {
+      "title": "Chapter 5 — Detailed Review",
+      "href": "chapter-5-detailed-review.html",
+      "section": "Chapter 5",
+      "keywords": "",
+      "snippet": "A thorough, section-by-section walk through the chapter material."
+    },
+    {
+      "title": "Practice Q/A",
+      "href": "practice-questions.html",
+      "section": "Practice Q/A",
+      "keywords": "questions exercises self-check",
+      "snippet": "Self-check questions for each chapter."
+    },
+    {
+      "title": "Podcast",
+      "href": "podcast.html",
+      "section": "Podcast",
+      "keywords": "audio episodes listen",
+      "snippet": "Audio discussions for each chapter."
+    },
+    {
+      "title": "Practice Q/A — Chapter 1",
+      "href": "practice-chapter-1.html",
+      "section": "Practice Q/A",
+      "keywords": "",
+      "snippet": ""
+    },
+    {
+      "title": "Podcast — Chapter 1",
+      "href": "podcast-chapter-1.html",
+      "section": "Podcast",
+      "keywords": "",
+      "snippet": ""
+    },
+    {
+      "title": "Practice Q/A — Chapter 2",
+      "href": "practice-chapter-2.html",
+      "section": "Practice Q/A",
+      "keywords": "",
+      "snippet": ""
+    },
+    {
+      "title": "Podcast — Chapter 2",
+      "href": "podcast-chapter-2.html",
+      "section": "Podcast",
+      "keywords": "",
+      "snippet": ""
+    },
+    {
+      "title": "Practice Q/A — Chapter 3",
+      "href": "practice-chapter-3.html",
+      "section": "Practice Q/A",
+      "keywords": "",
+      "snippet": ""
+    },
+    {
+      "title": "Podcast — Chapter 3",
+      "href": "podcast-chapter-3.html",
+      "section": "Podcast",
+      "keywords": "",
+      "snippet": ""
+    },
+    {
+      "title": "Practice Q/A — Chapter 4",
+      "href": "practice-chapter-4.html",
+      "section": "Practice Q/A",
+      "keywords": "",
+      "snippet": ""
+    },
+    {
+      "title": "Podcast — Chapter 4",
+      "href": "podcast-chapter-4.html",
+      "section": "Podcast",
+      "keywords": "",
+      "snippet": ""
+    },
+    {
+      "title": "Practice Q/A — Chapter 5",
+      "href": "practice-chapter-5.html",
+      "section": "Practice Q/A",
+      "keywords": "",
+      "snippet": ""
+    },
+    {
+      "title": "Podcast — Chapter 5",
+      "href": "podcast-chapter-5.html",
+      "section": "Podcast",
+      "keywords": "",
+      "snippet": ""
     },
     {
       "title": "12-Week Study Plan",
@@ -259,41 +492,6 @@ window.SITE = {
       "snippet": ""
     },
     {
-      "title": "Practice Questions",
-      "href": "practice-questions.html",
-      "section": "Practice",
-      "keywords": "",
-      "snippet": "Self-check questions grouped by topic. Try to answer before expanding the model answer."
-    },
-    {
-      "title": "Fundamentals",
-      "href": "practice-questions.html#fundamentals",
-      "section": "Practice Questions",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Requirements",
-      "href": "practice-questions.html#requirements",
-      "section": "Practice Questions",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Architecture & V&V",
-      "href": "practice-questions.html#architecture-vv",
-      "section": "Practice Questions",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Management",
-      "href": "practice-questions.html#management",
-      "section": "Practice Questions",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
       "title": "Case Studies",
       "href": "case-studies.html",
       "section": "Case Studies",
@@ -320,13 +518,6 @@ window.SITE = {
       "section": "Case Studies",
       "keywords": "",
       "snippet": ""
-    },
-    {
-      "title": "Podcast",
-      "href": "podcast.html",
-      "section": "Podcast",
-      "keywords": "",
-      "snippet": "Audio discussions and episodes on systems engineering — coming soon."
     },
     {
       "title": "What is INCOSE?",
