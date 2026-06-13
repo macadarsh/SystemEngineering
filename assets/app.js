@@ -252,7 +252,7 @@
     // collect module file names from the "Modules" sidebar group
     var moduleFiles = [];
     (SITE.groups || []).forEach(function (g) {
-      if (/module/i.test(g.title)) g.items.forEach(function (it) { moduleFiles.push(it.href); });
+      if (/module|chapter/i.test(g.title)) g.items.forEach(function (it) { moduleFiles.push(it.href); });
     });
     $$(".nav__links a").forEach(function (a) {
       var href = a.getAttribute("href");

@@ -22,6 +22,11 @@ window.SITE = {
         },
         {
           "num": "",
+          "label": "Podcast",
+          "href": "podcast.html"
+        },
+        {
+          "num": "",
           "label": "What is INCOSE?",
           "href": "what-is-incose.html"
         },
@@ -33,407 +38,106 @@ window.SITE = {
       ]
     },
     {
-      "title": "Modules",
+      "title": "Chapters",
       "items": [
         {
           "num": "1",
-          "label": "Introduction to Systems Engineering",
-          "href": "intro-to-se.html"
+          "label": "Chapter 1",
+          "href": "chapter-1.html"
         },
         {
           "num": "2",
-          "label": "Systems Thinking & Core Concepts",
-          "href": "systems-thinking.html"
+          "label": "Chapter 2",
+          "href": "chapter-2.html"
         },
         {
           "num": "3",
-          "label": "The SE Lifecycle & Process Models",
-          "href": "se-lifecycle.html"
+          "label": "Chapter 3",
+          "href": "chapter-3.html"
         },
         {
           "num": "4",
-          "label": "Stakeholder Needs & Requirements",
-          "href": "requirements-engineering.html"
+          "label": "Chapter 4",
+          "href": "chapter-4.html"
         },
         {
           "num": "5",
-          "label": "System Architecture & Design",
-          "href": "architecture-design.html"
-        },
-        {
-          "num": "6",
-          "label": "Modelling & MBSE (SysML)",
-          "href": "mbse-sysml.html"
-        },
-        {
-          "num": "7",
-          "label": "Integration, Verification & Validation",
-          "href": "verification-validation.html"
-        },
-        {
-          "num": "8",
-          "label": "Risk & Decision Management",
-          "href": "risk-decision.html"
-        },
-        {
-          "num": "9",
-          "label": "Configuration & Change Management",
-          "href": "configuration-management.html"
-        },
-        {
-          "num": "10",
-          "label": "Technical & Project Management",
-          "href": "technical-management.html"
-        },
-        {
-          "num": "11",
-          "label": "Specialty Engineering",
-          "href": "specialty-engineering.html"
-        },
-        {
-          "num": "12",
-          "label": "Operations, Maintenance & Disposal",
-          "href": "operations-disposal.html"
+          "label": "Chapter 5",
+          "href": "chapter-5.html"
         }
       ]
     }
   ],
   "search": [
     {
-      "title": "Introduction to Systems Engineering",
-      "href": "intro-to-se.html",
-      "section": "Module 1",
-      "keywords": "What is a system? What systems engineers do Why it matters",
-      "snippet": "What systems engineering is, why it exists, and where it sits in the development of complex products and services."
+      "title": "Chapter 1",
+      "href": "chapter-1.html",
+      "section": "Chapter 1",
+      "keywords": "What is systems engineering? Why is systems engineering important? Systems concepts Systems engineering foundations System science and systems thinking",
+      "snippet": "Systems Engineering Introduction — what SE is, why it matters, its core systems concepts, its foundations, and its roots in systems thinking. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 1."
     },
     {
-      "title": "What is a system?",
-      "href": "intro-to-se.html#what-is-a-system",
-      "section": "Introduction to Systems Engineering",
+      "title": "What is systems engineering?",
+      "href": "chapter-1.html#what-is-systems-engineering",
+      "section": "Chapter 1",
       "keywords": "",
       "snippet": ""
     },
     {
-      "title": "What systems engineers do",
-      "href": "intro-to-se.html#what-systems-engineers-do",
-      "section": "Introduction to Systems Engineering",
+      "title": "Why is systems engineering important?",
+      "href": "chapter-1.html#why-is-systems-engineering-important",
+      "section": "Chapter 1",
       "keywords": "",
       "snippet": ""
     },
     {
-      "title": "Why it matters",
-      "href": "intro-to-se.html#why-it-matters",
-      "section": "Introduction to Systems Engineering",
+      "title": "Systems concepts",
+      "href": "chapter-1.html#systems-concepts",
+      "section": "Chapter 1",
       "keywords": "",
       "snippet": ""
     },
     {
-      "title": "Systems Thinking & Core Concepts",
-      "href": "systems-thinking.html",
-      "section": "Module 2",
-      "keywords": "Holistic vs reductionist thinking Emergence Boundaries, context, and feedback",
-      "snippet": "The mental models that underpin the discipline: holistic thinking, emergence, boundaries, and feedback."
-    },
-    {
-      "title": "Holistic vs reductionist thinking",
-      "href": "systems-thinking.html#holistic-vs-reductionist-thinking",
-      "section": "Systems Thinking & Core Concepts",
+      "title": "Systems engineering foundations",
+      "href": "chapter-1.html#systems-engineering-foundations",
+      "section": "Chapter 1",
       "keywords": "",
       "snippet": ""
     },
     {
-      "title": "Emergence",
-      "href": "systems-thinking.html#emergence",
-      "section": "Systems Thinking & Core Concepts",
+      "title": "System science and systems thinking",
+      "href": "chapter-1.html#system-science-and-systems-thinking",
+      "section": "Chapter 1",
       "keywords": "",
       "snippet": ""
     },
     {
-      "title": "Boundaries, context, and feedback",
-      "href": "systems-thinking.html#boundaries-context-and-feedback",
-      "section": "Systems Thinking & Core Concepts",
+      "title": "Chapter 2",
+      "href": "chapter-2.html",
+      "section": "Chapter 2",
       "keywords": "",
-      "snippet": ""
+      "snippet": "This chapter is awaiting content."
     },
     {
-      "title": "The SE Lifecycle & Process Models",
-      "href": "se-lifecycle.html",
-      "section": "Module 3",
-      "keywords": "Lifecycle stages The Vee model Iterative and agile approaches",
-      "snippet": "How a system is conceived, developed, used, and retired — and the process models that organise that journey."
-    },
-    {
-      "title": "Lifecycle stages",
-      "href": "se-lifecycle.html#lifecycle-stages",
-      "section": "The SE Lifecycle & Process Models",
+      "title": "Chapter 3",
+      "href": "chapter-3.html",
+      "section": "Chapter 3",
       "keywords": "",
-      "snippet": ""
+      "snippet": "This chapter is awaiting content."
     },
     {
-      "title": "The Vee model",
-      "href": "se-lifecycle.html#the-vee-model",
-      "section": "The SE Lifecycle & Process Models",
+      "title": "Chapter 4",
+      "href": "chapter-4.html",
+      "section": "Chapter 4",
       "keywords": "",
-      "snippet": ""
+      "snippet": "This chapter is awaiting content."
     },
     {
-      "title": "Iterative and agile approaches",
-      "href": "se-lifecycle.html#iterative-and-agile-approaches",
-      "section": "The SE Lifecycle & Process Models",
+      "title": "Chapter 5",
+      "href": "chapter-5.html",
+      "section": "Chapter 5",
       "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Stakeholder Needs & Requirements",
-      "href": "requirements-engineering.html",
-      "section": "Module 4",
-      "keywords": "Eliciting stakeholder needs Writing good requirements Traceability and management",
-      "snippet": "Turning fuzzy stakeholder needs into clear, verifiable requirements — and keeping them traceable."
-    },
-    {
-      "title": "Eliciting stakeholder needs",
-      "href": "requirements-engineering.html#eliciting-stakeholder-needs",
-      "section": "Stakeholder Needs & Requirements",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Writing good requirements",
-      "href": "requirements-engineering.html#writing-good-requirements",
-      "section": "Stakeholder Needs & Requirements",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Traceability and management",
-      "href": "requirements-engineering.html#traceability-and-management",
-      "section": "Stakeholder Needs & Requirements",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "System Architecture & Design",
-      "href": "architecture-design.html",
-      "section": "Module 5",
-      "keywords": "Functional vs physical architecture Decomposition and allocation Trade studies",
-      "snippet": "Defining the structure of the solution: functions, physical elements, interfaces, and the trade-offs between them."
-    },
-    {
-      "title": "Functional vs physical architecture",
-      "href": "architecture-design.html#functional-vs-physical-architecture",
-      "section": "System Architecture & Design",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Decomposition and allocation",
-      "href": "architecture-design.html#decomposition-and-allocation",
-      "section": "System Architecture & Design",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Trade studies",
-      "href": "architecture-design.html#trade-studies",
-      "section": "System Architecture & Design",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Modelling & MBSE (SysML)",
-      "href": "mbse-sysml.html",
-      "section": "Module 6",
-      "keywords": "From documents to models SysML in brief Tools and methodologies",
-      "snippet": "Model-Based Systems Engineering — replacing scattered documents with a single, connected model of the system."
-    },
-    {
-      "title": "From documents to models",
-      "href": "mbse-sysml.html#from-documents-to-models",
-      "section": "Modelling & MBSE (SysML)",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "SysML in brief",
-      "href": "mbse-sysml.html#sysml-in-brief",
-      "section": "Modelling & MBSE (SysML)",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Tools and methodologies",
-      "href": "mbse-sysml.html#tools-and-methodologies",
-      "section": "Modelling & MBSE (SysML)",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Integration, Verification & Validation",
-      "href": "verification-validation.html",
-      "section": "Module 7",
-      "keywords": "Integration strategy Verification methods Validation and acceptance",
-      "snippet": "Bringing the parts together and proving the system is built right and is the right system."
-    },
-    {
-      "title": "Integration strategy",
-      "href": "verification-validation.html#integration-strategy",
-      "section": "Integration, Verification & Validation",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Verification methods",
-      "href": "verification-validation.html#verification-methods",
-      "section": "Integration, Verification & Validation",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Validation and acceptance",
-      "href": "verification-validation.html#validation-and-acceptance",
-      "section": "Integration, Verification & Validation",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Risk & Decision Management",
-      "href": "risk-decision.html",
-      "section": "Module 8",
-      "keywords": "Identifying and assessing risk Risk handling strategies Structured decision making",
-      "snippet": "Identifying what could go wrong, deciding what to do about it, and making choices in a structured way."
-    },
-    {
-      "title": "Identifying and assessing risk",
-      "href": "risk-decision.html#identifying-and-assessing-risk",
-      "section": "Risk & Decision Management",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Risk handling strategies",
-      "href": "risk-decision.html#risk-handling-strategies",
-      "section": "Risk & Decision Management",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Structured decision making",
-      "href": "risk-decision.html#structured-decision-making",
-      "section": "Risk & Decision Management",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Configuration & Change Management",
-      "href": "configuration-management.html",
-      "section": "Module 9",
-      "keywords": "Baselines and configuration items Change control Status accounting and audits",
-      "snippet": "Keeping control of what the system is, what changed, and why — across its whole life."
-    },
-    {
-      "title": "Baselines and configuration items",
-      "href": "configuration-management.html#baselines-and-configuration-items",
-      "section": "Configuration & Change Management",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Change control",
-      "href": "configuration-management.html#change-control",
-      "section": "Configuration & Change Management",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Status accounting and audits",
-      "href": "configuration-management.html#status-accounting-and-audits",
-      "section": "Configuration & Change Management",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Technical & Project Management",
-      "href": "technical-management.html",
-      "section": "Module 10",
-      "keywords": "Planning the technical effort Measuring progress Interfaces with project management",
-      "snippet": "Planning, organising, and measuring the engineering effort so the system arrives on scope, on time, and on budget."
-    },
-    {
-      "title": "Planning the technical effort",
-      "href": "technical-management.html#planning-the-technical-effort",
-      "section": "Technical & Project Management",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Measuring progress",
-      "href": "technical-management.html#measuring-progress",
-      "section": "Technical & Project Management",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Interfaces with project management",
-      "href": "technical-management.html#interfaces-with-project-management",
-      "section": "Technical & Project Management",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Specialty Engineering",
-      "href": "specialty-engineering.html",
-      "section": "Module 11",
-      "keywords": "Reliability, availability, maintainability Safety and security Human factors",
-      "snippet": "The cross-cutting ‘-ilities’ that must be designed in, not bolted on: reliability, safety, security, and human factors."
-    },
-    {
-      "title": "Reliability, availability, maintainability",
-      "href": "specialty-engineering.html#reliability-availability-maintainability",
-      "section": "Specialty Engineering",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Safety and security",
-      "href": "specialty-engineering.html#safety-and-security",
-      "section": "Specialty Engineering",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Human factors",
-      "href": "specialty-engineering.html#human-factors",
-      "section": "Specialty Engineering",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Operations, Maintenance & Disposal",
-      "href": "operations-disposal.html",
-      "section": "Module 12",
-      "keywords": "Transition to operations Sustainment and maintenance Retirement and disposal",
-      "snippet": "The longest part of most systems’ lives: using, sustaining, and eventually retiring them."
-    },
-    {
-      "title": "Transition to operations",
-      "href": "operations-disposal.html#transition-to-operations",
-      "section": "Operations, Maintenance & Disposal",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Sustainment and maintenance",
-      "href": "operations-disposal.html#sustainment-and-maintenance",
-      "section": "Operations, Maintenance & Disposal",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Retirement and disposal",
-      "href": "operations-disposal.html#retirement-and-disposal",
-      "section": "Operations, Maintenance & Disposal",
-      "keywords": "",
-      "snippet": ""
+      "snippet": "This chapter is awaiting content."
     },
     {
       "title": "12-Week Study Plan",
@@ -525,6 +229,13 @@ window.SITE = {
       "section": "Case Studies",
       "keywords": "",
       "snippet": ""
+    },
+    {
+      "title": "Podcast",
+      "href": "podcast.html",
+      "section": "Podcast",
+      "keywords": "",
+      "snippet": "Audio discussions and episodes on systems engineering — coming soon."
     },
     {
       "title": "What is INCOSE?",

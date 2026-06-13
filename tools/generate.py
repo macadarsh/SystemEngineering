@@ -25,10 +25,11 @@ BRAND = {
 
 # Top navigation (label, href, extra_class)
 NAV_LINKS = [
-    ("Modules", "intro-to-se.html", "js-nav-modules"),
+    ("Chapters", "chapter-1.html", "js-nav-modules"),
     ("Weekly Plan", "weekly-plan.html", ""),
     ("Practice", "practice-questions.html", ""),
     ("Case Studies", "case-studies.html", ""),
+    ("Podcast", "podcast.html", ""),
     ("About INCOSE", "what-is-incose.html", ""),
 ]
 
@@ -47,190 +48,87 @@ def slug(s):
 
 MODULES = [
     {
-        "file": "intro-to-se.html",
-        "title": "Introduction to Systems Engineering",
-        "lede": "What systems engineering is, why it exists, and where it sits in the development of complex products and services.",
+        "file": "chapter-1.html",
+        "title": "Chapter 1",
+        "lede": "Systems Engineering Introduction — what SE is, why it matters, its core systems concepts, its foundations, and its roots in systems thinking. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 1.",
         "blocks": [
-            ("h2", "What is a system?"),
-            ("p", "A <strong>system</strong> is a set of interacting elements — hardware, software, people, processes, data, and facilities — organised to achieve a purpose that none of the parts can achieve alone. The behaviour of a system comes not just from its parts but from the way those parts are connected and interact."),
-            ("ul", ["Elements: the parts that make up the system.",
-                    "Interfaces: where elements meet and exchange energy, material, or information.",
-                    "Boundary: what is inside the system versus part of its environment.",
-                    "Purpose: the need the system exists to satisfy."]),
-            ("h2", "What systems engineers do"),
-            ("p", "Systems engineering is an interdisciplinary approach to realising successful systems. The systems engineer keeps the whole in view: balancing competing needs, defining how the parts fit together, and making sure the delivered system actually meets stakeholder needs across its whole life."),
-            ("tip", "In short", "Domain specialists go deep on a part; the systems engineer is responsible for the relationships between the parts and the success of the whole."),
-            ("h2", "Why it matters"),
-            ("p", "As systems grow in scale and interconnection, most failures trace not to a single broken component but to gaps at the interfaces, unstated assumptions, or requirements that never matched the real need. Systems engineering is the discipline that manages exactly that complexity."),
+            ("h2", "What is systems engineering?"),
+            ("p", "Systems engineering (SE) is a transdisciplinary and integrative approach to enabling the successful realization, use, and eventual retirement of engineered systems. It draws on systems principles and concepts together with scientific, technological, and management methods. Rather than going deep into a single discipline, SE keeps the whole system in view and makes sure the parts work together to achieve the objectives of the whole."),
+            ("p", "SE takes a holistic, balanced, life-cycle perspective. Its responsibility is to deliver systems that are <em>fit for purpose</em> — that accomplish their intended purpose, stay resilient in real-world operation, and avoid or minimise unintended actions, side effects, and consequences."),
+            ("h3", "What SE focuses on"),
+            ("ul", [
+                "Establishing and balancing stakeholder goals, needs, operational concepts, and required functionality — starting early in development.",
+                "Choosing an appropriate life-cycle model, process approach, and governance for the level of complexity, uncertainty, and change.",
+                "Generating and evaluating alternative solution concepts and architectures.",
+                "Baselining and modelling requirements and the selected architecture at each stage.",
+                "Performing design synthesis and system verification and validation.",
+                "Considering both the problem and solution domains, including the enabling systems and services the solution depends on."]),
+            ("note", "The thread running through it all", "Every SE activity exists to manage risk — the risk of not delivering what is needed, of late delivery, of excess cost, and of negative unintended consequences. A useful measure of SE's value is how much it reduces that risk."),
+            ("h3", "What is a system?"),
+            ("p", "A system is an arrangement of parts or elements that together exhibit behaviour or meaning that the individual parts do not. The idea traces to Ludwig von Bertalanffy, who described a system as a whole made of interacting parts. A complete system includes everything needed for self-sufficient use in its environment: equipment, facilities, software, documentation, services, and people."),
+            ("p", "An <strong>engineered system</strong> is one deliberately designed or adapted to interact with an anticipated operational environment to achieve one or more intended purposes within applicable constraints. Its elements may include people, products, services, information, processes, and natural elements."),
+            ("h3", "Where SE came from"),
+            ("p", "Aspects of SE have featured in large technical undertakings throughout history, but it was formalised as an engineering discipline only in the early-to-mid twentieth century. The term ‘systems engineering’ dates to Bell Telephone Laboratories in the early 1940s; multidisciplinary teams such as British air-defence analysis in the 1930s and the RAND Corporation (founded 1946) helped shape the field."),
+
+            ("h2", "Why is systems engineering important?"),
+            ("p", "The systems we build keep becoming more complex and interconnected, and complexity is where projects fail — usually at interfaces, in unstated assumptions, or through requirements that never matched the real need. SE is the discipline that manages this complexity so that the whole succeeds, not just the parts."),
+            ("p", "Done well, SE reduces risk and improves cost and schedule outcomes: clear, complete, correctly allocated requirements lead to fewer and smaller changes later. Its value shows up across sectors — commercial, defence and government, non-profit, and research — by making development more effective and efficient and by strengthening the capacity to innovate."),
+
+            ("h2", "Systems concepts"),
+            ("p", "A handful of concepts give the SE practitioner a framework for reasoning about any system and its context."),
+            ("h3", "System boundary and the system of interest (SoI)"),
+            ("p", "The <strong>system of interest (SoI)</strong> is the system under consideration. The <strong>system boundary</strong> is the line of demarcation that defines what belongs to the SoI and what does not. Everything outside it that interacts with or supports the system is the environment or context — including users and external systems across the whole life cycle, not only during operation."),
+            ("h3", "Black-box and white-box views"),
+            ("p", "A <strong>black-box</strong> (opaque) view describes a system only by its external attributes — what it does as seen from outside. A <strong>white-box</strong> (transparent) view adds the internal attributes and structure — how it is built. Practitioners use both, and must understand how the two relate."),
+            ("h3", "Emergence"),
+            ("p", "Emergence is the phenomenon where the whole exhibits properties that are meaningful only for the whole, not for any single element. Emergent properties arise from interactions among the elements and with the environment, and they can be desirable (reinforcement) or undesirable (interference, resonance). Safety and resilience are classic emergent properties. Because they appear only when parts interact, a major aim of architecture is to reinforce good emergence and prevent bad emergence."),
+            ("h3", "Interfacing, interoperating, and enabling systems"),
+            ("p", "External systems relate to the SoI in different ways. <strong>Interfacing</strong> systems share a boundary and exchange something across it. <strong>Interoperating</strong> systems work together with the SoI toward a shared purpose. <strong>Enabling</strong> systems provide services the SoI needs during one or more life-cycle stages (for example test facilities or production systems) — and may not exist yet, so their timely availability is itself a risk to plan for."),
+            ("h3", "Hierarchy, states, and modes"),
+            ("p", "Systems are often organised hierarchically — systems contain subsystems, which contain components — although in highly complex systems a clean hierarchy may not exist. A system is in a <strong>state</strong> when its attributes hold steady for a meaningful period; <strong>modes</strong> are defined sets of behaviour the system is designed to operate in. States and modes are fundamental ways of describing system behaviour."),
+            ("h3", "Complexity"),
+            ("p", "Complexity arises when a system has many interacting parts whose collective behaviour is hard to predict from the parts alone. It is a central reason SE exists, and it shapes which life-cycle models, methods, and organisational structures are appropriate."),
+
+            ("h2", "Systems engineering foundations"),
+            ("p", "Beneath the processes, SE rests on foundations that explain how practitioners should think and act."),
+            ("h3", "Uncertainty"),
+            ("p", "Engineering decisions are made with incomplete knowledge. Recognising and managing uncertainty — about needs, environments, technologies, and outcomes — is intrinsic to good SE and feeds directly into risk management."),
+            ("h3", "Cognitive bias"),
+            ("p", "Practitioners are human, and predictable thinking errors — anchoring, optimism, confirmation bias, and others — can distort judgement and decisions. Awareness of cognitive bias helps teams make better, more deliberate choices."),
+            ("h3", "Systems engineering principles"),
+            ("p", "INCOSE has articulated a set of SE principles (with sub-principles) capturing the discipline's enduring basis — for example, that SE spans the entire system life cycle, that complex systems are engineered by complex organisations, that SE integrates engineering and scientific disciplines, and that SE rests on a middle-range set of theories (systems, physical, mathematical, and sociological). These principles guide the choice of life-cycle model, the implementation of processes, and how teams are organised."),
+            ("h3", "Systems engineering heuristics"),
+            ("p", "Heuristics are short, natural-language ‘rules of thumb’ that pass on a profession's accumulated wisdom. They are especially useful for complex, ill-structured problems where detailed analysis is impractical. A well-known example: don't assume the original statement of the problem is the right one — failing to reach mutual understanding with stakeholders early is a fundamental cause of failure."),
+
+            ("h2", "System science and systems thinking"),
+            ("p", "SE is informed by <strong>systems science</strong> — a transdisciplinary effort to find patterns and general theories that hold across all kinds of systems, whether physical, natural, engineered, or social. It uses both reductionist explanation (understanding a clock by its mechanism) and holistic explanation (understanding why clocks exist and how they operate in their environment over a life cycle). Foundational strands include von Bertalanffy's General System Theory, Wiener's Cybernetics, and Complexity Theory."),
+            ("p", "<strong>Systems thinking</strong> is the practical mindset that makes SE work — a way of looking at a situation in terms of wholes and how their parts interrelate. One useful formulation, DSRP, holds that systems thinking rests on making <em>Distinctions</em>, recognising <em>Systems</em> of parts and wholes, seeing <em>Relationships</em>, and taking <em>Perspectives</em>."),
+            ("p", "Good practice balances being <em>systematic</em> (faithfully applying SE processes) with being <em>systemic</em> (applying systems thinking to drive those processes). Where a single method falls short, practitioners draw on many systems methodologies — system dynamics, the viable system model, soft systems methodology, and others — choosing and combining them according to the problem. Using approaches in informed combination this way is called Critical Systems Thinking."),
+
+            ("tip", "Source", "This chapter summarises, in our own words for learning, the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 1, ‘Systems Engineering Introduction.’ Consult the handbook itself for the authoritative text."),
         ],
     },
     {
-        "file": "systems-thinking.html",
-        "title": "Systems Thinking & Core Concepts",
-        "lede": "The mental models that underpin the discipline: holistic thinking, emergence, boundaries, and feedback.",
-        "blocks": [
-            ("h2", "Holistic vs reductionist thinking"),
-            ("p", "Reductionist thinking understands something by breaking it into parts. Systems thinking adds the complementary view: understanding how those parts interact as a whole. Both are needed — you decompose to design, then integrate to deliver."),
-            ("h2", "Emergence"),
-            ("p", "<strong>Emergent properties</strong> are characteristics of the whole system that none of the individual parts possess — safety, usability, performance, resilience. Because they only appear when parts interact, they cannot be fully verified by testing parts in isolation."),
-            ("note", "Key idea", "Emergence is why a system can be ‘correct’ part-by-part yet fail as a whole."),
-            ("h2", "Boundaries, context, and feedback"),
-            ("p", "Defining the system boundary determines what you control versus what you must treat as the environment. Feedback loops — where outputs influence future inputs — are a primary source of both useful regulation and surprising behaviour."),
-        ],
+        "file": "chapter-2.html", "title": "Chapter 2",
+        "lede": "This chapter is awaiting content.",
+        "blocks": [("note", "Coming soon", "Content for Chapter 2 will be added here. Provide the source material and it will be curated into this page.")],
     },
     {
-        "file": "se-lifecycle.html",
-        "title": "The SE Lifecycle & Process Models",
-        "lede": "How a system is conceived, developed, used, and retired — and the process models that organise that journey.",
-        "blocks": [
-            ("h2", "Lifecycle stages"),
-            ("p", "A typical lifecycle moves through concept, development, production, utilisation, support, and retirement. Each stage has different decisions, risks, and stakeholders, but they are connected: choices made early constrain everything downstream."),
-            ("ol", ["Concept — explore needs and feasible solutions.",
-                    "Development — design, build, and verify the system.",
-                    "Production — manufacture or assemble the system.",
-                    "Utilisation & support — operate and sustain it in service.",
-                    "Retirement — withdraw and dispose of it responsibly."]),
-            ("h2", "The Vee model"),
-            ("p", "The Vee links definition activities on the left (needs → requirements → architecture → detailed design) with the corresponding integration and test activities on the right (unit → integration → system → acceptance). Each level of definition has a matching level of verification."),
-            ("h2", "Iterative and agile approaches"),
-            ("p", "Strictly sequential models struggle when needs are uncertain or change quickly. Iterative, incremental, and agile approaches deliver in smaller cycles, learning and adjusting as they go, while still preserving systems-level discipline."),
-        ],
+        "file": "chapter-3.html", "title": "Chapter 3",
+        "lede": "This chapter is awaiting content.",
+        "blocks": [("note", "Coming soon", "Content for Chapter 3 will be added here. Provide the source material and it will be curated into this page.")],
     },
     {
-        "file": "requirements-engineering.html",
-        "title": "Stakeholder Needs & Requirements",
-        "lede": "Turning fuzzy stakeholder needs into clear, verifiable requirements — and keeping them traceable.",
-        "blocks": [
-            ("h2", "Eliciting stakeholder needs"),
-            ("p", "Requirements begin with people. Interviews, workshops, observation, and analysis of the operational context surface what stakeholders actually need — which is often different from what they first ask for."),
-            ("h2", "Writing good requirements"),
-            ("p", "A good requirement is necessary, unambiguous, verifiable, feasible, and free of design. It states <em>what</em> is needed, not <em>how</em> to build it."),
-            ("ul", ["Necessary — traces to a real need.",
-                    "Unambiguous — only one reasonable interpretation.",
-                    "Verifiable — you can prove it was met.",
-                    "Consistent — does not conflict with others.",
-                    "Feasible — achievable within constraints."]),
-            ("tip", "Test", "If you cannot describe how you would verify a requirement, it is not yet a good requirement."),
-            ("h2", "Traceability and management"),
-            ("p", "Every requirement should trace up to the need it serves and down to the design that satisfies it and the test that verifies it. Traceability is what lets you assess the impact of a change before you make it."),
-        ],
+        "file": "chapter-4.html", "title": "Chapter 4",
+        "lede": "This chapter is awaiting content.",
+        "blocks": [("note", "Coming soon", "Content for Chapter 4 will be added here. Provide the source material and it will be curated into this page.")],
     },
     {
-        "file": "architecture-design.html",
-        "title": "System Architecture & Design",
-        "lede": "Defining the structure of the solution: functions, physical elements, interfaces, and the trade-offs between them.",
-        "blocks": [
-            ("h2", "Functional vs physical architecture"),
-            ("p", "The <strong>functional architecture</strong> describes what the system must do and how functions interact. The <strong>physical architecture</strong> describes the components that perform those functions. Allocation maps functions to components."),
-            ("h2", "Decomposition and allocation"),
-            ("p", "Large systems are decomposed into subsystems and components. Requirements and functions are allocated down the hierarchy, and budgets (mass, power, cost, latency) are apportioned so the parts add up to a system that meets its targets."),
-            ("h2", "Trade studies"),
-            ("p", "When several architectures could work, a trade study compares them against weighted criteria so the choice is explicit and defensible rather than accidental."),
-            ("note", "Watch the interfaces", "Most integration problems live at interfaces. Defining them early and clearly is among the highest-leverage things an architect does."),
-        ],
-    },
-    {
-        "file": "mbse-sysml.html",
-        "title": "Modelling & MBSE (SysML)",
-        "lede": "Model-Based Systems Engineering — replacing scattered documents with a single, connected model of the system.",
-        "blocks": [
-            ("h2", "From documents to models"),
-            ("p", "Traditional SE captures the system in many separate documents that drift out of sync. <strong>MBSE</strong> captures requirements, behaviour, structure, and parametrics in one connected model, so a change in one place is reflected everywhere."),
-            ("h2", "SysML in brief"),
-            ("p", "SysML is a graphical modelling language for systems. Its diagrams cover four pillars: structure, behaviour, requirements, and parametrics."),
-            ("ul", ["Structure — block definition and internal block diagrams.",
-                    "Behaviour — activity, sequence, and state machine diagrams.",
-                    "Requirements — requirement diagrams and traceability.",
-                    "Parametrics — constraints and engineering analyses."]),
-            ("h2", "Tools and methodologies"),
-            ("p", "MBSE is supported by modelling tools and guided by methodologies that prescribe what to model and in what order. The method matters as much as the tool — a model without discipline is just expensive documentation."),
-        ],
-    },
-    {
-        "file": "verification-validation.html",
-        "title": "Integration, Verification & Validation",
-        "lede": "Bringing the parts together and proving the system is built right and is the right system.",
-        "blocks": [
-            ("h2", "Integration strategy"),
-            ("p", "Integration assembles verified components into larger assemblies. A good strategy sequences the build so problems are found early and isolated to as few new interfaces as possible."),
-            ("h2", "Verification methods"),
-            ("p", "<strong>Verification</strong> asks ‘did we build the system right?’ — does it meet its requirements. The four classic methods are inspection, analysis, demonstration, and test."),
-            ("h2", "Validation and acceptance"),
-            ("p", "<strong>Validation</strong> asks ‘did we build the right system?’ — does it satisfy the real stakeholder need in its operational environment. Acceptance is the formal agreement that it does."),
-            ("tip", "Remember", "Verification is against requirements; validation is against needs. A system can pass verification and still fail validation if the requirements were wrong."),
-        ],
-    },
-    {
-        "file": "risk-decision.html",
-        "title": "Risk & Decision Management",
-        "lede": "Identifying what could go wrong, deciding what to do about it, and making choices in a structured way.",
-        "blocks": [
-            ("h2", "Identifying and assessing risk"),
-            ("p", "A risk is an uncertain event that, if it occurs, affects objectives. Risks are usually assessed on two axes — likelihood and impact — and ranked so attention goes where it matters most."),
-            ("h2", "Risk handling strategies"),
-            ("ul", ["Avoid — change the plan so the risk cannot occur.",
-                    "Mitigate — reduce its likelihood or impact.",
-                    "Transfer — shift it to another party (e.g. insurance, supplier).",
-                    "Accept — acknowledge it and plan a contingency."]),
-            ("h2", "Structured decision making"),
-            ("p", "Major technical decisions benefit from being made explicitly: define the criteria, weight them, evaluate the alternatives, and record the rationale so the decision can be revisited if assumptions change."),
-        ],
-    },
-    {
-        "file": "configuration-management.html",
-        "title": "Configuration & Change Management",
-        "lede": "Keeping control of what the system is, what changed, and why — across its whole life.",
-        "blocks": [
-            ("h2", "Baselines and configuration items"),
-            ("p", "A <strong>baseline</strong> is an agreed, recorded snapshot of the system definition. <strong>Configuration items</strong> are the things put under control. Together they answer the question: what exactly is this system, right now?"),
-            ("h2", "Change control"),
-            ("p", "Changes are proposed, assessed for impact, approved or rejected, and then implemented and recorded. The point is not to prevent change but to make it deliberate and visible."),
-            ("h2", "Status accounting and audits"),
-            ("p", "Status accounting records the current state of every item and change. Audits confirm that the system as built matches the system as documented."),
-        ],
-    },
-    {
-        "file": "technical-management.html",
-        "title": "Technical & Project Management",
-        "lede": "Planning, organising, and measuring the engineering effort so the system arrives on scope, on time, and on budget.",
-        "blocks": [
-            ("h2", "Planning the technical effort"),
-            ("p", "The Systems Engineering Management Plan (SEMP) sets out how the engineering will be done: processes, organisation, reviews, and how the technical work connects to the project plan."),
-            ("h2", "Measuring progress"),
-            ("p", "Technical progress is tracked with measures such as requirements verified, mass or power margin remaining, and defects found versus fixed — not just schedule and cost."),
-            ("note", "Reviews", "Milestone reviews (e.g. requirements, design, readiness) are decision gates: evidence is presented and a deliberate go / no-go choice is made."),
-            ("h2", "Interfaces with project management"),
-            ("p", "Systems engineering owns the technical ‘what and how’; project management owns the ‘when, who, and how much’. They succeed or fail together, so the two must stay tightly coordinated."),
-        ],
-    },
-    {
-        "file": "specialty-engineering.html",
-        "title": "Specialty Engineering",
-        "lede": "The cross-cutting ‘-ilities’ that must be designed in, not bolted on: reliability, safety, security, and human factors.",
-        "blocks": [
-            ("h2", "Reliability, availability, maintainability"),
-            ("p", "These determine whether a system keeps working and how quickly it returns to service when it does not. They are quantified, allocated, and verified just like any other requirement."),
-            ("h2", "Safety and security"),
-            ("p", "Safety protects people and the environment from the system; security protects the system from deliberate harm. Both rely on identifying hazards or threats early and designing controls into the architecture."),
-            ("h2", "Human factors"),
-            ("p", "People are part of the system. Designing for human capabilities and limitations reduces error, training cost, and operational risk."),
-        ],
-    },
-    {
-        "file": "operations-disposal.html",
-        "title": "Operations, Maintenance & Disposal",
-        "lede": "The longest part of most systems’ lives: using, sustaining, and eventually retiring them.",
-        "blocks": [
-            ("h2", "Transition to operations"),
-            ("p", "Handover moves the system from the development team to operators and maintainers, with the training, documentation, spares, and support arrangements needed to run it."),
-            ("h2", "Sustainment and maintenance"),
-            ("p", "In service, the system is maintained, upgraded, and monitored. For many systems this phase dominates total lifecycle cost, which is why it must be designed for from the start."),
-            ("h2", "Retirement and disposal"),
-            ("p", "Eventually the system is withdrawn. Responsible disposal addresses safety, environmental impact, data, and the migration of users to whatever replaces it."),
-        ],
+        "file": "chapter-5.html", "title": "Chapter 5",
+        "lede": "This chapter is awaiting content.",
+        "blocks": [("note", "Coming soon", "Content for Chapter 5 will be added here. Provide the source material and it will be curated into this page.")],
     },
 ]
-
 # ---------------------------------------------------------------------------
 # SECTION PAGES (also use the 3-panel layout)
 # ---------------------------------------------------------------------------
@@ -313,6 +211,15 @@ SECTION_PAGES = [
             ("h2", "Designing the -ilities in"),
             ("p", "Systems that were reliable, safe, and maintainable in service almost always treated those properties as first-class requirements from the start, rather than trying to add them late. Retrofitting an ‘-ility’ is expensive and rarely as effective."),
             ("note", "Placeholder", "These vignettes are intentionally generic. Once you supply specific sources, each can become a full case study with background, what happened, and the SE lessons drawn out."),
+        ],
+    },
+    {
+        "file": "podcast.html",
+        "title": "Podcast",
+        "section_label": "Podcast",
+        "lede": "Audio discussions and episodes on systems engineering — coming soon.",
+        "blocks": [
+            ("note", "Coming soon", "This is where podcast episodes and notes will live. Add episode titles, summaries, audio links, and key takeaways here as you publish them."),
         ],
     },
 ]
@@ -593,7 +500,7 @@ def home_page():
 
     # Explore — one tile per area of the site
     explore = [
-        ("\U0001F4DA", "Modules", "Twelve modules from foundations through architecture, V&amp;V, and operations to disposal.", MODULES[0]["file"], "Browse modules"),
+        ("\U0001F4DA", "Chapters", "Five chapters. Chapter 1 introduces systems engineering; the rest are coming soon.", MODULES[0]["file"], "Browse chapters"),
         ("\U0001F5D3️", "12-Week Study Plan", "A week-by-week roadmap pairing modules with small, practical tasks.", "weekly-plan.html", "View the plan"),
         ("✅", "Practice Questions", "Self-check questions grouped by topic, with model answers to reveal when ready.", "practice-questions.html", "Try the questions"),
         ("\U0001F50E", "Case Studies", "Short, illustrative examples of systems-engineering ideas in the real world.", "case-studies.html", "Read case studies"),
@@ -643,13 +550,14 @@ def build_site_data():
         "weekly-plan.html",                            # 12-Week Study Plan
         "practice-questions.html",                     # Practice Questions
         "case-studies.html",                           # Case Studies
+        "podcast.html",                                # Podcast
         "what-is-incose.html", "incose-exams.html",    # About INCOSE
     ]
     resources_items = [res_item(f) for f in resources_order]
 
     groups = [
         {"title": "Resources", "items": resources_items},
-        {"title": "Modules", "items": module_items},
+        {"title": "Chapters", "items": module_items},
     ]
 
     search = []
@@ -657,7 +565,7 @@ def build_site_data():
     for i, m in enumerate(MODULES, 1):
         kws = " ".join(h for h in [b[1] for b in m["blocks"] if b[0] == "h2"])
         search.append({"title": m["title"], "href": m["file"],
-                       "section": "Module %d" % i, "keywords": kws, "snippet": m["lede"]})
+                       "section": "Chapter %d" % i, "keywords": kws, "snippet": m["lede"]})
         for b in m["blocks"]:
             if b[0] == "h2":
                 search.append({"title": b[1], "href": "%s#%s" % (m["file"], slug(b[1])),
@@ -693,9 +601,8 @@ def main():
     n = len(MODULES)
     for i, m in enumerate(MODULES):
         prev_link = (MODULES[i - 1]["title"], MODULES[i - 1]["file"]) if i > 0 else None
-        next_link = (MODULES[i + 1]["title"], MODULES[i + 1]["file"]) if i < n - 1 else \
-                    (SECTION_PAGES[0]["title"], SECTION_PAGES[0]["file"])
-        write(m["file"], content_page(m, prev_link, next_link, "Modules"))
+        next_link = (MODULES[i + 1]["title"], MODULES[i + 1]["file"]) if i < n - 1 else None
+        write(m["file"], content_page(m, prev_link, next_link, "Chapters"))
 
     for p in SECTION_PAGES:
         write(p["file"], content_page(p, None, None, p["section_label"]))
