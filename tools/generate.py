@@ -638,11 +638,12 @@ def build_site_data():
         p = page_by_file[fname]
         return {"num": "", "label": p["title"], "href": p["file"]}
 
+    # Same order as the top navigation: Weekly Plan, Practice, Case Studies, About INCOSE
     resources_order = [
-        "what-is-incose.html", "incose-exams.html",   # About INCOSE
         "weekly-plan.html",                            # 12-Week Study Plan
-        "case-studies.html",                           # Case Studies
         "practice-questions.html",                     # Practice Questions
+        "case-studies.html",                           # Case Studies
+        "what-is-incose.html", "incose-exams.html",    # About INCOSE
     ]
     resources_items = [res_item(f) for f in resources_order]
 

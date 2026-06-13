@@ -7,18 +7,13 @@ window.SITE = {
       "items": [
         {
           "num": "",
-          "label": "What is INCOSE?",
-          "href": "what-is-incose.html"
-        },
-        {
-          "num": "",
-          "label": "INCOSE Exams & Certification",
-          "href": "incose-exams.html"
-        },
-        {
-          "num": "",
           "label": "12-Week Study Plan",
           "href": "weekly-plan.html"
+        },
+        {
+          "num": "",
+          "label": "Practice Questions",
+          "href": "practice-questions.html"
         },
         {
           "num": "",
@@ -27,8 +22,13 @@ window.SITE = {
         },
         {
           "num": "",
-          "label": "Practice Questions",
-          "href": "practice-questions.html"
+          "label": "What is INCOSE?",
+          "href": "what-is-incose.html"
+        },
+        {
+          "num": "",
+          "label": "INCOSE Exams & Certification",
+          "href": "incose-exams.html"
         }
       ]
     },
