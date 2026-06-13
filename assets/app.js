@@ -91,7 +91,7 @@
     if (closeBtn) closeBtn.addEventListener("click", close);
     // close drawer when a sidebar link is tapped (mobile)
     document.addEventListener("click", function (e) {
-      var a = e.target.closest && e.target.closest(".sidebar__link");
+      var a = e.target.closest && e.target.closest(".sidebar__link, .sidebar__sublink");
       if (a && window.innerWidth <= 920) close();
     });
     window.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
@@ -109,6 +109,13 @@
         var active = it.href === currentFile ? " is-active" : "";
         var num = it.num ? '<span class="num">' + esc(it.num) + "</span>" : '<span class="num"></span>';
         html += '<a class="sidebar__link' + active + '" href="' + it.href + '">' + num + "<span>" + esc(it.label) + "</span></a>";
+        if (it.children && it.children.length) {
+          html += '<div class="sidebar__sub">';
+          it.children.forEach(function (ch) {
+            html += '<a class="sidebar__sublink" href="' + ch.href + '">' + esc(ch.label) + "</a>";
+          });
+          html += "</div>";
+        }
       });
       html += "</div>";
     });
@@ -136,13 +143,22 @@
     toc.innerHTML = html;
     addAnchors(heads);
 
-    // scroll spy
+    // scroll spy — highlights the right-hand TOC and the nested left-panel links
     var links = $$(".toc-link", toc);
+    var subLinks = $$(".sidebar__sublink");
     function spy() {
       var pos = window.scrollY + (parseInt(getComputedStyle(document.documentElement).getPropertyValue("--nav-h")) || 62) + 24;
       var idx = 0;
       heads.forEach(function (h, i) { if (h.offsetTop <= pos) idx = i; });
       links.forEach(function (l, i) { l.classList.toggle("is-active", i === idx); });
+      // active chapter sub-section = most recent .chsec heading at/above scroll
+      var secId = null;
+      heads.forEach(function (h) {
+        if (h.classList.contains("chsec") && h.offsetTop <= pos) secId = h.id;
+      });
+      subLinks.forEach(function (l) {
+        l.classList.toggle("is-active", secId !== null && l.getAttribute("href") === currentFile + "#" + secId);
+      });
     }
     window.addEventListener("scroll", throttle(spy, 100));
     spy();

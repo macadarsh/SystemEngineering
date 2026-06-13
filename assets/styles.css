@@ -284,6 +284,20 @@ code, pre { font-family: var(--mono); }
 }
 .sidebar__link.is-active .num { color: var(--accent); }
 
+/* nested chapter sub-sections (Quick Recap / Core Concepts / Detailed Review) */
+.sidebar__sub {
+  margin: 1px 0 6px 23px;
+  border-left: 1px solid var(--border);
+  padding-left: 6px;
+  display: flex; flex-direction: column;
+}
+.sidebar__sublink {
+  display: block; padding: 5px 10px; border-radius: 8px;
+  color: var(--text-faint); font-size: 12.5px; line-height: 1.3;
+}
+.sidebar__sublink:hover { background: var(--bg-hover); color: var(--text); text-decoration: none; }
+.sidebar__sublink.is-active { color: var(--accent); font-weight: 700; background: var(--accent-soft); }
+
 /* CENTER — content */
 .content { min-width: 0; padding: 30px clamp(20px, 4vw, 56px) 90px; }
 .content__inner { max-width: var(--measure); margin: 0 auto; }

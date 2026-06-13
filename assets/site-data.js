@@ -43,27 +43,97 @@ window.SITE = {
         {
           "num": "1",
           "label": "Chapter 1",
-          "href": "chapter-1.html"
+          "href": "chapter-1.html",
+          "children": [
+            {
+              "label": "Quick Recap",
+              "href": "chapter-1.html#quick-recap"
+            },
+            {
+              "label": "Core Concepts",
+              "href": "chapter-1.html#core-concepts"
+            },
+            {
+              "label": "Detailed Review",
+              "href": "chapter-1.html#detailed-review"
+            }
+          ]
         },
         {
           "num": "2",
           "label": "Chapter 2",
-          "href": "chapter-2.html"
+          "href": "chapter-2.html",
+          "children": [
+            {
+              "label": "Quick Recap",
+              "href": "chapter-2.html#quick-recap"
+            },
+            {
+              "label": "Core Concepts",
+              "href": "chapter-2.html#core-concepts"
+            },
+            {
+              "label": "Detailed Review",
+              "href": "chapter-2.html#detailed-review"
+            }
+          ]
         },
         {
           "num": "3",
           "label": "Chapter 3",
-          "href": "chapter-3.html"
+          "href": "chapter-3.html",
+          "children": [
+            {
+              "label": "Quick Recap",
+              "href": "chapter-3.html#quick-recap"
+            },
+            {
+              "label": "Core Concepts",
+              "href": "chapter-3.html#core-concepts"
+            },
+            {
+              "label": "Detailed Review",
+              "href": "chapter-3.html#detailed-review"
+            }
+          ]
         },
         {
           "num": "4",
           "label": "Chapter 4",
-          "href": "chapter-4.html"
+          "href": "chapter-4.html",
+          "children": [
+            {
+              "label": "Quick Recap",
+              "href": "chapter-4.html#quick-recap"
+            },
+            {
+              "label": "Core Concepts",
+              "href": "chapter-4.html#core-concepts"
+            },
+            {
+              "label": "Detailed Review",
+              "href": "chapter-4.html#detailed-review"
+            }
+          ]
         },
         {
           "num": "5",
           "label": "Chapter 5",
-          "href": "chapter-5.html"
+          "href": "chapter-5.html",
+          "children": [
+            {
+              "label": "Quick Recap",
+              "href": "chapter-5.html#quick-recap"
+            },
+            {
+              "label": "Core Concepts",
+              "href": "chapter-5.html#core-concepts"
+            },
+            {
+              "label": "Detailed Review",
+              "href": "chapter-5.html#detailed-review"
+            }
+          ]
         }
       ]
     }

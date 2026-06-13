@@ -626,7 +626,11 @@ def home_page():
 
 def build_site_data():
     import json
-    module_items = [{"num": str(i), "label": m["title"], "href": m["file"]}
+    def ch_children(m):
+        # nested Quick Recap / Core Concepts / Detailed Review links under each chapter
+        return [{"label": title, "href": "%s#%s" % (m["file"], slug(title))}
+                for title, _key, _blurb in CHAPTER_SECTIONS]
+    module_items = [{"num": str(i), "label": m["title"], "href": m["file"], "children": ch_children(m)}
                     for i, m in enumerate(MODULES, 1)]
     # "Resources" group sits above the modules, in an explicit order.
     page_by_file = {p["file"]: p for p in (SECTION_PAGES + ABOUT_INCOSE_PAGES)}
