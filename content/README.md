@@ -15,7 +15,17 @@ content/
       detailed-review.html  → chapter-<N>-detailed-review.html
   podcasts/
     ch<N>.html              → podcast-chapter-<N>.html
+  pages/                    standalone article pages (not chapter-bound)
+    weekly-plan.html        → weekly-plan.html
+    case-studies.html       → case-studies.html
+    what-is-incose.html     → what-is-incose.html
+    incose-exams.html       → incose-exams.html
 ```
+
+Every prose page lives here. The only root pages **without** a fragment are
+placeholders (nothing authored yet) and data-assembled pages (the home page, chapter
+and section landings, and the practice quizzes — these are built from lists/data, not a
+prose body).
 
 Each file is the **body** of one page (HTML fragment — headings, paragraphs, tables,
 figures, players). The site shell (nav, sidebar, theme, scripts) is added by the build.

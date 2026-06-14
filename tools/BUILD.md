@@ -57,6 +57,13 @@ otherwise the page inherits its chapter's lede. (See `content/README.md`.)
 Create `content/podcasts/ch<N>.html` with the audio-player markup (the build auto-loads
 `assets/podcast-player.js`). Put the audio in `assets/audio/`. Build.
 
+### Edit a standalone article page (Weekly Plan, Case Studies, About INCOSE)
+
+These live in `content/pages/<file>.html` (same name as the output page, e.g.
+`content/pages/weekly-plan.html`). Edit the fragment and build. Their existence/title/
+lede/order are defined by `SECTION_PAGES` / `ABOUT_INCOSE_PAGES` in `generate.py`; the
+body is the fragment.
+
 ### Add a new chapter's questions to Practice
 
 1. Add the questions to `assets/practice-data.js` under a new id, e.g.

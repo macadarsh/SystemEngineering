@@ -1,0 +1,11 @@
+# OS / filesystem cruft
+.DS_Store
+.fuse_hidden*
+
+# Python
+__pycache__/
+*.pyc
+
+# Editor / temp
+*.swp
+*~

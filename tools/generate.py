@@ -77,115 +77,33 @@ MODULES = [  # structure only; page content lives in content/ (see tools/BUILD.m
 # SECTION PAGES (also use the 3-panel layout)
 # ---------------------------------------------------------------------------
 
-WEEKLY_PLAN_TABLE = """
-<table>
-  <thead><tr><th>Week</th><th>Focus</th><th>Chapter</th><th>Do this week</th></tr></thead>
-  <tbody>
-    <tr><td>1</td><td>Foundations</td><td>Chapter 1 — Quick Recap &amp; Core Concepts</td><td>Read the Ch1 recap and core; write your own one-line definition of a system.</td></tr>
-    <tr><td>2</td><td>Foundations deep-dive</td><td>Chapter 1 — Detailed Review + Practice</td><td>Work through the Ch1 detailed review; attempt the Chapter 1 Practice Q/A.</td></tr>
-    <tr><td>3</td><td>Life cycle</td><td>Chapter 2 — Quick Recap &amp; Core Concepts</td><td>Read the Ch2 recap and core; sketch the Vee model from memory.</td></tr>
-    <tr><td>4</td><td>Life cycle deep-dive</td><td>Chapter 2 — Detailed Review + Practice</td><td>Work through the Ch2 detailed review; attempt the Chapter 2 Practice Q/A.</td></tr>
-    <tr><td>5</td><td>Chapter 3</td><td>Chapter 3 — all sub-sections</td><td>Recap → Core → Detailed; then attempt the Chapter 3 Practice Q/A.</td></tr>
-    <tr><td>6</td><td>Chapter 4</td><td>Chapter 4 — all sub-sections</td><td>Recap → Core → Detailed; then attempt the Chapter 4 Practice Q/A.</td></tr>
-    <tr><td>7</td><td>Chapter 5</td><td>Chapter 5 — all sub-sections</td><td>Recap → Core → Detailed; then attempt the Chapter 5 Practice Q/A.</td></tr>
-    <tr><td>8</td><td>Consolidate</td><td>Review + Case Studies</td><td>Revisit weak areas, read the case studies, and do a full mock self-test.</td></tr>
-  </tbody>
-</table>
-"""
-
-SECTION_PAGES = [
+SECTION_PAGES = [  # structure only; page content lives in content/pages/ (see tools/BUILD.md)
     {
         "file": "weekly-plan.html",
         "title": "8-Week Study Plan",
         "section_label": "Study Plan",
         "lede": "An eight-week roadmap through the five chapters, with a small task each week to turn reading into practice. Adjust the pace to suit you.",
-        "blocks": [
-            ("h2", "How to use this plan"),
-            ("p", "Each week pairs a chapter (or part of one) with a short, concrete task. The goal is steady progress and a habit of applying ideas, not racing to the end. Use the final week to consolidate before moving on."),
-            ("h2", "The plan"),
-            ("raw", WEEKLY_PLAN_TABLE),
-            ("h2", "Tips for sticking with it"),
-            ("ul", ["Protect a fixed slot each week — consistency beats intensity.",
-                    "Always finish a week by doing, not just reading.",
-                    "Keep a running list of questions to revisit in review weeks."]),
-            ("note", "Placeholder", "This schedule is a generic starting structure. Once you add your own sources and depth, the weekly tasks can point at specific readings and exercises."),
-        ],
     },
     {
         "file": "case-studies.html",
         "title": "Case Studies",
         "section_label": "Case Studies",
         "lede": "Short, illustrative examples of systems-engineering ideas in the real world. To be expanded with sourced, detailed cases.",
-        "blocks": [
-            ("h2", "When requirements miss the need"),
-            ("p", "A recurring pattern across failed projects: every requirement was met, yet the delivered system did not solve the user’s real problem. The lesson is the verification / validation gap — building it right is not the same as building the right thing."),
-            ("h2", "Interfaces as the hidden risk"),
-            ("p", "Many high-profile integration failures trace back to a mismatch at an interface — different units, assumptions, or timing between two correctly-built parts. It is a standing argument for early, explicit interface control."),
-            ("h2", "Designing the -ilities in"),
-            ("p", "Systems that were reliable, safe, and maintainable in service almost always treated those properties as first-class requirements from the start, rather than trying to add them late. Retrofitting an ‘-ility’ is expensive and rarely as effective."),
-            ("note", "Placeholder", "These vignettes are intentionally generic. Once you supply specific sources, each can become a full case study with background, what happened, and the SE lessons drawn out."),
-        ],
     },
 ]
 
-INCOSE_LEVELS_TABLE = """
-<table>
-  <thead><tr><th>Level</th><th>Who it is for</th><th>Knowledge exam?</th><th>Experience</th></tr></thead>
-  <tbody>
-    <tr><td><strong>ASEP</strong><br>Associate SEP</td><td>Knowledgeable, typically junior systems engineers.</td><td>Yes — pass the knowledge exam.</td><td>No SE experience required.</td></tr>
-    <tr><td><strong>CSEP</strong><br>Certified SEP</td><td>Practising systems engineers.</td><td>Yes — same exam as ASEP.</td><td>~5 years of SE experience (with a qualifying degree) plus an application reviewed against references.</td></tr>
-    <tr><td><strong>ESEP</strong><br>Expert SEP</td><td>Senior systems engineers and leaders.</td><td>No exam — by application.</td><td>~25 years of recognised SE experience (20 if already a CSEP) plus demonstrated leadership.</td></tr>
-  </tbody>
-</table>
-"""
-
-ABOUT_INCOSE_PAGES = [
+ABOUT_INCOSE_PAGES = [  # structure only; page content lives in content/pages/ (see tools/BUILD.md)
     {
         "file": "what-is-incose.html",
         "title": "What is INCOSE?",
         "section_label": "About INCOSE",
         "lede": "The International Council on Systems Engineering — the global professional body for the discipline.",
-        "blocks": [
-            ("h2", "Who they are"),
-            ("p", "<strong>INCOSE</strong> (the International Council on Systems Engineering) is a not-for-profit membership organisation founded in 1990. It connects systems engineers across industry, academia, and government, and is widely regarded as the leading professional body for the field."),
-            ("p", "INCOSE has roughly 26,000 members and associates worldwide — individual, corporate, and student members — organised into around 70 local chapters across three sectors: the Americas, EMEA (Europe, Middle East &amp; Africa), and Asia-Oceania."),
-            ("h2", "Mission"),
-            ("p", "INCOSE’s stated mission is to advance the state of the art and practice of systems engineering — promoting transdisciplinary, scalable approaches that produce technologically appropriate solutions to meet societal needs."),
-            ("h2", "What INCOSE does"),
-            ("ul", ["Publishes the <em>INCOSE Systems Engineering Handbook (SEH)</em>, the discipline’s canonical reference.",
-                    "Co-stewards the Systems Engineering Body of Knowledge (SEBoK).",
-                    "Publishes the peer-reviewed <em>Systems Engineering</em> journal and <em>INSIGHT</em> magazine.",
-                    "Runs the SEP professional certification program (ASEP, CSEP, ESEP).",
-                    "Hosts around 55 technical working groups that create INCOSE products and guidance.",
-                    "Runs international symposia, workshops, and regional conferences."]),
-            ("h2", "Why it matters to learners"),
-            ("p", "For anyone learning systems engineering, INCOSE is the reference point. Its handbook defines the vocabulary and lifecycle processes used throughout this site, and its certifications are a common way to demonstrate competence to employers."),
-            ("note", "Placeholder", "This is a basic overview gathered from public sources to establish the page. We will expand and refine it later, with specific references."),
-        ],
     },
     {
         "file": "incose-exams.html",
         "title": "INCOSE Exams & Certification",
         "section_label": "About INCOSE",
         "lede": "INCOSE’s SEP certification program and the knowledge exam that underpins it.",
-        "blocks": [
-            ("h2", "The SEP certification program"),
-            ("p", "INCOSE certifies Systems Engineering Professionals (SEP) at three levels of increasing experience and demonstrated capability: <strong>ASEP</strong>, <strong>CSEP</strong>, and <strong>ESEP</strong>."),
-            ("h2", "The three levels at a glance"),
-            ("raw", INCOSE_LEVELS_TABLE),
-            ("h2", "The knowledge exam"),
-            ("p", "ASEP and CSEP both require passing the same multiple-choice <strong>knowledge exam</strong>, drawn entirely from the <em>INCOSE Systems Engineering Handbook</em>. Since 15 March 2025 the exam is based wholly on the <strong>SEH Fifth Edition (2023)</strong>. Every question is multiple choice with a single correct answer."),
-            ("h2", "Format & logistics"),
-            ("ul", ["Available by computer (online, remotely proctored) or on paper.",
-                    "Standard computer exam: 120 questions in 120 minutes (100 scored, plus up to 20 or 50 unscored ‘beta’ questions).",
-                    "Paper exam: usually 100 questions in 100 minutes.",
-                    "Roughly one minute per question; you may review and change answers.",
-                    "Candidates may attempt the exam up to three times in a 12-month period."]),
-            ("h2", "Preparing"),
-            ("p", "The single most important resource is the SE Handbook itself — most people who pass have read it more than once. <strong>Academic Equivalency</strong> offers an alternative route to meet the knowledge requirement (for ASEP/CSEP) without sitting the exam, and INCOSE offers a short paid practice exam to preview the format."),
-            ("tip", "Always verify", "Exam content, fees, and requirements change over time. Confirm the current details on incose.org before relying on them."),
-            ("note", "Placeholder", "Figures here reflect public information current as of 2026. We will expand this page with deeper, sourced guidance later."),
-        ],
     },
 ]
 
@@ -423,6 +341,27 @@ def podcast_src(i):
     rel = "content/podcasts/ch%d.html" % i
     return rel if os.path.exists(os.path.join(ROOT, rel)) else None
 
+
+_HEADING_RE = re.compile(r'<(h2|h3)[^>]*\bid="([^"]*)"[^>]*>(.*?)</\1>', re.S)
+
+
+def frag_headings(rel):
+    """Read a content fragment and return (h2_list[(text, id)], all_heading_texts).
+    Used to build the search index from content/ instead of inline blocks."""
+    if not rel:
+        return [], []
+    full = os.path.join(ROOT, rel)
+    if not os.path.exists(full):
+        return [], []
+    body = open(full, encoding="utf-8").read()
+    h2s, all_texts = [], []
+    for tag, hid, inner in _HEADING_RE.findall(body):
+        text = re.sub(r"<[^>]+>", "", inner).strip()
+        all_texts.append(text)
+        if tag == "h2":
+            h2s.append((text, hid))
+    return h2s, all_texts
+
 BACK_TO_TOP = '<button class="back-to-top" aria-label="Back to top">&#8593;</button>'
 BACKDROP = '<div class="backdrop"></div>'
 
@@ -482,7 +421,14 @@ def page_shell(title, lede, crumbs, body, prev_link=None, next_link=None, extra_
 
 
 def content_page(page, crumbs, prev_link=None, next_link=None):
-    body, _ = render_blocks(page["blocks"])
+    # Content auto-discovered from content/pages/<file>; fall back to inline blocks if present.
+    src = "content/pages/" + page["file"]
+    if os.path.exists(os.path.join(ROOT, src)):
+        body = read_text(src)
+    elif page.get("blocks"):
+        body, _ = render_blocks(page["blocks"])
+    else:
+        body, _ = render_blocks(placeholder_blocks("%s — coming soon." % page["title"]))
     return page_shell(page["title"], page["lede"], crumbs, body, prev_link, next_link)
 
 
@@ -602,18 +548,16 @@ def build_site_data():
     for i, m in enumerate(MODULES, 1):
         search.append({"title": m["title"], "href": m["file"],
                        "section": "Chapters", "keywords": "", "snippet": m["lede"]})
-        for title, key, suffix, _icon, blurb in CHAPTER_SECTIONS:
+        for title, _key, suffix, _icon, blurb in CHAPTER_SECTIONS:
             sub_href = subfile(m["file"], suffix)
-            blocks = m.get(key)
-            pblocks = promote(blocks) if blocks else []
-            heads = [b[1] for b in pblocks if b[0] in ("h2", "h3")]
+            src = chapter_src(i, suffix)
+            h2s, all_heads = frag_headings(src)
             search.append({"title": "%s — %s" % (m["title"], title), "href": sub_href,
-                           "section": m["title"], "keywords": " ".join(heads),
-                           "snippet": (m["lede"] if blocks else blurb)})
-            for b in pblocks:
-                if b[0] == "h2":
-                    search.append({"title": b[1], "href": "%s#%s" % (sub_href, slug(b[1])),
-                                   "section": "%s · %s" % (m["title"], title), "keywords": "", "snippet": ""})
+                           "section": m["title"], "keywords": " ".join(all_heads),
+                           "snippet": (m["lede"] if src else blurb)})
+            for text, hid in h2s:
+                search.append({"title": text, "href": "%s#%s" % (sub_href, hid),
+                               "section": "%s · %s" % (m["title"], title), "keywords": "", "snippet": ""})
 
     search.append({"title": "Practice Q/A", "href": "practice-questions.html",
                    "section": "Practice Q/A", "keywords": "questions exercises self-check",
@@ -630,10 +574,10 @@ def build_site_data():
     for p in SECTION_PAGES + ABOUT_INCOSE_PAGES:
         search.append({"title": p["title"], "href": p["file"],
                        "section": p["section_label"], "keywords": "", "snippet": p["lede"]})
-        for b in p["blocks"]:
-            if b[0] == "h2":
-                search.append({"title": b[1], "href": "%s#%s" % (p["file"], slug(b[1])),
-                               "section": p["title"], "keywords": "", "snippet": ""})
+        h2s, _ = frag_headings("content/pages/" + p["file"])
+        for text, hid in h2s:
+            search.append({"title": text, "href": "%s#%s" % (p["file"], hid),
+                           "section": p["title"], "keywords": "", "snippet": ""})
 
     data = {"brand": BRAND["name"], "groups": groups, "search": search}
     return "/* Auto-generated by tools/generate.py — edit the generator, not this file. */\nwindow.SITE = " + json.dumps(data, ensure_ascii=False, indent=2) + ";\n"
