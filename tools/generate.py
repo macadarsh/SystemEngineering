@@ -46,152 +46,31 @@ def slug(s):
 #                         ("note", label, text) ("tip", label, text)
 # ---------------------------------------------------------------------------
 
-MODULES = [
+MODULES = [  # structure only; page content lives in content/ (see tools/BUILD.md)
     {
         "file": "chapter-1.html",
         "title": "Chapter 1",
         "lede": "Systems Engineering Introduction — what SE is, why it matters, its core systems concepts, its foundations, and its roots in systems thinking. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 1.",
-        "recap": [
-            ("h3", "What is systems engineering?"),
-            ("p", "Systems engineering (SE) is a transdisciplinary and integrative approach to enabling the successful realization, use, and eventual retirement of engineered systems. It draws on systems principles and concepts together with scientific, technological, and management methods. Rather than going deep into a single discipline, SE keeps the whole system in view and makes sure the parts work together to achieve the objectives of the whole."),
-            ("p", "SE takes a holistic, balanced, life-cycle perspective. Its responsibility is to deliver systems that are <em>fit for purpose</em> — that accomplish their intended purpose, stay resilient in real-world operation, and avoid or minimise unintended actions, side effects, and consequences."),
-            ("h4", "What SE focuses on"),
-            ("ul", [
-                "Establishing and balancing stakeholder goals, needs, operational concepts, and required functionality — starting early in development.",
-                "Choosing an appropriate life-cycle model, process approach, and governance for the level of complexity, uncertainty, and change.",
-                "Generating and evaluating alternative solution concepts and architectures.",
-                "Baselining and modelling requirements and the selected architecture at each stage.",
-                "Performing design synthesis and system verification and validation.",
-                "Considering both the problem and solution domains, including the enabling systems and services the solution depends on."]),
-            ("note", "The thread running through it all", "Every SE activity exists to manage risk — the risk of not delivering what is needed, of late delivery, of excess cost, and of negative unintended consequences. A useful measure of SE's value is how much it reduces that risk."),
-            ("h4", "What is a system?"),
-            ("p", "A system is an arrangement of parts or elements that together exhibit behaviour or meaning that the individual parts do not. The idea traces to Ludwig von Bertalanffy, who described a system as a whole made of interacting parts. A complete system includes everything needed for self-sufficient use in its environment: equipment, facilities, software, documentation, services, and people."),
-            ("p", "An <strong>engineered system</strong> is one deliberately designed or adapted to interact with an anticipated operational environment to achieve one or more intended purposes within applicable constraints. Its elements may include people, products, services, information, processes, and natural elements."),
-            ("h4", "Where SE came from"),
-            ("p", "Aspects of SE have featured in large technical undertakings throughout history, but it was formalised as an engineering discipline only in the early-to-mid twentieth century. The term ‘systems engineering’ dates to Bell Telephone Laboratories in the early 1940s; multidisciplinary teams such as British air-defence analysis in the 1930s and the RAND Corporation (founded 1946) helped shape the field."),
-            ("h3", "Why is systems engineering important?"),
-            ("p", "The systems we build keep becoming more complex and interconnected, and complexity is where projects fail — usually at interfaces, in unstated assumptions, or through requirements that never matched the real need. SE is the discipline that manages this complexity so that the whole succeeds, not just the parts."),
-            ("p", "Done well, SE reduces risk and improves cost and schedule outcomes: clear, complete, correctly allocated requirements lead to fewer and smaller changes later. Its value shows up across sectors — commercial, defence and government, non-profit, and research — by making development more effective and efficient and by strengthening the capacity to innovate."),
-            ("h3", "Systems concepts"),
-            ("p", "A handful of concepts give the SE practitioner a framework for reasoning about any system and its context."),
-            ("h4", "System boundary and the system of interest (SoI)"),
-            ("p", "The <strong>system of interest (SoI)</strong> is the system under consideration. The <strong>system boundary</strong> is the line of demarcation that defines what belongs to the SoI and what does not. Everything outside it that interacts with or supports the system is the environment or context — including users and external systems across the whole life cycle, not only during operation."),
-            ("h4", "Black-box and white-box views"),
-            ("p", "A <strong>black-box</strong> (opaque) view describes a system only by its external attributes — what it does as seen from outside. A <strong>white-box</strong> (transparent) view adds the internal attributes and structure — how it is built. Practitioners use both, and must understand how the two relate."),
-            ("h4", "Emergence"),
-            ("p", "Emergence is the phenomenon where the whole exhibits properties that are meaningful only for the whole, not for any single element. Emergent properties arise from interactions among the elements and with the environment, and they can be desirable (reinforcement) or undesirable (interference, resonance). Safety and resilience are classic emergent properties. Because they appear only when parts interact, a major aim of architecture is to reinforce good emergence and prevent bad emergence."),
-            ("h4", "Interfacing, interoperating, and enabling systems"),
-            ("p", "External systems relate to the SoI in different ways. <strong>Interfacing</strong> systems share a boundary and exchange something across it. <strong>Interoperating</strong> systems work together with the SoI toward a shared purpose. <strong>Enabling</strong> systems provide services the SoI needs during one or more life-cycle stages (for example test facilities or production systems) — and may not exist yet, so their timely availability is itself a risk to plan for."),
-            ("h4", "Hierarchy, states, and modes"),
-            ("p", "Systems are often organised hierarchically — systems contain subsystems, which contain components — although in highly complex systems a clean hierarchy may not exist. A system is in a <strong>state</strong> when its attributes hold steady for a meaningful period; <strong>modes</strong> are defined sets of behaviour the system is designed to operate in. States and modes are fundamental ways of describing system behaviour."),
-            ("h4", "Complexity"),
-            ("p", "Complexity arises when a system has many interacting parts whose collective behaviour is hard to predict from the parts alone. It is a central reason SE exists, and it shapes which life-cycle models, methods, and organisational structures are appropriate."),
-            ("h3", "Systems engineering foundations"),
-            ("p", "Beneath the processes, SE rests on foundations that explain how practitioners should think and act."),
-            ("h4", "Uncertainty"),
-            ("p", "Engineering decisions are made with incomplete knowledge. Recognising and managing uncertainty — about needs, environments, technologies, and outcomes — is intrinsic to good SE and feeds directly into risk management."),
-            ("h4", "Cognitive bias"),
-            ("p", "Practitioners are human, and predictable thinking errors — anchoring, optimism, confirmation bias, and others — can distort judgement and decisions. Awareness of cognitive bias helps teams make better, more deliberate choices."),
-            ("h4", "Systems engineering principles"),
-            ("p", "INCOSE has articulated a set of SE principles (with sub-principles) capturing the discipline's enduring basis — for example, that SE spans the entire system life cycle, that complex systems are engineered by complex organisations, that SE integrates engineering and scientific disciplines, and that SE rests on a middle-range set of theories (systems, physical, mathematical, and sociological). These principles guide the choice of life-cycle model, the implementation of processes, and how teams are organised."),
-            ("h4", "Systems engineering heuristics"),
-            ("p", "Heuristics are short, natural-language ‘rules of thumb’ that pass on a profession's accumulated wisdom. They are especially useful for complex, ill-structured problems where detailed analysis is impractical. A well-known example: don't assume the original statement of the problem is the right one — failing to reach mutual understanding with stakeholders early is a fundamental cause of failure."),
-            ("h3", "System science and systems thinking"),
-            ("p", "SE is informed by <strong>systems science</strong> — a transdisciplinary effort to find patterns and general theories that hold across all kinds of systems, whether physical, natural, engineered, or social. It uses both reductionist explanation (understanding a clock by its mechanism) and holistic explanation (understanding why clocks exist and how they operate in their environment over a life cycle). Foundational strands include von Bertalanffy's General System Theory, Wiener's Cybernetics, and Complexity Theory."),
-            ("p", "<strong>Systems thinking</strong> is the practical mindset that makes SE work — a way of looking at a situation in terms of wholes and how their parts interrelate. One useful formulation, DSRP, holds that systems thinking rests on making <em>Distinctions</em>, recognising <em>Systems</em> of parts and wholes, seeing <em>Relationships</em>, and taking <em>Perspectives</em>."),
-            ("p", "Good practice balances being <em>systematic</em> (faithfully applying SE processes) with being <em>systemic</em> (applying systems thinking to drive those processes). Where a single method falls short, practitioners draw on many systems methodologies — system dynamics, the viable system model, soft systems methodology, and others — choosing and combining them according to the problem. Using approaches in informed combination this way is called Critical Systems Thinking."),
-            ("tip", "Source", "This recap summarises, in our own words for learning, the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 1, ‘Systems Engineering Introduction.’ Consult the handbook for the authoritative text."),
-        ],
-        "core": None,
-        "detail": None,
     },
     {
         "file": "chapter-2.html",
         "title": "Chapter 2",
         "lede": "System Life Cycle Concepts, Models, and Processes — life-cycle stages and decision gates, the sequential / incremental / evolutionary model families, and the four ISO/IEC/IEEE 15288 process groups. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 2.",
-        "recap": [
-            ("h3", "Life-cycle terms and concepts"),
-            ("p", "The purpose of systems engineering is to realise a system successfully while balancing competing stakeholder objectives. A practical way to manage that is to break the whole effort into transformational <strong>stages</strong>, checking at the end of each stage whether the system characteristics are satisfied, the risk is acceptable, and the system is ready to move on. Progress between stages is gated by explicit decision points called <strong>decision gates</strong>. By analogy with the stages a living thing passes through, this whole set of stages is the <strong>system life cycle</strong>."),
-            ("h4", "Life-cycle characteristics"),
-            ("p", "Stages are not necessarily sequential or one-off. They can be entered as many times as needed, can overlap, and often run concurrently. Major system elements, enabling systems, and the constituents of a system-of-systems each have their own life cycles, which must be integrated so that a coherent system of interest is delivered and used over time. Stages typically have entry and exit gates: entry gates check that the criteria are met and resources are available; exit gates check that the stage's objectives are achieved and the risk of proceeding is acceptable."),
-            ("h4", "Typical life-cycle stages"),
-            ("p", "A commonly used set of stages (from ISO/IEC/IEEE 15288) spans the conception through retirement of the system:"),
-            ("ul", [
-                "<strong>Concept</strong> — explore needs, feasibility, and candidate solution concepts.",
-                "<strong>Development</strong> — define requirements and architecture, then design and build the system.",
-                "<strong>Production</strong> — manufacture or construct the system and its elements.",
-                "<strong>Utilization</strong> — operate the system to deliver its intended service.",
-                "<strong>Support</strong> — provide the logistics, maintenance, and services that sustain operation.",
-                "<strong>Retirement</strong> — withdraw and dispose of the system or its elements."]),
-            ("p", "Different industries use different names for these stages (commercial, defence, and space sectors each have their own labels), and the relative time spent in each varies enormously — a product might reach the field in a couple of years and then stay in use for decades."),
-            ("h4", "Decision gates"),
-            ("p", "A decision gate is a risk-managing checkpoint, usually at the start and end of a stage, often run as a project milestone or review. Its goals are to confirm that system maturity is on track, that deliverables still satisfy the business case, that resources are sufficient, that open issues are addressed, and that the risk of going forward is acceptable."),
-            ("p", "At each gate the typical options are: begin the next stage; continue the current stage (perhaps after rework); return to an earlier stage; hold the project; or terminate it. Approval should rest on evidence of meeting the agreed criteria. Balancing the formality and frequency of gates is a critical success factor — a superficial review or a skipped gate tends to cause costly problems later. Agile approaches still make these decisions, but at a more frequent, smaller-scope, and less formal cadence."),
-            ("h4", "Technical reviews and audits"),
-            ("p", "A <strong>technical review</strong> assesses a project's progress against its technical requirements at logical transition points, using agreed criteria. An <strong>audit</strong> is a detailed check that products and their definition information actually conform to requirements and to the released configuration. Both are planned in the project's Systems Engineering Management Plan (SEMP) and may form part of decision gates."),
-            ("p", "Representative reviews and audits include the System Requirements Review (SRR), Preliminary Design Review (PDR), Critical Design Review (CDR), Test Readiness Review (TRR), System Verification Review (SVR), Production Readiness Review (PRR), and the Functional and Physical Configuration Audits (FCA / PCA). The exact set is tailored to the project and the life-cycle model in use."),
-            ("h3", "Life-cycle model approaches"),
-            ("p", "A life-cycle <em>model</em> is the framework within which stages and their transitions are planned and carried out. Models are commonly grouped into three families, distinguished by how much of the requirements are known at the start, how many iterations are planned, and whether there are multiple deployments:"),
-            ("raw", """
-<table>
-  <thead><tr><th>Approach</th><th>Requirements set at start</th><th>Planned iterations</th><th>Multiple deployments</th></tr></thead>
-  <tbody>
-    <tr><td><strong>Sequential</strong></td><td>Full</td><td>Single</td><td>No</td></tr>
-    <tr><td><strong>Incremental</strong></td><td>Full</td><td>Multiple</td><td>Potential</td></tr>
-    <tr><td><strong>Evolutionary</strong></td><td>Partial</td><td>Multiple</td><td>Typically</td></tr>
-  </tbody>
-</table>
-"""),
-            ("h4", "Sequential methods"),
-            ("p", "Sequential models flow through linear stages, each depending on the deliverables of the previous one (with feedback), ending in a single delivery. Their strengths are predictability, stability, repeatability, and high assurance, which suits large coordinated teams and safety- or security-critical products. The classic example is the <strong>waterfall</strong> model; the <strong>SE Vee model</strong> is another, associating each definition stage on the left with a corresponding test stage on the right. The left of the Vee evolves the baseline from stakeholder requirements to system requirements to architecture to element definitions; the right integrates, verifies, and validates the elements back up. Even within the Vee, the processes are applied concurrently, iteratively, and recursively at each level of the hierarchy."),
-            ("h4", "Incremental methods"),
-            ("p", "Incremental approaches deliver an initial capability and then add to it through successive deliveries, aiming for rapid value and responsiveness. The full set of capabilities is usually known up front, but development is split into increments to absorb technical risk and insert newer technology. A steady cadence between increments helps planning. The Incremental Commitment Spiral Model (ICSM) is one example, addressing requirements and solutions concurrently and proceeding to the next spiral only when the risks are acceptable."),
-            ("h4", "Evolutionary methods"),
-            ("p", "When the final requirements are unknown or only partly known — common in novel systems, R&amp;D, and systems-of-systems — an evolutionary approach provides adaptability. Cycles are planned regularly, each producing a deployable version, and the requirements are progressively refined cycle by cycle. <strong>Agile</strong> methods are a widely used type of evolutionary development."),
-            ("note", "Choosing an approach", "There is no universal best model. Selection depends on factors such as environment stability, risk, novelty and complexity, integrity needs (safety, security, privacy), available budget and enabling systems, and required conformance to standards. Organisations should keep asking which approach, or combination, fits the situation."),
-            ("h3", "System life-cycle processes"),
-            ("p", "A <strong>process</strong> is a series of activities and tasks performed to achieve outcomes for a stated purpose. ISO/IEC/IEEE 15288 (2023) provides a common framework of system life-cycle processes, organised into four groups. They are not meant to be run once in a straight line — they are applied <strong>concurrently, iteratively, and recursively</strong> throughout the life cycle."),
-            ("h4", "Concurrency, iteration, and recursion"),
-            ("ul", [
-                "<strong>Concurrency</strong> — running two or more processes in parallel at the same level of the hierarchy (for example, risk management and measurement running continuously together).",
-                "<strong>Iteration</strong> — repeatedly applying and cycling between processes at a level to absorb new decisions and understanding (for example, between system requirements and architecture definition).",
-                "<strong>Recursion</strong> — reapplying the same set of processes, tailored, at each successive level of the hierarchy, where the outputs at one level become inputs to the next."]),
-            ("h4", "Agreement processes"),
-            ("p", "Establish an agreement between two parties for the acquisition or supply of systems, elements, products, or services. They comprise the <strong>Acquisition</strong> and <strong>Supply</strong> processes. SE practitioners contribute impact assessments, trade studies, and risk assessments to support these agreements."),
-            ("h4", "Organizational project-enabling processes"),
-            ("p", "Provide the organisational environment and resources that projects need. They comprise <strong>Life Cycle Model Management, Infrastructure Management, Portfolio Management, Human Resource Management, Quality Management,</strong> and <strong>Knowledge Management</strong>."),
-            ("h4", "Technical management processes"),
-            ("p", "Plan, assess, and control the technical effort. They comprise <strong>Project Planning, Project Assessment and Control, Decision Management, Risk Management, Configuration Management, Information Management, Measurement,</strong> and <strong>Quality Assurance</strong>."),
-            ("h4", "Technical processes"),
-            ("p", "Turn needs into a realised, operated, and eventually retired system. They comprise <strong>Business or Mission Analysis, Stakeholder Needs and Requirements Definition, System Requirements Definition, System Architecture Definition, Design Definition, System Analysis, Implementation, Integration, Verification, Transition, Validation, Operation, Maintenance,</strong> and <strong>Disposal</strong>."),
-            ("p", "In the handbook, each process is described with a consistent structure — purpose, description, inputs/outputs, activities, and common approaches — and illustrated with an input–process–output (IPO) diagram."),
-            ("tip", "Source", "This recap summarises, in our own words for learning, the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 2, ‘System Life Cycle Concepts, Models, and Processes,’ which draws on ISO/IEC/IEEE 15288 and 24748. Consult the handbook for the authoritative text."),
-        ],
-        # Pre-authored rich HTML (figures + tables) lives in content/; see read_text()
-        # path in main(). Edit those files to change the content, then re-run the generator.
-        "core": {
-            "src": "content/ch2-core.html",
-            "lede": "A deeper pass through the System Life Cycle: how work is organised into stages and gated by decisions, the three families of life-cycle models and when each fits, and the ISO/IEC/IEEE 15288 process framework that turns a need into a delivered, operated, and retired system. This builds on the Quick Recap with more structure, vocabulary, and worked reasoning, and prepares the ground for the figure-by-figure Detailed Review.",
-        },
-        "detail": {
-            "src": "content/ch2-detail.html",
-            "lede": "A thorough, section-by-section walk through “System Life Cycle Concepts, Models, and Processes.” We cover life-cycle stages and decision gates, the sequential / incremental / evolutionary model families, and all thirty ISO/IEC/IEEE 15288 processes across four groups — illustrated with the original handbook figures and their attributions.",
-        },
     },
     {
-        "file": "chapter-3.html", "title": "Chapter 3",
+        "file": "chapter-3.html",
+        "title": "Chapter 3",
         "lede": "This chapter is awaiting content.",
-        "recap": None, "core": None, "detail": None,
     },
     {
-        "file": "chapter-4.html", "title": "Chapter 4",
+        "file": "chapter-4.html",
+        "title": "Chapter 4",
         "lede": "This chapter is awaiting content.",
-        "recap": None, "core": None, "detail": None,
     },
     {
-        "file": "chapter-5.html", "title": "Chapter 5",
+        "file": "chapter-5.html",
+        "title": "Chapter 5",
         "lede": "This chapter is awaiting content.",
-        "recap": None, "core": None, "detail": None,
     },
 ]
 # ---------------------------------------------------------------------------
@@ -520,6 +399,30 @@ PRACTICE_CHAPTERS = {
     2: ("ch2", "System Life Cycle Concepts, Models & Processes", 100),
 }
 
+# Extra script for podcast pages (custom audio player).
+PODCAST_SCRIPTS = """
+<script src="assets/podcast-player.js"></script>"""
+
+# Optional custom intro (lede) for a chapter sub-page, keyed by (chapter#, section-suffix).
+# Any page not listed here inherits its chapter's lede. Content itself is auto-discovered
+# from content/chapters/ch<N>/<suffix>.html — drop a file there and it becomes that page.
+SUBPAGE_LEDES = {
+    (2, "core-concepts"): "A deeper pass through the System Life Cycle: how work is organised into stages and gated by decisions, the three families of life-cycle models and when each fits, and the ISO/IEC/IEEE 15288 process framework that turns a need into a delivered, operated, and retired system. This builds on the Quick Recap with more structure, vocabulary, and worked reasoning, and prepares the ground for the figure-by-figure Detailed Review.",
+    (2, "detailed-review"): "A thorough, section-by-section walk through “System Life Cycle Concepts, Models, and Processes.” We cover life-cycle stages and decision gates, the sequential / incremental / evolutionary model families, and all thirty ISO/IEC/IEEE 15288 processes across four groups — illustrated with the original handbook figures and their attributions.",
+}
+
+
+def chapter_src(i, suffix):
+    """Path to a chapter sub-page's content fragment, or None if not authored yet."""
+    rel = "content/chapters/ch%d/%s.html" % (i, suffix)
+    return rel if os.path.exists(os.path.join(ROOT, rel)) else None
+
+
+def podcast_src(i):
+    """Path to a chapter's podcast fragment, or None if not authored yet."""
+    rel = "content/podcasts/ch%d.html" % i
+    return rel if os.path.exists(os.path.join(ROOT, rel)) else None
+
 BACK_TO_TOP = '<button class="back-to-top" aria-label="Back to top">&#8593;</button>'
 BACKDROP = '<div class="backdrop"></div>'
 
@@ -740,17 +643,52 @@ def build_site_data():
 # WRITE EVERYTHING
 # ---------------------------------------------------------------------------
 
+# Build bookkeeping (populated by write()) — powers the build report + guards.
+GENERATED = []        # list of (path, is_placeholder)
+SKIPPED = []          # pages we refused to overwrite to protect real content
+PLACEHOLDER_MARKER = '<div class="note__label">Coming soon</div>'
+
+
+def is_placeholder_html(s):
+    """True if an HTML page is just a 'Coming soon' placeholder."""
+    return PLACEHOLDER_MARKER in s
+
+
 def write(path, content):
     full = os.path.join(ROOT, path)
+    new_is_ph = path.endswith(".html") and is_placeholder_html(content)
+
+    # GUARD: never silently replace a page that has real content with a placeholder.
+    # The reliable signal is the placeholder marker itself: if the page on disk is NOT
+    # a placeholder but the generator now has no content for it, refuse to overwrite.
+    # This protects content authored directly in a generated HTML file (bypassing a
+    # source). Move such content into a source, or delete the file, to clear it.
+    if new_is_ph and os.path.exists(full):
+        existing = open(full, encoding="utf-8").read()
+        if existing.strip() and not is_placeholder_html(existing):
+            SKIPPED.append(path)
+            print("  !! WARNING: %s already has real content, but the generator has none "
+                  "for it.\n     Skipped to avoid wiping it. Put its content in a source "
+                  "(content/<name>.html\n     or inline blocks in MODULES) to silence this, "
+                  "or delete the file to reset it." % path)
+            return
+
     os.makedirs(os.path.dirname(full), exist_ok=True)
     with open(full, "w", encoding="utf-8") as f:
         f.write(content)
+    GENERATED.append((path, new_is_ph))
     print("wrote", path)
 
 
 def read_text(path):
-    """Read a pre-authored content fragment (relative to repo root)."""
-    with open(os.path.join(ROOT, path), encoding="utf-8") as f:
+    """Read a pre-authored content fragment (relative to repo root).
+    Fails loudly (rather than producing a blank page) if the file is missing."""
+    full = os.path.join(ROOT, path)
+    if not os.path.exists(full):
+        raise SystemExit(
+            "ERROR: content file '%s' is referenced by generate.py but does not exist.\n"
+            "Create it (or fix the path) before building." % path)
+    with open(full, encoding="utf-8") as f:
         return f.read().strip()
 
 
@@ -773,23 +711,20 @@ def main():
         write(m["file"], landing_page(m["title"], m["lede"],
               [("Home", "index.html"), (m["title"], None)], tile_sets)); pages += 1
 
-        subs = [(title, key, suffix, blurb) for title, key, suffix, _icon, blurb in CHAPTER_SECTIONS]
-        for j, (title, key, suffix, blurb) in enumerate(subs):
+        subs = [(title, suffix) for title, _key, suffix, _icon, _blurb in CHAPTER_SECTIONS]
+        for j, (title, _key, suffix, _icon, blurb) in enumerate(CHAPTER_SECTIONS):
             fname = subfile(m["file"], suffix)
-            content = m.get(key)
-            prevl = (subs[j - 1][0], subfile(m["file"], subs[j - 1][2])) if j > 0 else (m["title"], m["file"])
-            nextl = (subs[j + 1][0], subfile(m["file"], subs[j + 1][2])) if j < len(subs) - 1 else None
+            prevl = (subs[j - 1][0], subfile(m["file"], subs[j - 1][1])) if j > 0 else (m["title"], m["file"])
+            nextl = (subs[j + 1][0], subfile(m["file"], subs[j + 1][1])) if j < len(subs) - 1 else None
             crumbs = [("Home", "index.html"), (m["title"], m["file"]), (title, None)]
             ptitle = "%s — %s" % (m["title"], title)
-            if isinstance(content, dict) and content.get("src"):
-                # Pre-authored rich HTML body kept in content/ (e.g. pages with figures
-                # or tables); wrapped in the current shell so a regenerate never wipes it.
-                body_html = read_text(content["src"])
-                write(fname, page_shell(ptitle, content.get("lede", ""), crumbs,
-                      body_html, prevl, nextl)); pages += 1
-            elif content:
-                write(fname, prose_page(ptitle, m["lede"], crumbs,
-                      promote(content), prevl, nextl)); pages += 1
+            src = chapter_src(i, suffix)
+            if src:
+                # Content is auto-discovered from content/chapters/ch<N>/<suffix>.html and
+                # wrapped in the current shell, so a regenerate never wipes it. Custom intro
+                # via SUBPAGE_LEDES; otherwise the page inherits its chapter's lede.
+                lede = SUBPAGE_LEDES.get((i, suffix)) or m["lede"]
+                write(fname, page_shell(ptitle, lede, crumbs, read_text(src), prevl, nextl)); pages += 1
             else:
                 lede = "%s for %s — coming soon." % (title, m["title"])
                 write(fname, prose_page(ptitle, lede, crumbs,
@@ -833,9 +768,17 @@ def main():
         [("Podcast by chapter", None, podcast_tiles)])); pages += 1
     for i, m in enumerate(MODULES, 1):
         crumbs = [("Home", "index.html"), ("Podcast", "podcast.html"), (m["title"], None)]
-        blocks = placeholder_blocks("The podcast episode and notes for %s will appear here." % m["title"])
-        write(podcast_file(i), prose_page("Podcast — %s" % m["title"],
-              "Podcast for %s — coming soon." % m["title"], crumbs, blocks)); pages += 1
+        ptitle = "Podcast — %s" % m["title"]
+        src = podcast_src(i)
+        if src:
+            # Auto-discovered from content/podcasts/ch<N>.html; needs the audio-player script.
+            lede = "Audio discussions for %s. Choose the short summary or the full deep-dive." % m["title"]
+            write(podcast_file(i), page_shell(ptitle, lede, crumbs, read_text(src),
+                  extra_scripts=PODCAST_SCRIPTS)); pages += 1
+        else:
+            blocks = placeholder_blocks("The podcast episode and notes for %s will appear here." % m["title"])
+            write(podcast_file(i), prose_page(ptitle,
+                  "Podcast for %s — coming soon." % m["title"], crumbs, blocks)); pages += 1
 
     # ---- Weekly plan & case studies ----
     for p in SECTION_PAGES:
@@ -850,7 +793,28 @@ def main():
         write(p["file"], content_page(p, crumbs, prevl, nextl)); pages += 1
 
     write("assets/site-data.js", build_site_data())
-    print("\nDone. %d pages written." % pages)
+    build_report()
+
+
+def build_report():
+    html_pages = [(p, ph) for p, ph in GENERATED if p.endswith(".html")]
+    placeholders = sorted(p for p, ph in html_pages if ph)
+    rich = [p for p, ph in html_pages if not ph]
+    print("\n=== Build report ===")
+    print("  %d HTML pages: %d with content, %d placeholder."
+          % (len(html_pages), len(rich), len(placeholders)))
+    if placeholders:
+        print("  Placeholders still to fill (add a source to turn these into real pages):")
+        for p in placeholders:
+            print("    - " + p)
+    if SKIPPED:
+        print("  !! %d page(s) SKIPPED to protect existing content — see warnings above:"
+              % len(SKIPPED))
+        for p in SKIPPED:
+            print("    - " + p)
+    print("\nTip: run `git diff --stat` now — only the pages you intended to change "
+          "should appear.\n     If an unexpected page shows up, that update touched "
+          "more than intended.")
 
 
 if __name__ == "__main__":

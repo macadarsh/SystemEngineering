@@ -194,43 +194,8 @@ window.SITE = {
       "title": "Chapter 1 — Quick Recap",
       "href": "chapter-1-quick-recap.html",
       "section": "Chapter 1",
-      "keywords": "What is systems engineering? What SE focuses on What is a system? Where SE came from Why is systems engineering important? Systems concepts System boundary and the system of interest (SoI) Black-box and white-box views Emergence Interfacing, interoperating, and enabling systems Hierarchy, states, and modes Complexity Systems engineering foundations Uncertainty Cognitive bias Systems engineering principles Systems engineering heuristics System science and systems thinking",
-      "snippet": "Systems Engineering Introduction — what SE is, why it matters, its core systems concepts, its foundations, and its roots in systems thinking. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 1."
-    },
-    {
-      "title": "What is systems engineering?",
-      "href": "chapter-1-quick-recap.html#what-is-systems-engineering",
-      "section": "Chapter 1 · Quick Recap",
       "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Why is systems engineering important?",
-      "href": "chapter-1-quick-recap.html#why-is-systems-engineering-important",
-      "section": "Chapter 1 · Quick Recap",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Systems concepts",
-      "href": "chapter-1-quick-recap.html#systems-concepts",
-      "section": "Chapter 1 · Quick Recap",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Systems engineering foundations",
-      "href": "chapter-1-quick-recap.html#systems-engineering-foundations",
-      "section": "Chapter 1 · Quick Recap",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "System science and systems thinking",
-      "href": "chapter-1-quick-recap.html#system-science-and-systems-thinking",
-      "section": "Chapter 1 · Quick Recap",
-      "keywords": "",
-      "snippet": ""
+      "snippet": "A fast, high-level summary of the chapter — the key points at a glance."
     },
     {
       "title": "Chapter 1 — Core Concepts",
@@ -257,43 +222,22 @@ window.SITE = {
       "title": "Chapter 2 — Quick Recap",
       "href": "chapter-2-quick-recap.html",
       "section": "Chapter 2",
-      "keywords": "Life-cycle terms and concepts Life-cycle characteristics Typical life-cycle stages Decision gates Technical reviews and audits Life-cycle model approaches Sequential methods Incremental methods Evolutionary methods System life-cycle processes Concurrency, iteration, and recursion Agreement processes Organizational project-enabling processes Technical management processes Technical processes",
-      "snippet": "System Life Cycle Concepts, Models, and Processes — life-cycle stages and decision gates, the sequential / incremental / evolutionary model families, and the four ISO/IEC/IEEE 15288 process groups. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 2."
-    },
-    {
-      "title": "Life-cycle terms and concepts",
-      "href": "chapter-2-quick-recap.html#life-cycle-terms-and-concepts",
-      "section": "Chapter 2 · Quick Recap",
       "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "Life-cycle model approaches",
-      "href": "chapter-2-quick-recap.html#life-cycle-model-approaches",
-      "section": "Chapter 2 · Quick Recap",
-      "keywords": "",
-      "snippet": ""
-    },
-    {
-      "title": "System life-cycle processes",
-      "href": "chapter-2-quick-recap.html#system-life-cycle-processes",
-      "section": "Chapter 2 · Quick Recap",
-      "keywords": "",
-      "snippet": ""
+      "snippet": "A fast, high-level summary of the chapter — the key points at a glance."
     },
     {
       "title": "Chapter 2 — Core Concepts",
       "href": "chapter-2-core-concepts.html",
       "section": "Chapter 2",
       "keywords": "",
-      "snippet": "System Life Cycle Concepts, Models, and Processes — life-cycle stages and decision gates, the sequential / incremental / evolutionary model families, and the four ISO/IEC/IEEE 15288 process groups. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 2."
+      "snippet": "The essential ideas explained with more depth, structure, and examples."
     },
     {
       "title": "Chapter 2 — Detailed Review",
       "href": "chapter-2-detailed-review.html",
       "section": "Chapter 2",
       "keywords": "",
-      "snippet": "System Life Cycle Concepts, Models, and Processes — life-cycle stages and decision gates, the sequential / incremental / evolutionary model families, and the four ISO/IEC/IEEE 15288 process groups. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 2."
+      "snippet": "A thorough, section-by-section walk through the chapter material."
     },
     {
       "title": "Chapter 3",
