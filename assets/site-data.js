@@ -237,14 +237,14 @@ window.SITE = {
       "href": "chapter-1-core-concepts.html",
       "section": "Chapter 1",
       "keywords": "",
-      "snippet": "The essential ideas explained with more depth, structure, and examples."
+      "snippet": "Systems Engineering Introduction — what SE is, why it matters, its core systems concepts, its foundations, and its roots in systems thinking. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 1."
     },
     {
       "title": "Chapter 1 — Detailed Review",
       "href": "chapter-1-detailed-review.html",
       "section": "Chapter 1",
       "keywords": "",
-      "snippet": "A thorough, section-by-section walk through the chapter material."
+      "snippet": "Systems Engineering Introduction — what SE is, why it matters, its core systems concepts, its foundations, and its roots in systems thinking. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 1."
     },
     {
       "title": "Chapter 2",
