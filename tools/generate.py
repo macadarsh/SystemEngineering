@@ -167,8 +167,16 @@ MODULES = [
             ("p", "In the handbook, each process is described with a consistent structure — purpose, description, inputs/outputs, activities, and common approaches — and illustrated with an input–process–output (IPO) diagram."),
             ("tip", "Source", "This recap summarises, in our own words for learning, the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 2, ‘System Life Cycle Concepts, Models, and Processes,’ which draws on ISO/IEC/IEEE 15288 and 24748. Consult the handbook for the authoritative text."),
         ],
-        "core": None,
-        "detail": None,
+        # Pre-authored rich HTML (figures + tables) lives in content/; see read_text()
+        # path in main(). Edit those files to change the content, then re-run the generator.
+        "core": {
+            "src": "content/ch2-core.html",
+            "lede": "A deeper pass through the System Life Cycle: how work is organised into stages and gated by decisions, the three families of life-cycle models and when each fits, and the ISO/IEC/IEEE 15288 process framework that turns a need into a delivered, operated, and retired system. This builds on the Quick Recap with more structure, vocabulary, and worked reasoning, and prepares the ground for the figure-by-figure Detailed Review.",
+        },
+        "detail": {
+            "src": "content/ch2-detail.html",
+            "lede": "A thorough, section-by-section walk through “System Life Cycle Concepts, Models, and Processes.” We cover life-cycle stages and decision gates, the sequential / incremental / evolutionary model families, and all thirty ISO/IEC/IEEE 15288 processes across four groups — illustrated with the original handbook figures and their attributions.",
+        },
     },
     {
         "file": "chapter-3.html", "title": "Chapter 3",
@@ -740,6 +748,12 @@ def write(path, content):
     print("wrote", path)
 
 
+def read_text(path):
+    """Read a pre-authored content fragment (relative to repo root)."""
+    with open(os.path.join(ROOT, path), encoding="utf-8") as f:
+        return f.read().strip()
+
+
 def main():
     pages = 0
     write("index.html", home_page()); pages += 1
@@ -762,13 +776,24 @@ def main():
         subs = [(title, key, suffix, blurb) for title, key, suffix, _icon, blurb in CHAPTER_SECTIONS]
         for j, (title, key, suffix, blurb) in enumerate(subs):
             fname = subfile(m["file"], suffix)
-            blocks = m.get(key)
-            page_blocks = promote(blocks) if blocks else placeholder_blocks(blurb)
+            content = m.get(key)
             prevl = (subs[j - 1][0], subfile(m["file"], subs[j - 1][2])) if j > 0 else (m["title"], m["file"])
             nextl = (subs[j + 1][0], subfile(m["file"], subs[j + 1][2])) if j < len(subs) - 1 else None
-            lede = m["lede"] if blocks else ("%s for %s — coming soon." % (title, m["title"]))
             crumbs = [("Home", "index.html"), (m["title"], m["file"]), (title, None)]
-            write(fname, prose_page("%s — %s" % (m["title"], title), lede, crumbs, page_blocks, prevl, nextl)); pages += 1
+            ptitle = "%s — %s" % (m["title"], title)
+            if isinstance(content, dict) and content.get("src"):
+                # Pre-authored rich HTML body kept in content/ (e.g. pages with figures
+                # or tables); wrapped in the current shell so a regenerate never wipes it.
+                body_html = read_text(content["src"])
+                write(fname, page_shell(ptitle, content.get("lede", ""), crumbs,
+                      body_html, prevl, nextl)); pages += 1
+            elif content:
+                write(fname, prose_page(ptitle, m["lede"], crumbs,
+                      promote(content), prevl, nextl)); pages += 1
+            else:
+                lede = "%s for %s — coming soon." % (title, m["title"])
+                write(fname, prose_page(ptitle, lede, crumbs,
+                      placeholder_blocks(blurb), prevl, nextl)); pages += 1
 
     # ---- Practice Q/A: landing + per-chapter pages ----
     practice_tiles = []

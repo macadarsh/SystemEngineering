@@ -286,14 +286,14 @@ window.SITE = {
       "href": "chapter-2-core-concepts.html",
       "section": "Chapter 2",
       "keywords": "",
-      "snippet": "The essential ideas explained with more depth, structure, and examples."
+      "snippet": "System Life Cycle Concepts, Models, and Processes — life-cycle stages and decision gates, the sequential / incremental / evolutionary model families, and the four ISO/IEC/IEEE 15288 process groups. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 2."
     },
     {
       "title": "Chapter 2 — Detailed Review",
       "href": "chapter-2-detailed-review.html",
       "section": "Chapter 2",
       "keywords": "",
-      "snippet": "A thorough, section-by-section walk through the chapter material."
+      "snippet": "System Life Cycle Concepts, Models, and Processes — life-cycle stages and decision gates, the sequential / incremental / evolutionary model families, and the four ISO/IEC/IEEE 15288 process groups. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 2."
     },
     {
       "title": "Chapter 3",
