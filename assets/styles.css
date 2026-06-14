@@ -905,3 +905,109 @@ mark.search-hit {
 .player__btn--main:hover { background: var(--accent); filter: brightness(1.06); border-color: var(--accent); }
 .player__btn--rate { margin-left: auto; min-width: 48px; font-variant-numeric: tabular-nums; }
 .player__btn[disabled] { opacity: .5; cursor: default; pointer-events: none; }
+
+/* ============================================================
+   Practice quiz  (per-chapter self-check)
+   ============================================================ */
+:root      { --qz-good:#11a85a; --qz-bad:#d23b3b; }
+[data-theme="dark"] { --qz-good:#38ef7d; --qz-bad:#ff6a6a; }
+[data-theme="dim"]  { --qz-good:#3ddc84; --qz-bad:#ff7a7a; }
+[data-theme="sepia"]{ --qz-good:#3f7a5a; --qz-bad:#b0472c; }
+
+.qz-setup {
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 22px clamp(16px,3vw,28px);
+  box-shadow: var(--shadow-sm);
+}
+.qz-field { margin: 0 0 18px; }
+.qz-field:last-of-type { margin-bottom: 0; }
+.qz-field__label { font-weight: 700; font-size: 14px; margin: 0 0 9px; color: var(--text); }
+.qz-field__hint  { font-size: 13px; color: var(--text-faint); margin: 6px 0 0; }
+
+.qz-seg { display: inline-flex; flex-wrap: wrap; gap: 8px; }
+.qz-seg button {
+  cursor: pointer; font: inherit; font-weight: 600; font-size: 14px; color: var(--text);
+  padding: 9px 16px; border-radius: 999px; background: var(--bg-elev);
+  border: 1px solid var(--border); transition: border-color .15s, background .15s, color .15s;
+}
+.qz-seg button:hover { border-color: var(--accent); }
+.qz-seg button.is-on { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+
+.qz-actions { margin-top: 22px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.qz-actions .qz-hint { color: var(--text-faint); font-size: 13.5px; }
+
+/* sticky control bar during a quiz */
+.qz-bar {
+  position: sticky; top: 64px; z-index: 20; display: flex; align-items: center; gap: 12px;
+  flex-wrap: wrap; padding: 11px 16px; margin: 0 0 20px;
+  background: color-mix(in srgb, var(--bg-elev) 90%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow-sm);
+}
+.qz-bar__prog { font-weight: 600; color: var(--text-muted); font-size: 14px; }
+.qz-bar__grow { flex: 1; }
+.btn--sm { padding: 9px 16px; font-size: 14px; border-radius: 10px; }
+
+/* question card */
+.qz-card {
+  background: var(--bg-panel); border: 1px solid var(--border); border-radius: 12px;
+  padding: 18px 20px; margin: 0 0 16px;
+}
+.qz-card__num { font-size: 12px; font-weight: 800; letter-spacing: .6px; text-transform: uppercase; color: var(--text-faint); }
+.qz-card__q { font-weight: 650; font-size: 16.5px; line-height: 1.5; margin: 6px 0 14px; color: var(--text); }
+
+.qz-opt {
+  display: flex; align-items: flex-start; gap: 11px; padding: 12px 14px; margin: 0 0 9px;
+  border-radius: 11px; cursor: pointer; background: var(--bg-soft);
+  border: 1px solid transparent; transition: background .15s, border-color .15s;
+}
+.qz-opt:hover { border-color: var(--border); }
+.qz-opt__mark {
+  width: 26px; height: 26px; flex-shrink: 0; border-radius: 50%; border: 2px solid var(--text-faint);
+  display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--text-muted);
+}
+.qz-opt__txt { line-height: 1.5; padding-top: 2px; }
+.qz-opt.is-sel { background: var(--accent-soft); border-color: var(--accent); }
+.qz-opt.is-sel .qz-opt__mark { border-color: var(--accent); background: var(--accent); color: var(--accent-text); }
+.qz-opt.is-locked { cursor: default; }
+.qz-opt.is-correct { background: color-mix(in srgb, var(--qz-good) 16%, var(--bg-panel)); border-color: var(--qz-good); }
+.qz-opt.is-correct .qz-opt__mark { border-color: var(--qz-good); background: var(--qz-good); color: #fff; }
+.qz-opt.is-wrong { background: color-mix(in srgb, var(--qz-bad) 16%, var(--bg-panel)); border-color: var(--qz-bad); }
+.qz-opt.is-wrong .qz-opt__mark { border-color: var(--qz-bad); background: var(--qz-bad); color: #fff; }
+
+.qz-expl {
+  margin-top: 8px; padding: 13px 15px; border-radius: 11px; background: var(--bg-soft);
+  border-left: 3px solid var(--accent); font-size: 14.5px; line-height: 1.55; color: var(--text-muted);
+}
+.qz-expl strong { color: var(--text); }
+
+.qz-badge { font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; margin-left: 8px; white-space: nowrap; }
+.qz-badge--correct { background: color-mix(in srgb, var(--qz-good) 18%, var(--bg-panel)); color: var(--qz-good); }
+.qz-badge--wrong   { background: color-mix(in srgb, var(--qz-bad) 18%, var(--bg-panel)); color: var(--qz-bad); }
+.qz-badge--skip    { background: var(--bg-soft); color: var(--text-muted); }
+
+/* scoreboard */
+.qz-score { background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; margin: 0 0 18px; box-shadow: var(--shadow-sm); }
+.qz-score__head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.qz-score__msg { font-size: 20px; font-weight: 800; color: var(--text); }
+.qz-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0 0; }
+.qz-stat { background: var(--bg-soft); border-radius: 12px; padding: 14px; text-align: center; }
+.qz-stat__v { font-size: 26px; font-weight: 800; line-height: 1; color: var(--text); }
+.qz-stat__l { font-size: 12px; color: var(--text-muted); margin-top: 6px; text-transform: uppercase; letter-spacing: .5px; }
+.qz-stat--good .qz-stat__v { color: var(--qz-good); }
+.qz-stat--bad  .qz-stat__v { color: var(--qz-bad); }
+
+.qz-filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.qz-filters__label { font-size: 13px; color: var(--text-muted); font-weight: 600; margin-right: 2px; }
+.qz-fbtn {
+  cursor: pointer; font: inherit; font-weight: 600; font-size: 13px; color: var(--text);
+  padding: 7px 13px; border-radius: 999px; background: var(--bg-elev); border: 1px solid var(--border);
+  transition: border-color .15s, background .15s, color .15s;
+}
+.qz-fbtn:hover { border-color: var(--accent); }
+.qz-fbtn.is-on { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+
+@media (max-width: 560px) {
+  .qz-stats { grid-template-columns: repeat(2, 1fr); }
+  .qz-bar { top: 58px; }
+}

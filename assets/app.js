@@ -499,6 +499,7 @@
     var input = ov.querySelector(".so-input");
     input.value = q;
     ov.hidden = false;
+    ov.classList.add("is-open");
     document.body.classList.add("search-open");
     ov.scrollTop = 0;
     loadSearchIndex(function () { doSearch(q); });
@@ -507,6 +508,7 @@
   function closeSearch() {
     if (!SEARCH) return;
     SEARCH.hidden = true;
+    SEARCH.classList.remove("is-open");
     document.body.classList.remove("search-open");
   }
 

@@ -493,9 +493,24 @@ def head(title, desc):
 
 
 SCRIPTS = """<script src="assets/site-data.js"></script>
-<script src="assets/app.js"></script>
+<script src="assets/app.js"></script>"""
+
+# Extra scripts for interactive practice (quiz) pages. practice-data.js must load
+# before practice.js (the engine reads window.PRACTICE).
+PRACTICE_SCRIPTS = """
+<script src="assets/practice-data.js"></script>
+<script src="assets/practice.js"></script>"""
+
+DOC_END = """
 </body>
 </html>"""
+
+# Chapter index -> (data id in practice-data.js, descriptive name, question count).
+# Only these chapters render an interactive quiz; others stay "coming soon".
+PRACTICE_CHAPTERS = {
+    1: ("ch1", "Systems Engineering Foundations", 100),
+    2: ("ch2", "System Life Cycle Concepts, Models & Processes", 100),
+}
 
 BACK_TO_TOP = '<button class="back-to-top" aria-label="Back to top">&#8593;</button>'
 BACKDROP = '<div class="backdrop"></div>'
@@ -523,7 +538,7 @@ def crumbs_html(crumbs):
     return '<div class="breadcrumb">' + " &rsaquo; ".join(parts) + "</div>"
 
 
-def page_shell(title, lede, crumbs, body, prev_link=None, next_link=None):
+def page_shell(title, lede, crumbs, body, prev_link=None, next_link=None, extra_scripts=""):
     pager = '<div class="pager">'
     pager += ('<a class="prev" href="%s"><small>&larr; Previous</small>%s</a>' % (prev_link[1], prev_link[0])
               if prev_link else "<span></span>")
@@ -550,6 +565,8 @@ def page_shell(title, lede, crumbs, body, prev_link=None, next_link=None):
     doc += "</div>"
     doc += BACK_TO_TOP
     doc += SCRIPTS
+    doc += extra_scripts
+    doc += DOC_END
     return doc
 
 
@@ -624,6 +641,7 @@ def home_page():
     doc += "</div>"  # .home
     doc += BACK_TO_TOP
     doc += SCRIPTS
+    doc += DOC_END
     return doc
 
 
@@ -753,17 +771,33 @@ def main():
             write(fname, prose_page("%s — %s" % (m["title"], title), lede, crumbs, page_blocks, prevl, nextl)); pages += 1
 
     # ---- Practice Q/A: landing + per-chapter pages ----
-    practice_tiles = [("✅", m["title"], "Practice questions for %s." % m["title"], practice_file(i), "Open")
-                      for i, m in enumerate(MODULES, 1)]
+    practice_tiles = []
+    for i, m in enumerate(MODULES, 1):
+        if i in PRACTICE_CHAPTERS:
+            _id, name, count = PRACTICE_CHAPTERS[i]
+            practice_tiles.append(("✅", m["title"], "%s — %d questions." % (name, count),
+                                   practice_file(i), "Start practising"))
+        else:
+            practice_tiles.append(("\U0001F553", m["title"], "Practice questions coming soon.",
+                                   practice_file(i), "Coming soon"))
     write("practice-questions.html", landing_page(
         "Practice Q/A", "Self-check questions for each chapter — pick a chapter to begin.",
         [("Home", "index.html"), ("Practice Q/A", None)],
         [("Practice by chapter", None, practice_tiles)])); pages += 1
     for i, m in enumerate(MODULES, 1):
         crumbs = [("Home", "index.html"), ("Practice Q/A", "practice-questions.html"), (m["title"], None)]
-        blocks = placeholder_blocks("Practice questions for %s will appear here." % m["title"])
-        write(practice_file(i), prose_page("Practice Q/A — %s" % m["title"],
-              "Self-check questions for %s — coming soon." % m["title"], crumbs, blocks)); pages += 1
+        if i in PRACTICE_CHAPTERS:
+            data_id, name, count = PRACTICE_CHAPTERS[i]
+            lede = ("%s — %d multiple-choice questions. Choose how many and in what order, "
+                    "answer at your own pace, then submit to score and review with explanations."
+                    % (name, count))
+            body = '<div id="quiz" data-chapter="%s"></div>' % data_id
+            write(practice_file(i), page_shell("Practice Q/A — %s" % m["title"], lede, crumbs,
+                  body, extra_scripts=PRACTICE_SCRIPTS)); pages += 1
+        else:
+            blocks = placeholder_blocks("Practice questions for %s will appear here." % m["title"])
+            write(practice_file(i), prose_page("Practice Q/A — %s" % m["title"],
+                  "Self-check questions for %s — coming soon." % m["title"], crumbs, blocks)); pages += 1
 
     # ---- Podcast: landing + per-chapter pages ----
     podcast_tiles = [("\U0001F3A7", m["title"], "Podcast episode for %s." % m["title"], podcast_file(i), "Open")

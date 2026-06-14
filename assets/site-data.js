@@ -285,15 +285,15 @@ window.SITE = {
       "title": "Chapter 2 — Core Concepts",
       "href": "chapter-2-core-concepts.html",
       "section": "Chapter 2",
-      "keywords": "life cycle stages decision gates sequential incremental evolutionary agile vee waterfall devsecops ISO 15288 processes concurrency iteration recursion verification validation tailoring SEMP",
-      "snippet": "A deeper pass through life-cycle stages and gates, the three model families, and the ISO/IEC/IEEE 15288 process framework."
+      "keywords": "",
+      "snippet": "The essential ideas explained with more depth, structure, and examples."
     },
     {
       "title": "Chapter 2 — Detailed Review",
       "href": "chapter-2-detailed-review.html",
       "section": "Chapter 2",
-      "keywords": "life cycle stages decision gates technical reviews audits sequential incremental evolutionary vee ICSM devsecops agreement acquisition supply organizational project enabling technical management risk measurement configuration verification validation transition operation maintenance disposal figures 15288",
-      "snippet": "Section-by-section walkthrough of stages, model approaches, and all thirty 15288 processes, with the original handbook figures and attribution."
+      "keywords": "",
+      "snippet": "A thorough, section-by-section walk through the chapter material."
     },
     {
       "title": "Chapter 3",
