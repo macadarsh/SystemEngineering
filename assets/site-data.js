@@ -299,29 +299,29 @@ window.SITE = {
       "title": "Chapter 3",
       "href": "chapter-3.html",
       "section": "Chapters",
-      "keywords": "",
-      "snippet": "This chapter is awaiting content."
+      "keywords": "quality characteristics, ilities, specialty engineering, DFX, affordability, life cycle cost, LCC, RAM, reliability availability maintainability, MTBF, MTTR, resilience, safety, ALARP, security, trustworthiness, HSI, TOP model, interoperability, logistics, ILS, sustainability, agility, loss-driven, MBSE, modeling analysis simulation, prototyping, traceability, interface management, N2 diagram, ICD, architecture frameworks, TOGAF, DoDAF, patterns, design thinking, biomimicry, INCOSE, ASEP",
+      "snippet": "Life Cycle Analyses and Methods — the quality-characteristic approaches (affordability, RAM, safety, security, resilience, HSI, logistics, and more) and the cross-cutting SE methods (modelling and simulation, prototyping, traceability, interface management, architecture frameworks, patterns). Based on the INCOSE SE Handbook, 5th Edition (2023), Chapter 3."
     },
     {
       "title": "Chapter 3 — Quick Recap",
       "href": "chapter-3-quick-recap.html",
       "section": "Chapter 3",
-      "keywords": "",
-      "snippet": "A fast, high-level summary of the chapter — the key points at a glance."
+      "keywords": "quality characteristic, ilities, RAM, availability types, inherent achieved operational, resilience avoid withstand recover, ALARP, near miss, traceability, N2 diagram, MBSE, exam focus, ASEP",
+      "snippet": "A fast, high-level summary of Chapter 3: the quality-characteristic ilities and the cross-cutting SE methods, with the high-yield ASEP exam points flagged."
     },
     {
       "title": "Chapter 3 — Core Concepts",
       "href": "chapter-3-core-concepts.html",
       "section": "Chapter 3",
-      "keywords": "",
-      "snippet": "The essential ideas explained with more depth, structure, and examples."
+      "keywords": "affordability, cost-effectiveness, LCC methods, COSYSMO, RAM, inherent achieved operational availability, MTBF MTTR, resilience taxonomy, ALARP, hazard, CIA trustworthiness, NIST 800-160, TOP model, LORA, RCM, MBSE, surrogate model, black box white box, traceability bidirectional vertical horizontal, N2 DSM coupling matrix, ICD, 42010 view viewpoint, TOGAF DoDAF, S*Pattern, biomimicry",
+      "snippet": "A deeper, exam-weighted pass through the quality-characteristic approaches and the cross-cutting SE methods — definitions, representative ilities, and the high-yield distinctions."
     },
     {
       "title": "Chapter 3 — Detailed Review",
       "href": "chapter-3-detailed-review.html",
       "section": "Chapter 3",
-      "keywords": "",
-      "snippet": "A thorough, section-by-section walk through the chapter material."
+      "keywords": "figures 3.1 to 3.18, system operational effectiveness, cost versus performance, life cycle cost elements, HSI TOP model, resilience scenario, MA&S process, model taxonomy, hub and spokes, N2 diagram, coupling matrix, UAM, enterprise product framework, S*Pattern hierarchy, biomimicry, RAM, availability, ALARP, traceability, interface management",
+      "snippet": "A thorough, section-by-section walk through Life Cycle Analyses and Methods — every quality-characteristic approach and SE method, illustrated with the original handbook figures 3.1 to 3.18."
     },
     {
       "title": "Chapter 4",

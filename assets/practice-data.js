@@ -2411,5 +2411,1211 @@ window.PRACTICE = {
         "explanation": "Sec 2.3.5.8: an aggregate is made up of several system elements and their physical and functional interfaces, characterized by a configuration; verification actions are applied to each aggregate."
       }
     ]
+  },
+  "ch3": {
+    "no": 3,
+    "title": "Life Cycle Analyses and Methods",
+    "questions": [
+      {
+        "n": 1,
+        "q": "How does ISO/IEC/IEEE 15288 (2023) define a quality characteristic (QC)?",
+        "options": [
+          "A measurable defect rate observed during production and acceptance testing",
+          "An inherent characteristic of a product, process, or system related to a requirement",
+          "A contractual performance guarantee negotiated between acquirer and supplier",
+          "A functional capability that the system must deliver to satisfy its mission"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.1.1: a QC is an inherent characteristic of a product, process, or system related to a requirement; QCs are how stakeholders judge quality."
+      },
+      {
+        "n": 2,
+        "q": "In previous editions of the handbook, the QC approaches were known by which name?",
+        "options": [
+          "Non-functional engineering, also referred to as quality assurance engineering",
+          "Through-life systems management and sustainment planning",
+          "Design verification and quality control engineering",
+          "Specialty engineering (the engineering specialties)"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.1.1: QC approaches were previously called specialty engineering; they are also known as Design for X (DFX) and through-life considerations, and informally as the -ilities."
+      },
+      {
+        "n": 3,
+        "q": "QC approaches are also informally known as the '-ilities' because they:",
+        "options": [
+          "Are deliberately written as optional 'nice to have' goals that need not trace to requirements",
+          "Apply only during the utilization and support stages, once the system has been fielded to users",
+          "Often (but not always) end in 'ility', such as reliability, maintainability, and availability",
+          "Are quantified exclusively through reliability-block-diagram and fault-tree analysis techniques"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.1.1: the QCs are informally called the -ilities because many, though not all, end in 'ility'."
+      },
+      {
+        "n": 4,
+        "q": "Most QC approaches generate non-functional requirements, but which approaches may ALSO generate functional requirements?",
+        "options": [
+          "Affordability, logistics, and producibility",
+          "Interoperability, sustainability, and agility",
+          "Safety, security, and resilience",
+          "Maintainability, availability, and reliability"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.1.1: QC approaches often generate non-functional requirements; some such as safety, security, and resilience may also generate functional requirements."
+      },
+      {
+        "n": 5,
+        "q": "Why does the handbook present the QC approaches in alphabetical order?",
+        "options": [
+          "To avoid giving more weight or importance to one approach over another",
+          "Because that is the sequence in which they are applied across the life cycle",
+          "To match the alphabetical structure of ISO/IEC/IEEE 15288",
+          "Because alphabetical order reflects their relative cost to implement"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.1.1: the approaches are covered in alphabetical order by name to avoid giving more weight to one over another."
+      },
+      {
+        "n": 6,
+        "q": "Which QC approach owns the representative characteristics 'Compatibility, Connectivity, Interoperability'?",
+        "options": [
+          "Logistics Engineering",
+          "Agility Engineering",
+          "System Security Engineering",
+          "Interoperability Analysis"
+        ],
+        "correct": 3,
+        "explanation": "Table 3.1: Interoperability Analysis ensures the system interacts effectively with other systems; its QCs are compatibility, connectivity, and interoperability."
+      },
+      {
+        "n": 7,
+        "q": "INCOSE defines system affordability as the balance of system performance, cost, and schedule constraints over the system life while:",
+        "options": [
+          "Guaranteeing the lowest life cycle cost among all of the candidate solutions evaluated in the trade study",
+          "Minimizing the acquisition cost below a fixed contractual ceiling agreed with the acquirer",
+          "Maximizing the number of delivered capabilities at the first operational release of the system",
+          "Satisfying mission needs in concert with strategic investment and organizational needs"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.1.2: affordability is the balance of performance, cost, and schedule over the life while satisfying mission needs in concert with strategic investment and organizational needs."
+      },
+      {
+        "n": 8,
+        "q": "Cost-effectiveness (CE) is defined as a measure relating:",
+        "options": [
+          "Initial cost to sustainment cost over the life cycle",
+          "Delivered capability to the maximum allowable budget",
+          "Benefits expressed in money to costs expressed in money",
+          "Achieved system effectiveness (numerator) to cost (denominator)"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.1.2: CE = system effectiveness / (initial cost + sustainment cost); reliability and maintainability are major factors because they drive sustainment cost."
+      },
+      {
+        "n": 9,
+        "q": "How does cost-effectiveness analysis (CEA) differ from cost-benefit analysis (CBA)?",
+        "options": [
+          "CEA applies only to military systems, whereas CBA applies only to commercial systems",
+          "CEA measures results in performance terms, whereas CBA uses monetary measures of outcomes",
+          "CEA ignores sustainment cost, whereas CBA includes the full life cycle cost",
+          "CEA is qualitative, whereas CBA is always based on parametric cost models"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.1.2: the cost measurement is similar, but CEA expresses results in performance terms while CBA uses monetary measures of outcomes, allowing benefits and costs to be compared in money."
+      },
+      {
+        "n": 10,
+        "q": "Which statement about Life Cycle Cost (LCC) is correct?",
+        "options": [
+          "LCC should not be equated with Total Cost of Ownership (TCO) or Whole Life Cost, which may only include post-acquisition costs",
+          "LCC deliberately excludes retirement and disposal costs because the salvage value can never be predicted reliably in advance",
+          "LCC is the single definitive, fixed cost proposal that is submitted and becomes contractually binding for the project",
+          "LCC is identical to Total Cost of Ownership and Whole Life Cost in essentially every application domain"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.1.2: LCC is the total cost across the life; it should not be equated with TCO, TOC, or WLC, which may only include costs once the system is acquired, and LCC estimates are not the definitive cost proposal."
+      },
+      {
+        "n": 11,
+        "q": "In an LCC analysis, which cost element could be either positive or negative?",
+        "options": [
+          "Concept costs",
+          "Development costs",
+          "Production costs",
+          "Retirement costs"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.1.2: retirement costs include an estimate of trade-in or salvage value and could be positive or negative, and should account for environmental disposal impacts."
+      },
+      {
+        "n": 12,
+        "q": "Which LCC estimating method uses mathematical algorithms based on historical data, with tools such as COSYSMO and COCOMO?",
+        "options": [
+          "Analogy",
+          "Parametric (algorithmic)",
+          "Delphi technique",
+          "Design-to-Cost (DTC)"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.1.2: the parametric/algorithmic method computes cost as a function of cost factors from historical data; examples include COSYSMO (SE effort) and COCOMO (software effort)."
+      },
+      {
+        "n": 13,
+        "q": "The LCC estimating method that builds estimates iteratively from multiple domain experts using surveys with feedback each round is:",
+        "options": [
+          "The Delphi technique",
+          "Expert judgment",
+          "Analogy",
+          "Bottom up"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.1.2: the Delphi technique is a structured approach that builds estimates iteratively from multiple experts using surveys, providing group-statistics feedback each round for revision."
+      },
+      {
+        "n": 14,
+        "q": "In the RAM acronym, the three interrelated quality characteristics are:",
+        "options": [
+          "Reliability, Affordability, and Manufacturability",
+          "Reliability, Availability, and Maintainability",
+          "Robustness, Availability, and Maintainability",
+          "Reliability, Adaptability, and Modularity"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.1.8: RAM (sometimes RMA) stands for Reliability, Availability, and Maintainability; these QCs are completely interrelated and strongly tied to logistics and supportability."
+      },
+      {
+        "n": 15,
+        "q": "From a user or acquirer viewpoint, which of the three RAM characteristics is often seen as the most important?",
+        "options": [
+          "Reliability",
+          "Maintainability",
+          "Availability",
+          "All three are weighted equally by definition"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.1.8: depending on the industry, availability is often seen as most important to a user/acquirer because availability loss translates directly to mission or production loss."
+      },
+      {
+        "n": 16,
+        "q": "Reliability is formally defined as the ability of a system to perform as designed, without failure, in an operational environment, for a:",
+        "options": [
+          "Stated number of operating cycles only",
+          "Stated period of time",
+          "Guaranteed minimum mission distance",
+          "Period equal to the system's warranty"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.1.8: reliability is the ability of a system to perform as designed, without failure, in an operational environment, for a stated period of time."
+      },
+      {
+        "n": 17,
+        "q": "Reliability engineering's four objectives, in priority order, begin with which objective?",
+        "options": [
+          "Apply engineering knowledge to prevent or reduce the likelihood/frequency of failures",
+          "Identify and correct the underlying causes of the failures that occur despite prevention efforts",
+          "Determine practical ways of coping with failures that occur when their causes are not corrected",
+          "Apply analytical methods for estimating the likely reliability of new and unproven designs"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.1.8: the priority order is (1) prevent/reduce failures, (2) correct causes of failures that occur, (3) cope with failures, (4) estimate reliability of new designs; proactive prevention is most cost-effective."
+      },
+      {
+        "n": 18,
+        "q": "The modern 'design for reliability' philosophy shifts the focus from:",
+        "options": [
+          "Hardware reliability concerns toward software reliability concerns almost exclusively today",
+          "Qualitative reliability requirements toward purely quantitative MTBF targets verified by test",
+          "A reactive 'test-analyze-fix' approach to a proactive approach of designing reliability into the system",
+          "Inherent availability targets toward operational availability targets late in the support stage"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.1.8: design for reliability shifts from reactive test-analyze-fix to proactively designing reliability in, emphasizing early identification of failure modes."
+      },
+      {
+        "n": 19,
+        "q": "Why does the handbook caution against using MTBF as a reliability requirement?",
+        "options": [
+          "MTBF can only be measured accurately after the system has been retired and all field data collected",
+          "MTBF is identical to Mean Time To Repair and is therefore a redundant maintainability metric",
+          "MTBF is frequently misused as an indicator of 'expected life,' which is incorrect",
+          "MTBF applies exclusively to software components and never to mechanical or electronic hardware"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.1.8: misuse of MTBF leads to a 'numbers game'; MTBF is often wrongly used as 'expected life.' Other metrics (success probability at a time, failure-free period) are recommended."
+      },
+      {
+        "n": 20,
+        "q": "Which definition of availability is based ONLY on the inherent reliability and maintainability of the system, assuming an ideal support environment?",
+        "options": [
+          "Achieved availability (Aa)",
+          "Inherent availability (Ai)",
+          "Operational availability (Ao)",
+          "Service-level availability"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.1.8: inherent availability (Ai) is based only on inherent reliability and maintainability, assumes an ideal support environment, and excludes preventive maintenance, logistics delay, and administrative delay."
+      },
+      {
+        "n": 21,
+        "q": "Achieved availability (Aa) differs from inherent availability (Ai) in that Aa:",
+        "options": [
+          "Includes logistics and administrative delay time but deliberately excludes preventive maintenance",
+          "Includes administrative delay yet still assumes a perfectly ideal, fully-resourced support setup",
+          "Excludes both preventive and corrective maintenance to isolate the inherent design contribution",
+          "Includes preventive (scheduled) maintenance but still excludes logistics and administrative delay"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.1.8: achieved availability (Aa) adds preventive maintenance to Ai, while still excluding logistics delay time and administrative delay time."
+      },
+      {
+        "n": 22,
+        "q": "Operational availability (Ao) is distinguished from the other availability types because it:",
+        "options": [
+          "Assumes an actual operational environment and therefore includes logistics and administrative delay times",
+          "Is measured only during factory acceptance testing, before the system has been fielded to its operators",
+          "Excludes preventive maintenance entirely so as to isolate the inherent design performance",
+          "Considers only the reliability of the system and deliberately disregards its maintainability"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.1.8: operational availability (Ao) assumes the actual operational environment and therefore also includes logistics delay time and administrative delay time."
+      },
+      {
+        "n": 23,
+        "q": "What is the key distinction between maintainability and maintenance?",
+        "options": [
+          "Maintainability is always unscheduled and corrective, whereas maintenance is always scheduled and preventive by definition",
+          "Maintainability applies only to the hardware elements of a system, while maintenance applies only to the software",
+          "Maintainability is measured solely by MTBF, while maintenance is measured solely by delay time",
+          "Maintainability is the inherent, designed-in ability to be restored; maintenance is the resulting series of actions taken"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.1.8: maintainability is the ability to be maintained (built into the design); maintenance is the series of actions to restore or retain the system. Maintainability must be inherent, while maintenance is the result of design."
+      },
+      {
+        "n": 24,
+        "q": "Maintenance accomplished, as a result of failure, to restore a system to a specified level of performance is called:",
+        "options": [
+          "Corrective maintenance",
+          "Preventive maintenance",
+          "Predictive maintenance",
+          "System upgrade"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.1.8: corrective maintenance is unscheduled maintenance accomplished as a result of failure to restore the system; preventive is scheduled, predictive is condition-based."
+      },
+      {
+        "n": 25,
+        "q": "The most widely used maintainability metric, which measures the elapsed time to perform a maintenance activity, is:",
+        "options": [
+          "Mean Time Between Failure (MTBF)",
+          "Mean Time To Failure (MTTF)",
+          "Mean logistics delay time",
+          "Mean Time To Repair (MTTR)"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.1.8: MTTR is the most widely used maintainability metric; it includes failure detection/isolation, disassembly, repair, reassembly, and testing, and maintenance times tend to be lognormally distributed."
+      },
+      {
+        "n": 26,
+        "q": "Resilience engineering is defined as an approach that:",
+        "options": [
+          "Eliminates all single points of failure in the architecture",
+          "Restores a system to its original configuration after any disruption",
+          "Provides required capability when facing adversity",
+          "Maximizes availability under nominal operating conditions"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.1.9: resilience is the ability to provide required capability when facing adversity; it typically subsumes survivability."
+      },
+      {
+        "n": 27,
+        "q": "The three fundamental objectives (Layer 1 of the taxonomy) of resilience are:",
+        "options": [
+          "Anticipate, prepare, and respond",
+          "Avoid, withstand, and recover",
+          "Prevent, detect, and correct",
+          "Robustness, tolerance, and redundancy"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.1.9: Layer 1 fundamental objectives are avoid (reduce exposure), withstand (resist degradation), and recover (replenish lost capability); means objectives form Layer 2."
+      },
+      {
+        "n": 28,
+        "q": "A key emphasis of resilience in SE is that it focuses on:",
+        "options": [
+          "Preserving the original system architecture and composition completely unchanged above every other consideration",
+          "Hardening every individual component against the single worst-case threat identified during the design phase",
+          "Providing the required capability, not necessarily maintaining the architecture or composition of the system",
+          "Recovering capability only after the system has already fully degraded and lost its mission function"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.1.9: resilience focuses on providing the required capability, not on maintaining the architecture; both continuity and adaptability are valid means."
+      },
+      {
+        "n": 29,
+        "q": "In the context of engineered systems, which two scope considerations does the handbook recommend INCLUDING in resilience, beyond merely recovering after degradation?",
+        "options": [
+          "Insuring and transferring risk",
+          "Auditing and certifying the system",
+          "Avoiding and withstanding adversity",
+          "Decommissioning and disposing of the system"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.1.9: in non-engineering contexts resilience is often limited to recovery, but for engineered systems it is recommended that avoiding and withstanding adversity also be in scope."
+      },
+      {
+        "n": 30,
+        "q": "The system-state transition category in which a system maintains its level of capability is called:",
+        "options": [
+          "Tolerance",
+          "Robustness",
+          "Recovery",
+          "Continuity"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.1.9: the robustness category covers transitions where the system maintains capability; tolerance covers moving to a lower capability; recovery covers returning to a higher capability."
+      },
+      {
+        "n": 31,
+        "q": "Passing from a higher level of capability to a lower (e.g., degraded) level falls into which resilience transition category?",
+        "options": [
+          "Robustness",
+          "Recovery",
+          "Disaggregation",
+          "Tolerance"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.1.9: the tolerance category includes passing from any higher level of capability to a lower level; recovery is the reverse, and robustness maintains the level."
+      },
+      {
+        "n": 32,
+        "q": "Resilience requirements are often best expressed in the form of a:",
+        "options": [
+          "Reliability block diagram",
+          "Failure mode and effects analysis worksheet",
+          "Single MTBF target value",
+          "Resilience scenario in the ConOps or OpsCon"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.1.9: resilience requirements often take the form of a resilience scenario, of which there can be many threads in the ConOps/OpsCon, capturing capability, adversity, stress, timeframe, and resilience targets."
+      },
+      {
+        "n": 33,
+        "q": "Resilience, safety, security, sustainability/disposability, and availability are collectively referred to as the:",
+        "options": [
+          "Functional QC areas",
+          "Through-life cost areas",
+          "Loss-driven areas",
+          "Human-centered QC areas"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.1.9 / 3.1.13: these QCs all focus on potential losses and are called loss-driven areas; they share assets, losses, adversities, and techniques and should work closely together."
+      },
+      {
+        "n": 34,
+        "q": "A central principle of system safety engineering is that engineered systems:",
+        "options": [
+          "Can be made completely 100% safe given sufficiently rigorous verification and validation",
+          "Are demonstrably safe for as long as no accidents have yet been reported during operation",
+          "Become acceptably safe automatically once they comply with a single applicable regulation",
+          "Have safety risks and are never 100% safe; hazards are reduced to an acceptable level of risk"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.1.11: the goal is to reduce/mitigate hazards to an acceptable level of risk; no system is 100% safe, and absence of accidents does not prove safety (there may be near misses or unused hazardous functionality)."
+      },
+      {
+        "n": 35,
+        "q": "Safety is best described as:",
+        "options": [
+          "The simple sum of the safety and reliability of the individual system elements",
+          "An emergent property of the engineered system in its real operational environment",
+          "A static property fixed at the completion of design",
+          "A purely procedural matter handled entirely by operators"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.1.11: safety is an emergent property of the system in its operational environment; it is not the sum of element-level safety/reliability and is affected by interactions, use, maintenance, and management."
+      },
+      {
+        "n": 36,
+        "q": "The acronym ALARP, a common bar for 'acceptably safe' in safety-critical civilian systems, stands for:",
+        "options": [
+          "As Low As Reasonably Permitted",
+          "As Low As Reasonably Practicable",
+          "Assured Level of Acceptable Residual Probability",
+          "Always Limit All Risks to a Prescribed level"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.1.11: ALARP ('as low as reasonably practicable') is the typical bar for complicated, safety-critical civilian systems such as railway signaling or passenger aircraft."
+      },
+      {
+        "n": 37,
+        "q": "When managing hazards, which option is the MOST preferred?",
+        "options": [
+          "Eliminating the potential hazard through a design change",
+          "Reducing the likelihood of the hazard through a design mitigation",
+          "Adding operational controls and limitations",
+          "Providing warnings via labeling and training"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.1.11: when possible, design changes to eliminate hazards are preferred; next are design mitigations to reduce likelihood; only then operational controls, warnings, and training."
+      },
+      {
+        "n": 38,
+        "q": "An unmitigated hazardous situation that occurs but does not result in harm is called a:",
+        "options": [
+          "Latent failure",
+          "Residual risk",
+          "Near miss",
+          "Mishap"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.1.11: a near miss is when an unmitigated hazardous situation occurs but causes no harm; near misses are critical feedback on the operational safety level, and their treatment reflects safety culture."
+      },
+      {
+        "n": 39,
+        "q": "How do regulators typically assess safety risk?",
+        "options": [
+          "By counting only the number of reportable accidents that have already occurred with the system",
+          "In terms of both the likelihood of hazards leading to harm and the severity of the resulting harm",
+          "By measuring the system's mean time between failures (MTBF) against a fixed regulatory threshold",
+          "Solely by the severity of the worst credible outcome, independent of how likely it is to occur"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.1.11: regulators typically assess safety risk in terms of both the likelihood of hazards occurring and leading to harm, and the severity of the resulting harm."
+      },
+      {
+        "n": 40,
+        "q": "Which statement about hazards and accidents is correct?",
+        "options": [
+          "Every accident is invariably the result of a single, independent causal factor that can be isolated and removed in design",
+          "A hazardous situation can occur without any system element failure (e.g., a design error or misaligned mental models)",
+          "A hazard always requires at least one physical component to fail before any harm to people becomes possible",
+          "Once a hazard has been mitigated in the design it can never recur during operation or maintenance"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.1.11: most accidents are multi-causal, and a hazardous situation can occur without an element failure, due to design/implementation errors or misalignment between the mental models of designers, operators, and maintainers."
+      },
+      {
+        "n": 41,
+        "q": "What sustains safety throughout a system's life, beyond good design?",
+        "options": [
+          "A tailored safety management system and an effective safety culture",
+          "Relying entirely on operators and maintainers never making any mistakes during operation",
+          "A one-time safety certification granted at the very start of operations and never revisited",
+          "Eliminating all in-service monitoring once the system has been fielded to its users"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.1.11: a safety management system (tailored by country/industry) plus a strong safety culture, suitably qualified people, and ongoing monitoring sustain safety; in-service systems need careful monitoring as assumptions, use, and environments evolve."
+      },
+      {
+        "n": 42,
+        "q": "System Security Engineering (SSE) is an approach that identifies, protects from, detects, responds to, and recovers from:",
+        "options": [
+          "Only external denial-of-service attacks, theft, and power interruptions from outside the system",
+          "Reliability failures and degradation caused by ordinary component wear-out over the service life",
+          "Schedule slips and budget overruns encountered during the acquisition and development effort",
+          "Anomalous and disruptive events, including those in a cyber-contested environment"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.1.12: SSE ensures a system can function under anomalous and disruptive events from misuse and malice, across the life cycle, including cyber-contested environments."
+      },
+      {
+        "n": 43,
+        "q": "Cybersecurity generally refers to protecting which three properties of information assets?",
+        "options": [
+          "Confidentiality, integrity, and availability",
+          "Reliability, maintainability, and supportability",
+          "Authenticity, anonymity, and accountability",
+          "Safety, security, and survivability"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.1.12: cybersecurity generally refers to the confidentiality, integrity, and availability of information assets; security management adds controls such as policies and procedures."
+      },
+      {
+        "n": 44,
+        "q": "In the handbook, 'trustworthiness' is a concept that includes:",
+        "options": [
+          "Only confidentiality and integrity",
+          "Only physical security and access control",
+          "Affordability, producibility, and supportability",
+          "Privacy, reliability, resilience, safety, and security"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.1.12: trustworthiness includes privacy, reliability, resilience, safety, and security, making an entity worthy of being trusted to fulfill its critical requirements (NIST 800-160 Vol. 2)."
+      },
+      {
+        "n": 45,
+        "q": "According to the handbook, the best way to integrate cybersecurity into systems is:",
+        "options": [
+          "As a separate, isolated activity performed only after the whole system has been built and tested",
+          "By outsourcing it entirely to an external penetration-testing vendor at the end of the project",
+          "Only during the verification and validation stages, once the design has been completely frozen",
+          "Through the systems engineering process, addressing security at each life cycle stage"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.1.12: NIST 800-160 Vol. 1 and 2 (based on ISO/IEC/IEEE 15288 and this handbook) determine that the best way to integrate security is through the SE process, making it part of the overall solution rather than separate."
+      },
+      {
+        "n": 46,
+        "q": "Physical security primarily protects a system from:",
+        "options": [
+          "Unauthorized access, misuse, or damage caused by physical actions such as theft, vandalism, and intrusion",
+          "Software vulnerabilities exploited remotely over a network by an intelligent and adaptive cyber adversary",
+          "Loss of confidentiality of data transmitted between system elements over its communication channels",
+          "Component failures and gradual degradation caused by wear-out, aging, and environmental conditions"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.1.12: physical security protects against physical actions and events (theft, vandalism, intrusion) using layered controls such as surveillance, deterrents, barriers, locks, and access control."
+      },
+      {
+        "n": 47,
+        "q": "Human Systems Integration (HSI) is defined as an approach that:",
+        "options": [
+          "Replaces human operators with automation wherever feasible",
+          "Integrates technology, organizations, and people effectively",
+          "Optimizes only the user interface and ergonomics of the system",
+          "Ensures the system interacts effectively with other systems"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.1.4 / Table 3.1: HSI integrates technology, organizations, and people effectively across the whole life cycle."
+      },
+      {
+        "n": 48,
+        "q": "The 'TOP model' at the heart of HSI refers to:",
+        "options": [
+          "Tasks, Operators, and Procedures applied across the whole system life cycle",
+          "Technology, Organization, and People within an environment",
+          "Tools, Outputs, and Performance measured during operational test and evaluation",
+          "Training, Operations, and Planning carried out by the in-service support team"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.1.4: HSI emerges from the overlap of the TOP model (technology, organization, people) within an environment, the HSI perspectives, and the contributing disciplines."
+      },
+      {
+        "n": 49,
+        "q": "HSI adopts which kind of system perspective?",
+        "options": [
+          "A purely organizational perspective focused only on the management structures and reporting lines",
+          "A purely technical perspective focused exclusively on the hardware and software of the system",
+          "A perspective that deliberately excludes non-cooperative, adversarial, or malicious people",
+          "A sociotechnical perspective in which all systems include both humans and machines"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.1.4: HSI adopts a sociotechnical perspective treating systems as organizations of humans and machines; to optimize the system, all elements must be considered within SE activities."
+      },
+      {
+        "n": 50,
+        "q": "HSI is delivered chiefly through which major process, supported by human-in-the-loop activities?",
+        "options": [
+          "Failure Mode and Effects Analysis (FMEA)",
+          "Level of Repair Analysis (LORA)",
+          "Human-Centered Design (HCD)",
+          "Architecture Tradeoff Analysis Method (ATAM)"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.1.4: HSI is supported through Human-Centered Design (HCD) as a major process, involving prototypes, scenario-based design, modeling, and human-in-the-loop (HITL) activities."
+      },
+      {
+        "n": 51,
+        "q": "Interoperability may be achieved by two principal means, which can also be combined:",
+        "options": [
+          "Centralizing all control within a single master system, or else eliminating all external interfaces entirely",
+          "Increasing the redundancy of every component, or adding manual fallback procedures for the operators",
+          "Agreeing on one or more published standards, and/or defining and implementing a custom interface",
+          "Encrypting all data exchanged in transit, or fully air-gapping the systems from one another"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.1.5: interoperability is achieved by adopting published standards (open 'plug and play') and/or defining a custom interface when a standard does not exist or is unsuitable."
+      },
+      {
+        "n": 52,
+        "q": "Why is interoperability a key enabler for a System of Systems (SoS)?",
+        "options": [
+          "It removes any need to define or manage the interfaces between the constituent systems of the system of systems",
+          "It allows the elements of a large, complex system to work together as a single entity toward a shared purpose",
+          "It guarantees that every constituent system uses identical hardware, software, and data exchange formats",
+          "It eliminates the social, political, and organizational factors that usually complicate SoS integration"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.1.5: interoperability is a key enabler for an SoS because it allows the elements of a large and complex system to work together as a single entity toward a shared purpose."
+      },
+      {
+        "n": 53,
+        "q": "Logistics engineering (product-support engineering) is concerned with the support resources to sustain operation and maintenance, and also with:",
+        "options": [
+          "Engineering the inherent supportability of the design",
+          "Maximizing production throughput on the factory floor",
+          "Defining the system's functional architecture",
+          "Performing the safety hazard analysis for the SoI"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.1.6: logistics engineering identifies, acquires, and provisions support resources AND engineers the inherent supportability of the design, addressed from a life cycle perspective."
+      },
+      {
+        "n": 54,
+        "q": "In supportability analysis, preventive maintenance tasks are primarily identified using which technique?",
+        "options": [
+          "Reliability-Centered Maintenance (RCM)",
+          "Failure Mode, Effects and Criticality Analysis (FMECA)",
+          "Level of Repair Analysis (LORA)",
+          "Fault Tree Analysis (FTA)"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.1.6: corrective maintenance tasks are primarily identified using FMECA, while preventive maintenance tasks are identified using RCM (Reliability-Centered Maintenance)."
+      },
+      {
+        "n": 55,
+        "q": "The system Level of Repair Analysis (LORA) is used, in conjunction with the support concept, to determine:",
+        "options": [
+          "The mean time to repair and restore each individual system element after it has failed",
+          "The most appropriate location for executing support/maintenance tasks",
+          "The number and type of spare parts to stock at each depot and forward support location",
+          "The inherent availability achieved by the fielded system in its operational environment"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.1.6: the LORA, with the support concept, helps determine the most appropriate location for executing support tasks (e.g., 'repair vs. replace' and where)."
+      },
+      {
+        "n": 56,
+        "q": "Manufacturability/producibility analysis is an approach that enables production in a:",
+        "options": [
+          "Responsible and cost-effective manner",
+          "Fully automated and human-free manner",
+          "Single, non-repeatable prototype run",
+          "Manner that maximizes the number of unique parts"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.1.7 / Table 3.1: manufacturability/producibility analysis enables production in a responsible and cost-effective manner; it is an integral part of the SE process."
+      },
+      {
+        "n": 57,
+        "q": "A notable insight about production enabling systems is that:",
+        "options": [
+          "They can sometimes cost more than the system being produced",
+          "They are always cheaper than the system being produced",
+          "They are never required for low-volume systems",
+          "They are identical across all production volumes"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.1.7: a SE approach to production is needed because the production enabling systems can sometimes cost more than the system being produced (Maier and Rechtin, 2009)."
+      },
+      {
+        "n": 58,
+        "q": "Sustainability engineering is an approach that supports the:",
+        "options": [
+          "Linear take-make-dispose economy",
+          "Lowest possible acquisition cost",
+          "Circular economy over the system's life",
+          "Fastest possible production cycle time"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.1.10 / Table 3.1: sustainability engineering supports the circular economy over the life, based on sharing, reusing, repairing, and recycling to extend product life and minimize waste."
+      },
+      {
+        "n": 59,
+        "q": "Within environmental impact analysis, 'design for disassembly' is important because it:",
+        "options": [
+          "Eliminates any need to plan for the retirement and disposal stage of the overall system life cycle later on",
+          "Reduces the number of fasteners purely in order to lower the unit production cost of the system",
+          "Speeds up final assembly on the production line and thereby shortens the manufacturing cycle time",
+          "Lets material be reused, remanufactured, or recycled by minimizing destructive separation of system elements"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.1.10: design for disassembly minimizes destructive separation of elements so material can be reused, remanufactured, or recycled, maximizing residual value after useful life."
+      },
+      {
+        "n": 60,
+        "q": "Which standard series is cited as an excellent resource for analyzing and assessing environmental impacts?",
+        "options": [
+          "The ISO 9000 series of quality management standards",
+          "The NIST SP 800-160 security series",
+          "The ISO 14000 series of environmental management standards",
+          "The ISO/IEC/IEEE 42010 architecture series"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.1.10: the ISO 14000 series of environmental management standards is an excellent resource; environmental regulations should be addressed in the earliest requirements activities."
+      },
+      {
+        "n": 61,
+        "q": "The four metrics of 'effective response' that characterize agility are:",
+        "options": [
+          "Fast, cheap, simple, and reliable",
+          "Modular, scalable, reusable, and testable",
+          "Robust, tolerant, recoverable, and survivable",
+          "Timely, affordable, predictable, and comprehensive"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.1.3: effective response (the manifestation of agility) has four metrics: timely, affordable, predictable, and comprehensive."
+      },
+      {
+        "n": 62,
+        "q": "Sustained agility is enabled principally by:",
+        "options": [
+          "A single monolithic, tightly-integrated architecture optimised for peak nominal performance",
+          "Maximising the coupling and interdependence between modules to improve raw system throughput",
+          "An architectural pattern of loosely-coupled, plug-and-play modularity with supporting design principles",
+          "Eliminating all standards and rules so that system configurations remain entirely unconstrained"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.1.3: agility is enabled by a drag-and-drop, plug-and-play, loosely-coupled modular architecture (like Lego), with reusable, reconfigurable, and scalable design principles."
+      },
+      {
+        "n": 63,
+        "q": "In an agile architecture, the role of the 'passive infrastructure' is to:",
+        "options": [
+          "Provide just-enough rules and standards that enable and constrain plug-and-play connectivity between modules",
+          "Perform the internal functional methods of each encapsulated module within the overall system architecture",
+          "Assign the designated responsibilities for assembling new system configurations on demand when needed",
+          "Continuously monitor, evaluate, and anticipate changes occurring in the operational environment"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.1.3: the passive infrastructure provides drag-and-drop connectivity, balancing requisite variety and parsimony — just enough standards to enable connectivity without over-constraining configurations."
+      },
+      {
+        "n": 64,
+        "q": "Loss-Driven Systems Engineering (LDSE) is best described as:",
+        "options": [
+          "A method for eliminating all losses and waste from a system's total life cycle cost over its life",
+          "A capability-driven methodology focused only on delivering the desired functions and features",
+          "A standard for formally documenting verification and validation results across the life cycle",
+          "The value-adding unification of the QCs that address potential losses in developing and using systems"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.1.13: LDSE unifies the loss-driven QCs (resilience, safety, security, sustainability/disposability, availability), which are otherwise often considered in isolation, to leverage their commonality."
+      },
+      {
+        "n": 65,
+        "q": "To leverage commonality among the loss-driven QCs, the handbook recommends that SE practitioners:",
+        "options": [
+          "Assign each loss-driven QC to a separate, fully independent team that works with no coordination between them",
+          "Address each of the loss-driven QCs only after the system has been fielded and is already in service",
+          "Make architectural and design decisions holistically across the loss-driven areas and integrate their risks",
+          "Prioritize availability above all and largely ignore the other loss-driven quality characteristics"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.1.13: practitioners should elicit loss-driven requirements as an integrated part of requirements, make architecture/design decisions holistically across loss-driven areas, and integrate their risks into one risk-management activity."
+      },
+      {
+        "n": 66,
+        "q": "The essential artifact of Modeling, Analysis, and Simulation (MA&S) is:",
+        "options": [
+          "A validated, full-scale physical prototype of the final system used for acceptance testing",
+          "A complete and unambiguous set of natural-language stakeholder and system requirements",
+          "An explicit model — an idealized representation of one or more aspects of the as-is or to-be SoI",
+          "A signed interface control document placed under formal configuration management control"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.2.1: the essential artifact of MA&S is an explicit model, an idealized representation of one or more aspects of the as-is or to-be system of interest."
+      },
+      {
+        "n": 67,
+        "q": "How does the handbook distinguish modeling, analysis, and simulation?",
+        "options": [
+          "Modeling creates/refines models; analysis is systematic reproducible examination; simulation uses a model to predict behavior",
+          "Analysis uses only physical models, simulation always uses natural-language descriptions, and modeling uses spreadsheets",
+          "They are essentially interchangeable terms that all describe the same underlying engineering activity",
+          "Modeling predicts behaviour, simulation creates the models, and analysis builds the physical prototypes"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.2.1: modeling is the conception/creation/refinement of models; analysis is systematic, reproducible examination to gain insight; simulation uses a model to predict and study behavior."
+      },
+      {
+        "n": 68,
+        "q": "In this handbook's terminology, an examination involving a PHYSICAL model is always called a:",
+        "options": [
+          "Simulation",
+          "Analysis",
+          "Test",
+          "Surrogate run"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.2.1: in this section, simulation always involves a digital model, and any examination involving a physical model is always a test."
+      },
+      {
+        "n": 69,
+        "q": "A 'formal model' is distinguished from an informal model because it is:",
+        "options": [
+          "Always graphical rather than textual, and therefore readable only by specialist modelling tools",
+          "Created only with general office tools such as word processors, spreadsheets, and diagram editors",
+          "Expressed in a machine-readable language with explicitly defined semantics and one way of interpretation",
+          "Understood casually by humans through convention, without any formally defined semantics or rules"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.2.1: a formal model is expressed in a machine-readable language with explicitly defined semantics (one interpretation); informal models use casual conventions without formal semantics."
+      },
+      {
+        "n": 70,
+        "q": "Formal models can be further classified as logical, geometric, surrogate, or:",
+        "options": [
+          "Physical (full-scale hardware)",
+          "Quantitative (mathematical)",
+          "Informal (free-text sketches)",
+          "Mixed (physical plus digital)"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.2.1: formal models are classified as logical (descriptive/conceptual), quantitative (mathematical), geometric, or surrogate models."
+      },
+      {
+        "n": 71,
+        "q": "A 'surrogate model' is best described as:",
+        "options": [
+          "A reduced model derived from a higher-fidelity model that adequately represents essential aspects with far less computation",
+          "A physical mockup used mainly for checking the form, fit, and human-system interface during early development testing",
+          "An informal sketch or diagram used to communicate a concept to non-engineering project stakeholders",
+          "A black-box model that hides its intellectual property behind a publicly accessible external interface"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.2.1: a surrogate model is a reduced model derived from a higher-fidelity model via a data-driven transformation, enabling large numbers of experiments with far less computation."
+      },
+      {
+        "n": 72,
+        "q": "In MBSE multidisciplinary coordination, the integrated system model acts as the:",
+        "options": [
+          "Optional backup of the document-centric specifications that remain the real source of truth",
+          "'Authoritative source of truth,' with disciplines connected through a hub-and-spokes pattern",
+          "Final verification report demonstrating that the system satisfies all of its requirements",
+          "Replacement for every discipline-specific engineering model used by the project disciplines"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.2.1: the trend is an integrated system model as the authoritative source of truth, with a hub-and-spokes pattern where the system-model repository is the hub linking all disciplines."
+      },
+      {
+        "n": 73,
+        "q": "To protect intellectual property when organizations collaborate, a model that hides its internals while still exposing an external interface for simulation is called a:",
+        "options": [
+          "White box (transparent box) model",
+          "Surrogate model",
+          "Mixed model",
+          "Black box (opaque box) model"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.2.1: black-box (opaque) models hide/obfuscate IP while providing an accessible external interface; white-box (transparent) models provide full visibility of their internals."
+      },
+      {
+        "n": 74,
+        "q": "A key principle of prototyping is that a prototype is:",
+        "options": [
+          "Intended to enhance learning and should be set aside once that purpose is achieved",
+          "The polished first draft of the production entity, later refined directly into the final delivered product",
+          "A complete and accurate representation that always becomes the delivered operational system",
+          "An artifact used only after the system has already entered the production stage of its life"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.2.2: prototypes enhance learning and are not the 'first draft' of production entities; they should be set aside when their purpose is achieved, as the production entity may behave differently."
+      },
+      {
+        "n": 75,
+        "q": "Rapid prototyping is best characterized as:",
+        "options": [
+          "A complete, high-fidelity representation of the entire system that is built and used for final system acceptance testing by the acquirer",
+          "A traditional partial prototype that is used to verify only the most critical elements of the system design",
+          "A purely document-based model of the system requirements that has no physical or executable elements",
+          "A fast way to get performance data and evaluate concepts, quickly assembled from existing physical, graphical, or mathematical elements"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.2.2: rapid prototyping is an easy, fast way to get performance data and evaluate concepts, assembled from existing elements (e.g., 3-D printing, simulation shells); used for form, fit, interface, operations, producibility."
+      },
+      {
+        "n": 76,
+        "q": "In traditional prototyping, a prototype used to verify only the critical elements of the system is a:",
+        "options": [
+          "Full prototype",
+          "Partial prototype",
+          "Rapid prototype",
+          "Surrogate prototype"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.2.2: traditional prototyping has two variants — a partial prototype verifies critical elements, while a full prototype is a complete representation of the system."
+      },
+      {
+        "n": 77,
+        "q": "Bidirectional traceability is defined as the ability to trace an item to another while:",
+        "options": [
+          "Automatically establishing a reverse link back to the initial item",
+          "Tracing items only from higher-level requirements down to lower-level requirements",
+          "Linking items together only within a single life cycle stage or process",
+          "Recording the history and location of the item only after it has been delivered"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.2.3: bidirectional traceability automatically establishes a reverse link, so once an item is linked to its source/destination, the reverse link is created; SE tools facilitate two-way links."
+      },
+      {
+        "n": 78,
+        "q": "Vertical traceability is most often referred to in the context of:",
+        "options": [
+          "Elements at the same architectural level, usually described as peer-to-peer relationships",
+          "Links connecting artifacts generated across the different stages of the system life cycle",
+          "Organizational or architectural levels (e.g., parent/child relationships across levels)",
+          "The recorded history and physical location of a delivered product after it has been fielded"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.2.3: vertical traceability is across organization/architectural levels (Level n, n+1, …) and is referred to as parent/child relationships."
+      },
+      {
+        "n": 79,
+        "q": "Horizontal traceability involves traceability across:",
+        "options": [
+          "Levels of the system architecture only, usually called parent and child relationships",
+          "A single requirement and its one corresponding verification artifact, and nothing more",
+          "Elements at a given level (peer relationships) and across the life cycle stages/processes",
+          "The configuration baselines of one individual component as it changes over time"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.2.3: horizontal traceability is across elements of a given level (peer relationships) and links items generated in one life cycle stage/process to those in others."
+      },
+      {
+        "n": 80,
+        "q": "Traceability is facilitated through the appropriate application of which process, which assigns unique identifiers that are never reused?",
+        "options": [
+          "The Risk Management process and its associated risk register",
+          "The Configuration Management (CM) process",
+          "The Decision Management process and its trade studies",
+          "The Project Planning and Assessment process"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.2.3: traceability is facilitated by the CM process; the product/system identifier is a unique identifier that, once issued, should never be reused."
+      },
+      {
+        "n": 81,
+        "q": "Traceability is a crucial component of the 'digital thread' because it enables:",
+        "options": [
+          "Connecting models, digital twins, and physical assets so a requirement traces to specific configurations and back",
+          "Eliminating the need for the Configuration Management process by storing all of the system data in one master model",
+          "Replacing the verification and validation activities entirely with automated model consistency checks",
+          "Automatically generating all of the system's stakeholder and system requirements from the design models"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.2.3: traceability connects the digital thread, letting a requirement be traced through functional and physical representations to specific configurations — and in reverse when a physical element changes."
+      },
+      {
+        "n": 82,
+        "q": "In an N-squared (N²) diagram, the system elements are placed:",
+        "options": [
+          "On the diagonal from upper left to lower right, with off-diagonal squares representing potential interactions",
+          "In random positions within the matrix, since the placement of elements there carries no particular meaning at all",
+          "In the off-diagonal squares, with the interactions between the elements placed along the main diagonal",
+          "In a single column down the left side, with all of the interactions listed in the columns to the right"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.2.4: in an N² diagram, the elements are placed on the diagonal (upper-left to lower-right) and off-diagonal squares represent potential interactions; a blank square means no interaction."
+      },
+      {
+        "n": 83,
+        "q": "In a standard N² diagram, interactions between elements flow in which direction?",
+        "options": [
+          "Counterclockwise (inputs horizontal, outputs vertical)",
+          "Top to bottom only",
+          "Clockwise (outputs horizontal, inputs vertical)",
+          "Diagonally from corner to corner"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.2.4: in an N² diagram interactions flow clockwise, with outputs horizontal and inputs vertical; an item passed from element A to B is placed in the appropriate off-diagonal square."
+      },
+      {
+        "n": 84,
+        "q": "How does the Design Structure Matrix (DSM) typically differ from the N² diagram?",
+        "options": [
+          "The DSM uses inputs on the horizontal rows and outputs on the vertical columns, so interactions flow counterclockwise",
+          "The DSM shows only the external inputs and outputs of the system, never the internal interactions between its elements",
+          "The DSM places the system elements in the off-diagonal cells rather than along the main diagonal of the matrix",
+          "The DSM cannot be expanded or decomposed into lower-level diagrams as the system architecture matures over time"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.2.4: the DSM is similar in appearance to the N² diagram but uses inputs on rows and outputs on columns, so interactions flow counterclockwise."
+      },
+      {
+        "n": 85,
+        "q": "A coupling matrix (a type of N² diagram) is used during integration primarily to:",
+        "options": [
+          "Document the safety hazards and the mitigations that are associated with each interface in the whole architecture",
+          "Compute the reliability and the predicted failure rate of each interface between the system elements",
+          "Assign quantitative cost estimates to each of the system elements and their associated interfaces",
+          "Group system elements into aggregates and minimize the number of interfaces to be verified between aggregates"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.2.4: coupling matrices define aggregates and integration order; reorganizing the matrix groups elements into aggregates and minimizes the interfaces verified between aggregates, aiding fault detection."
+      },
+      {
+        "n": 86,
+        "q": "During requirements and architecture definition, interface management focuses on:",
+        "options": [
+          "Selecting the physical media, such as cables, data buses, Wi-Fi, or Bluetooth, used at each interface boundary",
+          "Defining and agreeing on WHAT is involved in the interactions, not on HOW those interactions are realized",
+          "Implementing and then testing the realized interfaces between the integrated system elements",
+          "Deferring all of the interface work until the system integration and verification stages begin"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.2.4: the focus during System Requirements and Architecture Definition is on the characteristics of WHAT is involved in the interactions; HOW they are realized (the media) is addressed later by Design Definition."
+      },
+      {
+        "n": 87,
+        "q": "Interface definitions are commonly recorded in a configuration-controlled artifact known as a(n):",
+        "options": [
+          "Systems Engineering Management Plan (SEMP)",
+          "Failure Mode and Effects Analysis (FMEA)",
+          "Work Breakdown Structure (WBS)",
+          "Interface Control Document (ICD)"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.2.4: interface definitions are recorded in interface control artifacts such as the Interface Control Document (ICD), IDD, IAD, or Data Dictionary, placed under configuration control; an Interface Control Working Group often manages them."
+      },
+      {
+        "n": 88,
+        "q": "ISO/IEC/IEEE 42010 (2022) defines an architecture description framework as a set of:",
+        "options": [
+          "Tools and software libraries used for automatically generating system code directly from the architecture description",
+          "Mandatory requirements that every architecture in the organization is obligated to satisfy and comply with",
+          "Test cases and procedures used to verify a completed architecture against its specified requirements",
+          "Conventions, principles, and practices for the description of architectures within a domain or community of stakeholders"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.2.5: ISO/IEC/IEEE 42010 defines an architecture description framework as conventions, principles, and practices for describing architectures within a domain or community of stakeholders."
+      },
+      {
+        "n": 89,
+        "q": "Most architecture frameworks are organized to provide one or more ___ that cover stakeholder concerns.",
+        "options": [
+          "Prototypes",
+          "Baselines",
+          "Viewpoints",
+          "Work packages"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.2.5: most architecture frameworks (e.g., NAF, UAF, DoDAF) are organized around one or more viewpoints to cover target domains and stakeholders' concerns, yielding views."
+      },
+      {
+        "n": 90,
+        "q": "Which of the following is an example of an architecture framework used in the defense domain?",
+        "options": [
+          "COSYSMO (Constructive Systems Engineering Cost Model)",
+          "DoDAF (Department of Defense Architecture Framework)",
+          "ATAM (Architecture Tradeoff Analysis Method)",
+          "ISO 14000 (environmental management standards)"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.2.5: defense-domain frameworks include DoDAF, NAF, and UAF; TOGAF is used in the IT domain. COSYSMO is a cost model, ATAM is an evaluation method, and ISO 14000 is environmental."
+      },
+      {
+        "n": 91,
+        "q": "ATAM and MFESA are methods that support which architecture activity?",
+        "options": [
+          "Architecture enablement",
+          "Architecture evaluation",
+          "Architecture governance",
+          "Architecture description"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.2.5: per ISO/IEC/IEEE 42030, evaluation determines the extent to which architectures meet objectives; methods include ATAM (Architecture Tradeoff Analysis Method) and MFESA."
+      },
+      {
+        "n": 92,
+        "q": "Per Sowa and Zachman, how many levels of architecture framework should be established to keep products and systems consistent with enterprise strategy?",
+        "options": [
+          "Two levels — an enterprise framework and a product framework",
+          "One unified framework for the whole organization",
+          "Three levels — strategic, tactical, and operational",
+          "A separate framework for every project, with no enterprise level"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.2.5: per Sowa and Zachman (Fig. 3.16), two levels of architecture framework — enterprise and product — should be established to ensure consistency of products and systems with enterprise strategy."
+      },
+      {
+        "n": 93,
+        "q": "In systems engineering, patterns are best described as:",
+        "options": [
+          "One-size-fits-all templates that have no variable aspects and cannot be parameterized",
+          "Strictly informal artifacts that, by definition, can never be captured as formal models",
+          "Reusable design solutions that apply only within the software engineering discipline",
+          "Recurrences — repeated regularities observed across time, space, or other dimensions"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.2.6: patterns are recurrences — repeated regularities — with both fixed (recurring) and variable (parameterized) aspects; they may be informal or formal."
+      },
+      {
+        "n": 94,
+        "q": "An S*Pattern is best described as:",
+        "options": [
+          "A purely informal prose description of a recurring design problem together with a suggested solution approach",
+          "A one-time, single-use model that is created for one project and that cannot be reused anywhere else",
+          "A full-scale physical prototype that represents one member of a system family for verification testing",
+          "A reusable S*Model of a family of systems, configurable to represent multiple applications or configurations"
+        ],
+        "correct": 3,
+        "explanation": "Sec 3.2.6: S*Patterns are reusable S*Models of families of systems, often domain-specific, configurable to represent multiple applications, market segments, or other configurations."
+      },
+      {
+        "n": 95,
+        "q": "Design Thinking is presented in the handbook as a complementary approach to:",
+        "options": [
+          "Configuration management",
+          "Reliability engineering",
+          "Systems thinking",
+          "Cost estimation"
+        ],
+        "correct": 2,
+        "explanation": "Sec 3.2.7: Design Thinking is a complementary approach to Systems Thinking, exploring human needs, the reasoning by which design concepts are devised, the systems realized, their specialization, and their value."
+      },
+      {
+        "n": 96,
+        "q": "A characteristic technique of a Design Thinking process is the use of:",
+        "options": [
+          "Successive divergent and convergent phases of design synthesis and analysis",
+          "A single linear pass straight from requirements to design with no iteration or feedback at all",
+          "Reliance solely on quantitative parametric cost and performance models of the system",
+          "Deliberately avoiding stakeholder involvement in order to prevent any introduced bias"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.2.7: a Design Thinking process uses context analysis, problem framing, and ideation, with successive divergent and convergent phases of synthesis and analysis with respect to stakeholder value."
+      },
+      {
+        "n": 97,
+        "q": "Biomimicry is defined as a practice that:",
+        "options": [
+          "A practice that applies only to materials science and never to architectures, behaviours, or processes",
+          "Learns from and mimics the strategies found in nature to solve human design challenges",
+          "A practice that replaces engineered systems entirely with naturally occurring living systems",
+          "A practice that studies only living natural systems and excludes all non-living natural systems"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.2.8: biomimicry 'learns from and mimics the strategies found in nature to solve human design challenges'; natural systems include both living and non-living (anything not human-made)."
+      },
+      {
+        "n": 98,
+        "q": "A correct early step in the systematic process for developing nature-inspired (biomimetic) solutions is to:",
+        "options": [
+          "Immediately select a single final natural system to copy faithfully, before any of the system's requirements have been defined",
+          "Define requirements in terms of abstract functions or goals, then search for natural systems that satisfy those functions",
+          "Transfer a chosen natural strategy directly to the SoI before abstracting it from its biological context",
+          "Evaluate the environmental impact of the resulting solution only after the system has been retired"
+        ],
+        "correct": 1,
+        "explanation": "Sec 3.2.8: the process begins by being open to alternatives and defining requirements as abstract functions/goals with metrics, then searching for natural systems that satisfy the function before selecting, abstracting, and transferring the strategy."
+      },
+      {
+        "n": 99,
+        "q": "MA&S enables early V&V primarily because it allows issues to be caught:",
+        "options": [
+          "Early in the life cycle, when mitigation is affordable and change of scope is still feasible",
+          "Only during the production and utilization stages, once the design has been fully baselined",
+          "After the full-scale physical prototype has been built and completely tested in the field",
+          "Exclusively at the final system verification review, just before the system is transitioned"
+        ],
+        "correct": 0,
+        "explanation": "Sec 3.2.1: early V&V with digital models lets stakeholders see implications of preferences and catches issues early, when mitigation is affordable and scope change is feasible, avoiding later cost/schedule overruns."
+      },
+      {
+        "n": 100,
+        "q": "Which pairing of a quality characteristic with its representative QC is correct per Table 3.1?",
+        "options": [
+          "Logistics Engineering — Manufacturability, Producibility",
+          "System Safety Engineering — Cybersecurity, Trustworthiness",
+          "Resilience Engineering — Resilience, Robustness, Survivability",
+          "Affordability Analysis — Adaptability, Flexibility, Scalability"
+        ],
+        "correct": 2,
+        "explanation": "Table 3.1: Resilience Engineering owns Resilience, Robustness, and Survivability. Logistics owns Supportability; Safety owns Safety; Security owns Cybersecurity/IA/Physical Security/Trustworthiness; Agility owns adaptability/flexibility/scalability."
+      }
+    ]
   }
 };
