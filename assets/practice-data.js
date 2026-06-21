@@ -3617,5 +3617,1211 @@ window.PRACTICE = {
         "explanation": "Table 3.1: Resilience Engineering owns Resilience, Robustness, and Survivability. Logistics owns Supportability; Safety owns Safety; Security owns Cybersecurity/IA/Physical Security/Trustworthiness; Agility owns adaptability/flexibility/scalability."
       }
     ]
+  },
+  "ch4": {
+    "no": 4,
+    "title": "Tailoring & Application Considerations",
+    "questions": [
+      {
+        "n": 1,
+        "q": "Per ISO/IEC/IEEE 15288, the purpose of the Tailoring process is to:",
+        "options": [
+          "certify that an organization is fully compliant with all applicable international SE standards.",
+          "enforce the uniform, identical application of every process across all of an organization's projects.",
+          "delete as many life cycle processes as possible to reduce overall project cost and schedule.",
+          "adapt the standard's processes to fit an organization's or project's circumstances."
+        ],
+        "correct": 3,
+        "explanation": "Tailoring adapts the processes to particular circumstances/factors that surround an organization, influence a project, or reflect an organization's needs — it is adaptation, not deletion, certification, or uniformity."
+      },
+      {
+        "n": 2,
+        "q": "The underlying principle of tailoring is to adapt processes to organizational/project needs while being:",
+        "options": [
+          "applied at maximum rigor on every project so that technical integrity is always fully guaranteed.",
+          "reduced to the minimum possible number of documents regardless of the project's actual risk profile.",
+          "scaled to a level of rigor that lets life cycle activities be performed at an acceptable level of risk.",
+          "fixed at project start and never altered once the initial process baseline has been approved."
+        ],
+        "correct": 2,
+        "explanation": "Tailoring scales the rigor of application to an appropriate level based on risk; too little rigor raises technical risk, too much raises cost and schedule risk."
+      },
+      {
+        "n": 3,
+        "q": "According to the notional balance in Figure 4.1, applying too much formal process or unnecessary activities tends to:",
+        "options": [
+          "have no measurable effect on either project cost or schedule.",
+          "reliably reduce the total cost of the project to a minimum.",
+          "increase the risk of cost and schedule slips on the project.",
+          "eliminate essentially all technical risk remaining on the project."
+        ],
+        "correct": 2,
+        "explanation": "Insufficient SE raises technical risk, but excessive rigor or unnecessary tasks increases cost and schedule overrun risk; tailoring seeks the correct balance between the two."
+      },
+      {
+        "n": 4,
+        "q": "Because risk and the situational environment change over time, tailoring should be:",
+        "options": [
+          "applied only at the retirement stage, once the system is being disposed of.",
+          "delegated entirely to the acquirer with no involvement from the project.",
+          "continually monitored and dynamically adjusted over the system life cycle.",
+          "performed once during project planning and then deliberately frozen."
+        ],
+        "correct": 2,
+        "explanation": "Tailoring occurs dynamically over the life cycle depending on risk and situational factors, so it should be continually monitored and adjusted as needed."
+      },
+      {
+        "n": 5,
+        "q": "Tailoring of the life cycle processes can include the deletion, modification, or addition of:",
+        "options": [
+          "only the names of the processes, while leaving their content unchanged.",
+          "only the project's schedule milestones and approved budget figures.",
+          "only the organizational chart and the project's reporting relationships.",
+          "outcomes, activities, tasks, typical inputs, or typical outputs."
+        ],
+        "correct": 3,
+        "explanation": "The handbook notes tailoring can delete, modify, or add outcomes, activities, tasks, typical inputs, or typical outputs of the processes."
+      },
+      {
+        "n": 6,
+        "q": "Organizational tailoring — creating and maintaining the processes used by all projects — is performed in conjunction with which process?",
+        "options": [
+          "The Life Cycle Model Management process.",
+          "The Project Planning process.",
+          "The Verification process.",
+          "The Risk Management process."
+        ],
+        "correct": 0,
+        "explanation": "Organizational tailoring is done with the Life Cycle Model Management process; project tailoring is done with the Project Planning process."
+      },
+      {
+        "n": 7,
+        "q": "Project tailoring — adapting organizational processes for a specific project's unique needs — is performed in conjunction with which process?",
+        "options": [
+          "The Quality Assurance process.",
+          "The Project Planning process.",
+          "The Configuration Management process.",
+          "The Life Cycle Model Management process."
+        ],
+        "correct": 1,
+        "explanation": "Project tailoring adapts organizational processes for the unique needs of the project and is done in conjunction with the Project Planning process."
+      },
+      {
+        "n": 8,
+        "q": "When incorporating a new or updated external standard, Walden (2007) recommends that an organization should:",
+        "options": [
+          "reorganize the entire enterprise so its structure matches the standard.",
+          "adopt the standard verbatim, applying it without any modification at all.",
+          "ignore the standard altogether unless its use is explicitly legally mandated.",
+          "adapt the standard to the organization, not the organization to the standard."
+        ],
+        "correct": 3,
+        "explanation": "Good practice is to understand the organization and the new standard, then adapt the standard to the organization (not vice versa), institutionalize compliance at the right level, and allow for tailoring."
+      },
+      {
+        "n": 9,
+        "q": "Which of the following is identified as a common trap in the tailoring process?",
+        "options": [
+          "Documenting the rationale behind each individual tailoring decision made.",
+          "Involving the relevant stakeholders early in the tailoring decisions.",
+          "Reusing a tailored baseline from another system without repeating the tailoring process.",
+          "Basing tailoring decisions on facts and obtaining independent-authority approval."
+        ],
+        "correct": 2,
+        "explanation": "Traps include reusing a tailored baseline without repeating tailoring, using all processes 'just to be safe', assuming a single set of controls fits all projects, and failing to include relevant stakeholders."
+      },
+      {
+        "n": 10,
+        "q": "The ISO/IEC/IEEE 29110 series defines Very Small Enterprises (VSEs) as enterprises, organizations, departments, or projects with up to:",
+        "options": [
+          "25 people.",
+          "250 people.",
+          "5 people.",
+          "100 people."
+        ],
+        "correct": 0,
+        "explanation": "ISO/IEC/IEEE 29110 defines VSEs as having up to 25 people; this can also apply to a small project within a large organization."
+      },
+      {
+        "n": 11,
+        "q": "The ISO/IEC/IEEE 29110 VSE guides are organized into which four profiles?",
+        "options": [
+          "Bronze, Silver, Gold, and Platinum.",
+          "Concept, Development, Production, and Utilization.",
+          "Entry, Basic, Intermediate, and Advanced.",
+          "Novice, Practitioner, Expert, and Master."
+        ],
+        "correct": 2,
+        "explanation": "The four VSE profiles are Entry (start-ups/<6 people), Basic, Intermediate, and Advanced — each defining subsets of standards relevant to the VSE's context."
+      },
+      {
+        "n": 12,
+        "q": "For mission-critical or safety-critical projects, the ISO/IEC/IEEE 29110 VSE profiles:",
+        "options": [
+          "apply with no changes at all, since enterprise size is the only factor that matters.",
+          "do not apply, because criticality dictates greater rigor and comprehensive SE.",
+          "become mandatory and override the inherent criticality of the project's mission.",
+          "fully replace the need for any formal project or product risk management."
+        ],
+        "correct": 1,
+        "explanation": "For critical projects the VSE profiles do not apply; the criticality would dictate a much greater level of rigor and comprehensive SE."
+      },
+      {
+        "n": 13,
+        "q": "A recommended good practice for making tailoring decisions is to:",
+        "options": [
+          "maximize the extent of tailoring so as to remove as many activities as possible.",
+          "let a single engineer decide the tailoring informally in order to save time.",
+          "avoid documenting the rationale so the process baseline can stay flexible.",
+          "base the decisions on facts and obtain approval from an independent authority."
+        ],
+        "correct": 3,
+        "explanation": "Common approaches include basing decisions on facts, obtaining independent approval, using the Decision Management process, constraining tailoring by agreements, and documenting rationale."
+      },
+      {
+        "n": 14,
+        "q": "The INCOSE SE Vision 2020 defines MBSE as the formalized application of modeling to support:",
+        "options": [
+          "only the final acceptance testing performed just before system delivery.",
+          "only the manufacturing planning and production scheduling of the system.",
+          "requirements, design, analysis, verification, and validation.",
+          "only the detailed software coding and unit-testing activities of a project."
+        ],
+        "correct": 2,
+        "explanation": "MBSE is the formalized application of modeling to support requirements, design, analysis, verification, and validation, beginning in the concept stage and continuing throughout development and later life cycle stages."
+      },
+      {
+        "n": 15,
+        "q": "A key difficulty of a document-based SE approach, which MBSE seeks to address, is that information in documents is:",
+        "options": [
+          "automatically kept perfectly consistent across all artifacts at all times.",
+          "inherently more precise and less ambiguous than any system model could be.",
+          "hard to synchronize and maintain, and hard to assess for quality.",
+          "effectively impossible to generate from system specifications in the first place."
+        ],
+        "correct": 2,
+        "explanation": "In document-based SE, information across specifications, ICDs, reports, etc. is hard to synchronize, maintain, and assess for quality (correctness, completeness, consistency)."
+      },
+      {
+        "n": 16,
+        "q": "Which of the following is cited as a benefit of MBSE relative to a document-based approach?",
+        "options": [
+          "Complete elimination of the need to verify the delivered system.",
+          "Reduced risk, achieved by surfacing requirements and design issues early.",
+          "A guaranteed reduction of total program cost all the way to zero.",
+          "Removal of the need for any multidisciplinary engineering teams."
+        ],
+        "correct": 1,
+        "explanation": "Cited MBSE benefits include improved communication, managing complexity via multiple views, improved quality, reduced cycle time, reduced risk by early issue discovery, and enhanced knowledge capture/reuse."
+      },
+      {
+        "n": 17,
+        "q": "In an MBSE approach, the primary artifact of the SE process is the:",
+        "options": [
+          "system descriptive model, often captured using a language such as SysML.",
+          "final manufacturing bill of materials produced for production.",
+          "project Gantt chart together with the earned-value report.",
+          "printed set of specification documents and trade-study reports."
+        ],
+        "correct": 0,
+        "explanation": "MBSE makes the system descriptive model — captured in a standard language such as SysML and integrated with other models — the primary artifact of the SE process."
+      },
+      {
+        "n": 18,
+        "q": "OOSEM, referenced in the handbook, is best described as:",
+        "options": [
+          "a procurement standard governing the acquisition of COTS software.",
+          "a representative MBSE method consistent with the handbook's processes.",
+          "a statistical manufacturing quality-control and defect-reduction technique.",
+          "a document-based methodology that deliberately avoids the use of models."
+        ],
+        "correct": 1,
+        "explanation": "The Object-Oriented Systems Engineering Method (OOSEM) is a representative MBSE method using SysML; it supports requirements flow-down from mission to system to element levels and is generally consistent with the handbook."
+      },
+      {
+        "n": 19,
+        "q": "The OOSEM development process includes which set of subprocesses?",
+        "options": [
+          "Mine materials; refine them; transport them; and store them.",
+          "Advertise the product; sell it; ship it; and invoice the customer.",
+          "Manage; specify and design; develop elements; and integrate and verify.",
+          "Hire staff; train them; promote them; and retire them."
+        ],
+        "correct": 2,
+        "explanation": "OOSEM subprocesses are: manage the development; specify and design the system; develop the system elements; and integrate and verify the system — applied recursively at each level of the hierarchy."
+      },
+      {
+        "n": 20,
+        "q": "Agile Systems Engineering is best characterized as:",
+        "options": [
+          "a principle-based approach for uncertain knowledge or dynamic environments.",
+          "a manufacturing technique for high-volume, repetitive production lines.",
+          "a single prescriptive life cycle model that must be followed exactly as written.",
+          "a documentation standard governing how requirement changes are recorded."
+        ],
+        "correct": 0,
+        "explanation": "Agile SE is a principle-based approach (a 'what', not a 'how') for systems where knowledge is uncertain or environments are dynamic; many life cycle models can implement it."
+      },
+      {
+        "n": 21,
+        "q": "On the SE life cycle spectrum (Figure 4.3), the 'extremely sequential' and 'extremely agile' extremes are distinguished primarily by the degree of:",
+        "options": [
+          "responsiveness to dynamics in knowledge and environment.",
+          "number of physical prototypes that are produced.",
+          "budget allocated to the central program office.",
+          "geographic distribution of the supplier base."
+        ],
+        "correct": 0,
+        "explanation": "All life cycle approaches fall between the two extremes depending on the process-encoded degree of attentiveness/responsiveness to dynamics in knowledge (certain↔uncertain) and environment (static↔dynamic)."
+      },
+      {
+        "n": 22,
+        "q": "In the Agile SE life cycle model (Dove and Schindel), the activity at the center, with no entry or exit criteria, is:",
+        "options": [
+          "the verification gate, which is performed just before system delivery.",
+          "situational awareness, which in principle should be a continuous activity.",
+          "the retirement stage, which is performed only at the system's end of life.",
+          "the production stage, which is performed only once in the life cycle."
+        ],
+        "correct": 1,
+        "explanation": "Situational awareness is featured in the center with no entry/exit criteria because it should be continuous; the six life cycle stages run around the perimeter and can occur concurrently."
+      },
+      {
+        "n": 23,
+        "q": "The agile life cycle operational 'pattern' describes three nested systems. Which correctly identifies System 3?",
+        "options": [
+          "The acquirer's contracting and finance system used to fund the project.",
+          "The Engineered System — the target system that is actually under development.",
+          "The Enterprise Process and Innovation System (the process-improvement system).",
+          "The Life Cycle Project Management System — the basic SE development/maintenance processes."
+        ],
+        "correct": 2,
+        "explanation": "System 1 is the Engineered System, System 2 is the Life Cycle Project Management System, and System 3 is the Enterprise Process and Innovation System responsible for situational awareness, evolution, and knowledge management."
+      },
+      {
+        "n": 24,
+        "q": "The principles and strategies that facilitate operational agility are grouped under which three headings?",
+        "options": [
+          "Planning, Building, and Selling.",
+          "Concept, Development, and Retirement.",
+          "Inputs, Controls, and Outputs.",
+          "Sensing, Responding, and Evolving."
+        ],
+        "correct": 3,
+        "explanation": "Operational agility is facilitated by Sensing (external/internal awareness, sense making), Responding (decision making, action making, action evaluation), and Evolving (experimentation, evaluation, memory)."
+      },
+      {
+        "n": 25,
+        "q": "In Agile Systems Engineering, the retirement stage is best understood as:",
+        "options": [
+          "a stage that is identical to the production stage in every respect.",
+          "a single, one-time decommissioning event occurring only at program end.",
+          "an activity that essentially never occurs within agile-engineered systems.",
+          "frequent, safe disposal or reversion of elements as the system evolves."
+        ],
+        "correct": 3,
+        "explanation": "Because the system continually evolves, elements and older versions are retired frequently; retirement becomes an issue of safe and secure maintenance, disposal, and reversion rather than a single decommissioning."
+      },
+      {
+        "n": 26,
+        "q": "Lean system development and lean thinking have their roots in:",
+        "options": [
+          "the ISO 9001 family of quality-management system standards.",
+          "the US defense acquisition reform initiatives of the 1990s.",
+          "the agile software development manifesto and its principles.",
+          "the Toyota 'just-in-time' philosophy of eliminating waste."
+        ],
+        "correct": 3,
+        "explanation": "Lean thinking originated in the Toyota just-in-time philosophy aimed at producing quality products efficiently by completely eliminating waste, inconsistencies, and unreasonable requirements."
+      },
+      {
+        "n": 27,
+        "q": "In Lean SE, 'value' is defined simply as:",
+        "options": [
+          "the total volume of documentation and reports produced by the project.",
+          "mission assurance — satisfying the customer and all stakeholders.",
+          "the maximum possible number of requirements that can be implemented.",
+          "the lowest achievable unit production cost, regardless of resulting quality."
+        ],
+        "correct": 1,
+        "explanation": "Lean SE defines value as mission assurance: delivering a flawless complex system with flawless technical performance while satisfying customer and stakeholders, implying minimal waste, cost, and the shortest possible schedule."
+      },
+      {
+        "n": 28,
+        "q": "In lean thinking, 'waste' is defined as:",
+        "options": [
+          "documentation produced specifically to support regulatory compliance needs.",
+          "the time that is spent verifying that the system meets its requirements.",
+          "any project activity that happens to require specialized engineering skills.",
+          "a work element that adds no value in the customer's eyes — it only adds cost and time."
+        ],
+        "correct": 3,
+        "explanation": "Waste (Womack and Jones) is any work element that adds no value in the customer's eyes; it only adds cost and time. The LAI classifies it into seven categories, with an eighth (waste of human potential) often added."
+      },
+      {
+        "n": 29,
+        "q": "Which of the following is one of the seven (plus one) categories of waste identified by the LAI?",
+        "options": [
+          "Overproduction — creating too much material, information, or unneeded work.",
+          "Tailoring — adapting the processes to the project's specific circumstances.",
+          "Verification — confirming that the product meets its stated requirements.",
+          "Validation — confirming that the product meets stakeholder needs in use."
+        ],
+        "correct": 0,
+        "explanation": "The waste categories are overprocessing, waiting, unnecessary movement, overproduction, transportation, inventory, defects, and (eighth) waste of human potential."
+      },
+      {
+        "n": 30,
+        "q": "A common misconception that Lean SE explicitly rejects is the idea that lean SE means:",
+        "options": [
+          "delivering value to the customer while minimizing process waste.",
+          "improving workflow quality and increasing mission assurance.",
+          "applying lean-thinking principles to systems engineering work.",
+          "less SE — whereas in fact it means better SE with more accountability."
+        ],
+        "correct": 3,
+        "explanation": "Lean SE does not take away from SE or mean less SE; it means better SE with higher responsibility, authority, and accountability, leading to waste-free workflows and increased mission assurance."
+      },
+      {
+        "n": 31,
+        "q": "Which of the following is one of the six lean principles captured by Womack and Jones?",
+        "options": [
+          "The escalation principle — routing every project decision to executive leadership.",
+          "The maximization principle — implementing every feature that is technically possible.",
+          "The pull principle — pulling tasks/outputs based on customer needs to prevent rework.",
+          "The redundancy principle — duplicating all engineering artifacts as a safety net."
+        ],
+        "correct": 2,
+        "explanation": "The six lean principles are value, value stream, flow, pull, perfection, and respect-for-people; the pull principle guards against waste of rework and overproduction."
+      },
+      {
+        "n": 32,
+        "q": "The Lean Enablers for Managing Engineering Programs (LEfMEP) presents 10 challenge themes, the first of which is:",
+        "options": [
+          "gold-plating — adding unnecessary luxury features.",
+          "outsourcing — moving work to external suppliers.",
+          "firefighting — reactive project execution.",
+          "overbudgeting — holding excessive financial reserves."
+        ],
+        "correct": 2,
+        "explanation": "The 10 LEfMEP challenge themes begin with 'firefighting — reactive project execution' and include unstable/unclear requirements, insufficient alignment, poor risk management, etc."
+      },
+      {
+        "n": 33,
+        "q": "Product Line Engineering (PLE) addresses the engineering of:",
+        "options": [
+          "the disposal and end-of-life retirement of obsolete systems.",
+          "a family of similar systems that vary in features and functions.",
+          "only the software portion of an embedded, hardware-rich system.",
+          "a single, one-of-a-kind system with no reuse across products."
+        ],
+        "correct": 1,
+        "explanation": "PLE provides models, tools, and methods for holistic engineering of system families — families of similar systems with variations in features and functions."
+      },
+      {
+        "n": 34,
+        "q": "In PLE terminology, the SE-equivalent terms for 'product', 'product line', and 'product line engineering' are, respectively:",
+        "options": [
+          "requirement, specification, and requirements engineering.",
+          "element, subsystem, and subsystem engineering.",
+          "system, system family, and system family engineering.",
+          "node, network, and network engineering."
+        ],
+        "correct": 2,
+        "explanation": "Per Krueger (2022), product = system, product line = system family, and product line engineering = system family engineering; the terms are used interchangeably."
+      },
+      {
+        "n": 35,
+        "q": "Feature-based PLE — the modern good practice for PLE — is defined in the INCOSE PLE Primer and which standard?",
+        "options": [
+          "ISO/IEC 26580.",
+          "ISO 26262.",
+          "ISO 9001.",
+          "ISO/IEC/IEEE 42010."
+        ],
+        "correct": 0,
+        "explanation": "Feature-based PLE is defined in the INCOSE PLE Primer (2019) and ISO/IEC 26580 (2021); it engineers a system family as a single holistic system while formally managing variation."
+      },
+      {
+        "n": 36,
+        "q": "In the feature-based PLE Factory, the artifact that captures a formal model of how family members differ from each other is the:",
+        "options": [
+          "Product Asset Instance.",
+          "Bill-of-Features.",
+          "PLE Factory Configurator.",
+          "Feature Catalogue."
+        ],
+        "correct": 3,
+        "explanation": "The Feature Catalogue is the single authoritative source of truth about variation; the Bill-of-Features selects features per system, and the Configurator applies them to the Shared Asset Supersets to produce Product Asset Instances."
+      },
+      {
+        "n": 37,
+        "q": "In a feature-based PLE Shared Asset Superset, content that varies from system to system is encapsulated in:",
+        "options": [
+          "variation points, configured per the Bill-of-Features feature selections.",
+          "the organization's overall process tailoring strategy document.",
+          "the project's approved cost, schedule, and resource baseline.",
+          "common content that appears unchanged in every member of the family."
+        ],
+        "correct": 0,
+        "explanation": "A Shared Asset Superset holds a single copy of all content; content appearing in every system is 'common', while content that varies is encapsulated in variation points configured by Bill-of-Features selections."
+      },
+      {
+        "n": 38,
+        "q": "Early-generation system-family approaches such as clone-and-own or branch-and-merge tend to produce:",
+        "options": [
+          "complete elimination of duplicate content across the whole system family.",
+          "fully automated instantiation of each system's engineering assets.",
+          "a single authoritative variation model shared cleanly across all disciplines.",
+          "ever-growing duplicate and divergent engineering effort and self-inflicted complexity."
+        ],
+        "correct": 3,
+        "explanation": "Clone-and-own and branch-and-merge cause growing duplicate/divergent effort and self-inflicted complexity; feature-based PLE eliminates this by consolidating assets and managing variation in one model."
+      },
+      {
+        "n": 39,
+        "q": "The handbook organizes its system-type considerations around the recognition that:",
+        "options": [
+          "SE is applicable only to hardware-dominant, physically large systems.",
+          "the type of System-of-Interest has significant implications for SE.",
+          "all systems should be engineered using one identical, fixed process.",
+          "the type of System-of-Interest has no real effect on the SE approach."
+        ],
+        "correct": 1,
+        "explanation": "Section 4.3 introduces SE considerations for different SoI types because the SoI type (greenfield, brownfield, COTS-based, software-intensive, CPS, SoS, IoT, service, enterprise) has significant SE implications."
+      },
+      {
+        "n": 40,
+        "q": "Greenfield (clean-sheet) SE involves systems that:",
+        "options": [
+          "consist mostly of integrated commercial-off-the-shelf system elements.",
+          "are significant modifications of an existing in-service legacy system.",
+          "are currently being retired and disposed of at the end of their life.",
+          "are new designs with no, or limited, legacy constraints other than interfaces."
+        ],
+        "correct": 3,
+        "explanation": "Greenfield ('clean sheet'/'blank slate') SE involves new designs with no or limited legacy constraints; brownfield involves modifying/extending/replacing an existing as-is system."
+      },
+      {
+        "n": 41,
+        "q": "The handbook notes that truly greenfield development is:",
+        "options": [
+          "essentially impossible to teach to newly hired SE practitioners.",
+          "an almost theoretical situation, rarely seen in practice.",
+          "the single most common type of development effort found in industry.",
+          "the only situation in which systems engineering actually provides value."
+        ],
+        "correct": 1,
+        "explanation": "Greenfield is an effective way to teach SE but is almost theoretical and rarely seen in practice; few real efforts are truly greenfield, and a greenfield system may evolve toward brownfield even before delivery."
+      },
+      {
+        "n": 42,
+        "q": "Brownfield (legacy) SE involves:",
+        "options": [
+          "a brand-new clean-sheet design with no existing structures or constraints.",
+          "purely greenfield development starting from a blank sheet of paper.",
+          "a system that has no operational, maintenance, or in-service history at all.",
+          "modifying, extending, or replacing an existing 'as-is' system in place."
+        ],
+        "correct": 3,
+        "explanation": "Brownfield SE modifies/extends/replaces an existing as-is system to a to-be system, typically with explicit continuity requirements requiring the as-is system to keep operating during a deliberate transition."
+      },
+      {
+        "n": 43,
+        "q": "According to Table 4.1, a key verification difference for brownfield (versus greenfield) is that in brownfield:",
+        "options": [
+          "the entire System-of-Interest must always be fully re-verified from scratch.",
+          "verification is entirely replaced by validation with the customer or user.",
+          "verification is never required at all because the system is already in service.",
+          "only the updated and impacted parts need verification, often with regression testing."
+        ],
+        "correct": 3,
+        "explanation": "In brownfield, only updated/impacted parts typically need verification (with regression testing of unchanged parts), whereas in greenfield the entire SoI typically needs to be verified."
+      },
+      {
+        "n": 44,
+        "q": "According to Table 4.1, validation of a brownfield system typically requires that:",
+        "options": [
+          "only the newest line of added code be validated in complete isolation.",
+          "the entire SoI, including the changes, be validated to check for new emergent behavior.",
+          "all validation be deferred until the system reaches its retirement stage.",
+          "no validation be performed because the legacy behavior is already well known."
+        ],
+        "correct": 1,
+        "explanation": "Brownfield validation typically requires validating the entire SoI including the changes, with the customer/user, to check for new emergent behavior arising from the modifications."
+      },
+      {
+        "n": 45,
+        "q": "Per Table 4.1, the team composition typical of a brownfield effort is:",
+        "options": [
+          "a mix of old and new members, bringing historical biases and fresh ideas.",
+          "a newly formed group having no prior knowledge of the legacy system.",
+          "exclusively the original designers of the legacy system being updated.",
+          "an entirely automated team with essentially no human participants."
+        ],
+        "correct": 0,
+        "explanation": "Brownfield teams are typically a mix of old and new members (historical biases plus fresh ideas), whereas greenfield teams are a newly formed group."
+      },
+      {
+        "n": 46,
+        "q": "In SE, the 'make vs. buy' trade-off decision distinguishes between:",
+        "options": [
+          "'make' (verification work) and 'buy' (validation work).",
+          "'make' (custom-built) and 'buy' (outsourced development and COTS).",
+          "'make' (greenfield systems) and 'buy' (systems being retired).",
+          "'make' (all software) and 'buy' (all hardware), with no overlap."
+        ],
+        "correct": 1,
+        "explanation": "Make vs. buy is a key trade-off on system elements: 'make' is custom-built, 'buy' is outsourced development and COTS; most systems have some COTS content."
+      },
+      {
+        "n": 47,
+        "q": "Which is a defining characteristic that helps identify a system element as COTS?",
+        "options": [
+          "It is sold/leased/licensed to the public, and the vendor controls update frequency.",
+          "Its source code is freely modified at will by the acquiring organization.",
+          "It is custom-built precisely to the acquirer's exact, detailed specifications.",
+          "It is available only as a single, unique, one-of-a-kind copy."
+        ],
+        "correct": 0,
+        "explanation": "COTS characteristics include being sold/leased/licensed to the public, offered by a profit-seeking vendor who retains IP and controls update frequency, available in multiple identical copies, and used without hardware/source modification."
+      },
+      {
+        "n": 48,
+        "q": "The 'promise' of COTS — frequently not fully realized — includes:",
+        "options": [
+          "removing any need to consider whole-life-cycle cost of the element.",
+          "a guarantee that the product is built to your exact requirements.",
+          "saving development time and reducing technical risk and time-to-market.",
+          "the complete elimination of all system integration challenges."
+        ],
+        "correct": 2,
+        "explanation": "COTS promises to save development time, reduce technical risk, reduce time/cost-to-market, and exploit latest technology — but these promises are often not realized due to fit, interface, documentation, and obsolescence issues."
+      },
+      {
+        "n": 49,
+        "q": "A recognized risk or consideration of COTS-based systems is that:",
+        "options": [
+          "COTS products never introduce proprietary data formats or interface protocols.",
+          "COTS products are always verified specifically against your own requirements.",
+          "the acquirer, rather than the vendor, controls the COTS maintenance schedule.",
+          "COTS products are not built to your requirements and may misfit functionality."
+        ],
+        "correct": 3,
+        "explanation": "Considerations include COTS not matching your requirements, unique/proprietary interfaces, vendor-driven schedule impacts, insufficient documentation, NIH syndrome, sole-source risk, and life cycle cost/obsolescence (DMSMS)."
+      },
+      {
+        "n": 50,
+        "q": "Concerns about COTS obsolescence and diminishing manufacturing sources (DMSMS) point to the need to consider:",
+        "options": [
+          "whole life cycle cost; IEC 62402 guides obsolescence management.",
+          "only the vendor's marketing claims made at the point of sale.",
+          "removing verification of the COTS element to save schedule.",
+          "only the initial one-time purchase price of the COTS item."
+        ],
+        "correct": 0,
+        "explanation": "COTS decisions must consider total life cycle cost of maintenance and technology refresh due to obsolescence/DMSMS; IEC 62402 (2019) provides an obsolescence management framework applicable across the life cycle."
+      },
+      {
+        "n": 51,
+        "q": "ISO/IEC/IEEE 42010 defines a software-intensive system as any system where software:",
+        "options": [
+          "performs no role at all in the system's behavior or external interfaces.",
+          "is purchased entirely as commercial-off-the-shelf application packages.",
+          "contributes essential influences to the system as a whole.",
+          "is the only element present, with absolutely no hardware whatsoever."
+        ],
+        "correct": 2,
+        "explanation": "Per ISO/IEC/IEEE 42010 (2022), a software-intensive system is any system where software contributes essential influences to the design, construction, deployment, and evolution of the system as a whole."
+      },
+      {
+        "n": 52,
+        "q": "When licensed software packages cannot be modified, software engineers often integrate them by:",
+        "options": [
+          "rewriting the licensed package's source code to fit the new system.",
+          "removing every interface to and from the licensed software package.",
+          "encapsulating them in shells or wrappers that mask unwanted capabilities.",
+          "treating the software package as though it were physical hardware."
+        ],
+        "correct": 2,
+        "explanation": "Since licensed packages usually cannot be modified, engineers encapsulate them in shells/wrappers providing the interfaces needed to integrate desired capabilities while masking unwanted ones."
+      },
+      {
+        "n": 53,
+        "q": "In the handbook, a 'software-only' system is described as:",
+        "options": [
+          "a software application running on a stable computing platform.",
+          "a purely mechanical system that contains only embedded firmware.",
+          "a system that is unable to interface with any external entity.",
+          "a system that has no computing platform or supporting hardware at all."
+        ],
+        "correct": 0,
+        "explanation": "A software-only system is a software application implemented on a stable computing platform (hardware plus supporting software), with the platform often built from commodity items."
+      },
+      {
+        "n": 54,
+        "q": "Cyber-Physical Systems (CPS) are best described as:",
+        "options": [
+          "an integration of physical and cyber processes via sensors and feedback.",
+          "physical-only systems that contain no software or computing elements.",
+          "paper-based documentation systems used for tracking physical assets.",
+          "software-only systems that contain no physical components whatsoever."
+        ],
+        "correct": 0,
+        "explanation": "CPS integrate physical and cyber processes, enabled by sensors and feedback loops; software controls the physical processes and is in turn affected by them to achieve goals such as homeostasis."
+      },
+      {
+        "n": 55,
+        "q": "Because CPS are closely aligned with Industry 4.0 and are almost always networked, they are often referred to as:",
+        "options": [
+          "purely mechanical assemblies with no electronics.",
+          "Cyber-Physical Systems of Systems (CPSoS).",
+          "legacy document-based information systems.",
+          "isolated, standalone embedded microcontrollers."
+        ],
+        "correct": 1,
+        "explanation": "CPS always include hardware and software and are almost always networked, making them Cyber-Physical Systems of Systems (CPSoS); if networked via Internet Protocols they form part of an IoT."
+      },
+      {
+        "n": 56,
+        "q": "According to the relationship in Figure 4.7, the 'Things' in an Internet of Things (IoT) are:",
+        "options": [
+          "documents and records stored in a single centralized repository.",
+          "purely physical objects that contain no embedded software at all.",
+          "un-networked CPS that never interact with any other systems.",
+          "networked CPS connected via the Internet, always an SoS."
+        ],
+        "correct": 3,
+        "explanation": "IoT consists of networked CPS connected via the Internet; the 'Things' are constituent systems that are always networked and therefore always an SoS."
+      },
+      {
+        "n": 57,
+        "q": "Two of the most significant implications of CPS for engineers, per the handbook, are:",
+        "options": [
+          "reduced cost and fully guaranteed determinism in all models.",
+          "increased complexity (including nondeterministic models) and ethics.",
+          "the removal of all safety and security design considerations.",
+          "the elimination of any need for verification and validation."
+        ],
+        "correct": 1,
+        "explanation": "CPS raise complexity (extensive networks; combined physical/computational models that Lee notes are nearly always nondeterministic) and ethical challenges from transferring decision making to machines."
+      },
+      {
+        "n": 58,
+        "q": "In the context of CPS, a 'digital twin' is best described as:",
+        "options": [
+          "a dynamic, physics-based digital surrogate of physical assets.",
+          "a redundant physical backup unit that is kept in cold storage.",
+          "a printed paper record of a system's final as-built configuration.",
+          "a second human operator who mirrors the primary operator's actions."
+        ],
+        "correct": 0,
+        "explanation": "A digital twin is a digital surrogate — a dynamic, physics-based description of physical assets (the physical twin), processes, people, places, systems, and devices — capturing both the elements and the dynamics of how an IoT device operates throughout its life cycle."
+      },
+      {
+        "n": 59,
+        "q": "ISO/IEC/IEEE 21839 defines a System of Systems (SoS) as a set of systems that interact to provide:",
+        "options": [
+          "any system that happens to contain embedded software elements within it.",
+          "a unique capability no constituent system can achieve alone.",
+          "a collection of parts that have no meaningful interactions among them.",
+          "a single system that one authority decomposes into smaller subsystems."
+        ],
+        "correct": 1,
+        "explanation": "Per ISO/IEC/IEEE 21839 (2019), an SoS is a set of systems/system elements that interact to provide a unique capability none of the constituents can achieve alone; each constituent is useful by itself."
+      },
+      {
+        "n": 60,
+        "q": "Of Maier's five characteristics of an SoS, the two principal distinguishing characteristics are:",
+        "options": [
+          "evolutionary development together with geographic distribution.",
+          "operational independence and managerial independence of constituents.",
+          "geographic distribution and the presence of emergent behavior.",
+          "emergent behavior together with evolutionary development processes."
+        ],
+        "correct": 1,
+        "explanation": "Maier lists operational independence, managerial independence, geographic distribution, emergent behavior, and evolutionary development; operational and managerial independence are the two principal distinguishing characteristics."
+      },
+      {
+        "n": 61,
+        "q": "In the ISO/IEC/IEEE 21841 taxonomy, an SoS created and managed for specific purposes, with constituents subordinated to the central purpose, is a:",
+        "options": [
+          "Collaborative SoS.",
+          "Acknowledged SoS.",
+          "Directed SoS.",
+          "Virtual SoS."
+        ],
+        "correct": 2,
+        "explanation": "A Directed SoS is built and managed for specific purposes with constituents subordinated to the central purpose. Virtual lacks central management; Collaborative relies on voluntary interaction; Acknowledged has a manager but independent constituents."
+      },
+      {
+        "n": 62,
+        "q": "Which SoS type has recognized objectives, a designated manager, and resources, while the constituent systems retain independent ownership and funding?",
+        "options": [
+          "Acknowledged SoS.",
+          "Collaborative SoS.",
+          "Directed SoS.",
+          "Virtual SoS."
+        ],
+        "correct": 0,
+        "explanation": "An Acknowledged SoS has recognized objectives, a designated manager, and resources, but constituents keep independent ownership/objectives/funding; changes are made through cooperative agreements."
+      },
+      {
+        "n": 63,
+        "q": "A Virtual SoS is distinguished by the fact that it:",
+        "options": [
+          "has a central manager that subordinates all of its constituent systems.",
+          "is fully directed toward a single, centrally managed common purpose.",
+          "is the only SoS type that exhibits no emergent behavior of any kind.",
+          "lacks central management authority and a centrally agreed purpose."
+        ],
+        "correct": 3,
+        "explanation": "A Virtual SoS has no central management authority and no centrally agreed purpose; large-scale behavior emerges and may be desirable, but it relies on relatively invisible mechanisms to maintain itself."
+      },
+      {
+        "n": 64,
+        "q": "A central SoS engineering challenge identified by Dahmann is that, unlike traditional single-authority SE:",
+        "options": [
+          "each constituent system has its own owner and development approach.",
+          "constituent systems never change independently once part of the SoS.",
+          "end-to-end SoS testing is trivial and can always be performed completely.",
+          "every constituent system shares a single common owner and funding line."
+        ],
+        "correct": 0,
+        "explanation": "Dahmann's challenges include SoS authorities (each constituent has its own owner), leadership, constituent system limitations, capability/requirements mismatches, autonomy/emergence, and testing difficulties."
+      },
+      {
+        "n": 65,
+        "q": "The handbook identifies three general goals in analyzing data. They are:",
+        "options": [
+          "prediction, estimation, and explanation.",
+          "encryption, compression, and transmission.",
+          "acquisition, storage, and deletion.",
+          "verification, validation, and certification."
+        ],
+        "correct": 0,
+        "explanation": "The three goals are prediction (predict response to future inputs), estimation (infer how response variables associate with inputs), and explanation (understand relative contribution of inputs to responses)."
+      },
+      {
+        "n": 66,
+        "q": "In data analysis, predictive modeling differs from explanatory modeling in that predictive modeling:",
+        "options": [
+          "is concerned only with deleting redundant or duplicated data records.",
+          "applies algorithms to data to predict new observations.",
+          "ignores data entirely and relies solely on engineering intuition.",
+          "aims only to explain the causal relationships between the variables."
+        ],
+        "correct": 1,
+        "explanation": "Predictive modeling predicts new observations; explanatory models aim to explain the causal relationship between independent and dependent variables. Statistical learning builds on big data and models the data itself."
+      },
+      {
+        "n": 67,
+        "q": "To lead data-driven IoT designs, the SE practitioner needs interdisciplinary knowledge of IoT aspects, which include:",
+        "options": [
+          "only contract law, procurement, and acquisition policy.",
+          "only product marketing and customer-relations functions.",
+          "only mechanical fabrication and materials science disciplines.",
+          "computing, sensors, software, networks, analytics, and data science."
+        ],
+        "correct": 3,
+        "explanation": "Designing IoT/data-driven systems requires interdisciplinary knowledge of computing, sensors/actuators, software, network, analytics, and data science, addressing multi-stack, SoS, and network-of-networks concerns."
+      },
+      {
+        "n": 68,
+        "q": "OASIS defines a 'service' as a mechanism to enable access to one or more capabilities:",
+        "options": [
+          "described only in a document that captures the system's architecture.",
+          "through a prescribed interface, per defined constraints and policies.",
+          "delivered only as a physical product in multiple identical copies.",
+          "produced only as a one-time manufacturing run of hardware elements."
+        ],
+        "correct": 1,
+        "explanation": "Per OASIS (2012), a service is a mechanism to enable access to capabilities via a prescribed interface, exercised consistently with constraints and policies as specified by the service description."
+      },
+      {
+        "n": 69,
+        "q": "A distinguishing feature of service systems, compared with product-focused systems, is that:",
+        "options": [
+          "service systems have no stakeholders, customers, or consumers at all.",
+          "service demand is constant over time and never varies with circumstance.",
+          "services can always be stored in inventory and then delivered much later.",
+          "services have intangible attributes and are rendered when requested."
+        ],
+        "correct": 3,
+        "explanation": "Services involve provider-consumer interaction to cocreate value, have intangible attributes like quality of service (availability, response time), and are rendered when requested with time/season/event-dependent demand."
+      },
+      {
+        "n": 70,
+        "q": "In a service-system environment, the SE practitioner is encouraged to play the role of:",
+        "options": [
+          "an integrator addressing interfaces between service system entities.",
+          "a documentarian with no real influence on the service design itself.",
+          "an isolated component designer who can safely ignore all interfaces.",
+          "a procurement officer focused only on purchasing physical hardware."
+        ],
+        "correct": 0,
+        "explanation": "SE practitioners should bring a customer focus and act as integrators, addressing interface requirements for interoperability of service system entities for technical integration and for the processes and organization needed for optimal customer experience."
+      },
+      {
+        "n": 71,
+        "q": "In the handbook, an enterprise is defined as a purposeful combination of interdependent resources that:",
+        "options": [
+          "interact with each other and their environment to meet enterprise goals.",
+          "are simply a synonym for one project's work breakdown structure.",
+          "consist of fixed hardware and software with no people involved at all.",
+          "form a single co-located department contained within one company."
+        ],
+        "correct": 0,
+        "explanation": "An enterprise (Rebovich and White) is a purposeful combination/network of interdependent resources — people, processes, organizations, technologies, funding — interacting to coordinate functions and achieve business and operational goals across geography and time."
+      },
+      {
+        "n": 72,
+        "q": "A key conceptual point about enterprises (Figure 4.10) is that an enterprise:",
+        "options": [
+          "is exactly the same thing as a single organization in every respect.",
+          "contains no organizations and no people within its overall boundary.",
+          "is not equivalent to an 'organization' that merely participates in it.",
+          "is structurally unable to create value for society or its stakeholders."
+        ],
+        "correct": 2,
+        "explanation": "An enterprise is not the same as an organization; organizations participate in the enterprise and manage resources for its benefit, but are not necessarily part of it. A large SE project can be an enterprise in its own right."
+      },
+      {
+        "n": 73,
+        "q": "Enterprise SE discusses three kinds of capability that lead from individual competence to enterprise value. They are:",
+        "options": [
+          "organizational capability, system capability, and operational capability.",
+          "hardware capability, software capability, and firmware capability.",
+          "manufacturing capability, logistics capability, and disposal capability.",
+          "financial capability, legal capability, and marketing capability."
+        ],
+        "correct": 0,
+        "explanation": "Individual competence contributes to organizational capability, which (with system capability inherent in the system) enables operational capability and operational value for stakeholders."
+      },
+      {
+        "n": 74,
+        "q": "Beyond solving problems, enterprise SE places particular emphasis on:",
+        "options": [
+          "controlling the enterprise exactly as one would a project-level SE effort.",
+          "minimizing stakeholder involvement throughout enterprise decision making.",
+          "ignoring uncertainty and conflict present in the enterprise environment.",
+          "exploiting opportunities, with enterprise fitness as the key measure."
+        ],
+        "correct": 3,
+        "explanation": "Enterprise SE addresses opportunity exploitation (lower costs, increased share, reduced risk) as well as problem solving; good practice sets enterprise fitness as the key measure and deals with uncertainty through adaptation rather than tight control."
+      },
+      {
+        "n": 75,
+        "q": "The handbook's overarching point about applying SE across product sectors/domains is that:",
+        "options": [
+          "SE provides essentially no value outside of manufacturing settings.",
+          "the SE process must be applied identically in every single domain.",
+          "SE is applicable only within the defense and aerospace domains.",
+          "SE is a generic discipline whose application details vary by domain."
+        ],
+        "correct": 3,
+        "explanation": "SE is a generic discipline that can be applied in most situations and domains with varying value, but the details of how the practice is applied vary across product sectors and application domains."
+      },
+      {
+        "n": 76,
+        "q": "Within the automotive domain, which standard addresses road-vehicle functional safety?",
+        "options": [
+          "ISO 26262.",
+          "ISO/SAE 21434.",
+          "DO-178C.",
+          "ARP 4754A."
+        ],
+        "correct": 0,
+        "explanation": "ISO 26262 (2018) addresses road-vehicle functional safety. ISO/SAE 21434 covers automotive cybersecurity; ARP 4754A and DO-178C are aerospace standards."
+      },
+      {
+        "n": 77,
+        "q": "In the automotive domain, ISO/SAE 21434 addresses:",
+        "options": [
+          "road-vehicle cybersecurity engineering.",
+          "quality management for production.",
+          "road-vehicle functional safety.",
+          "in-vehicle infotainment middleware."
+        ],
+        "correct": 0,
+        "explanation": "ISO/SAE 21434 (2021) covers road-vehicle cybersecurity engineering; ISO 26262 covers functional safety, IATF 16949 covers automotive quality management, and GENIVI relates to infotainment."
+      },
+      {
+        "n": 78,
+        "q": "'Mobility as a Service' (MaaS), discussed in the automotive section, is best characterized as:",
+        "options": [
+          "a single proprietary vehicle that is owned by one manufacturer.",
+          "a mission for an SoS of public and private mobility operators.",
+          "a manufacturing technique used for high-volume car production.",
+          "an international standard governing in-vehicle functional safety."
+        ],
+        "correct": 1,
+        "explanation": "MaaS integrates mobility offers (car/ride-sharing, public transport, biking) into a larger service; it may be considered the mission for an SoS involving public and private mobility operators who must cooperate."
+      },
+      {
+        "n": 79,
+        "q": "Per Table 4.5, a way the automotive domain differs from aerospace/defense in customer requirements is that automotive requirements are typically:",
+        "options": [
+          "irrelevant, because vehicles are not treated as customer products.",
+          "assumed by the manufacturer, not defined by the end customer.",
+          "identical in form to aerospace certification requirements.",
+          "defined precisely and explicitly by each individual end customer."
+        ],
+        "correct": 1,
+        "explanation": "Table 4.5 shows automotive customer requirements are assumed by the manufacturer (like consumer electronics), while aerospace/defense requirements are defined by the customer."
+      },
+      {
+        "n": 80,
+        "q": "In the biomedical and healthcare domain, 'risk management' for medical devices is generally centered on:",
+        "options": [
+          "supplier contract negotiation and procurement risk exclusively.",
+          "product/user-safety risk (system safety), not project risk.",
+          "the risk of losing market share to competing device manufacturers.",
+          "project schedule and budget risk, prioritized above all other concerns."
+        ],
+        "correct": 1,
+        "explanation": "In the medical industry, especially for devices, risk management is generally centered on product/user safety risk (system safety) rather than project technical/business risk, reflecting the strong emphasis on patient safety."
+      },
+      {
+        "n": 81,
+        "q": "The Systems Engineering Intervention for Patient Safety (SEIPS) is an example of:",
+        "options": [
+          "a financial model used for healthcare reimbursement decisions.",
+          "a cybersecurity standard for protecting hospital IT networks.",
+          "a manufacturing standard governing medical device production lines.",
+          "tailoring SE processes to the specific context of patient-centered medicine."
+        ],
+        "correct": 3,
+        "explanation": "SEIPS (Carayon, 2006) focuses on tailoring SE processes to patient-centered medicine; lean SE approaches have also proven successful in healthcare delivery, which typically involves few stakeholders and few requirements."
+      },
+      {
+        "n": 82,
+        "q": "Which standard is associated with the application of risk management to medical devices?",
+        "options": [
+          "ISO 13485.",
+          "IEC 62366.",
+          "ISO 14971.",
+          "IEC 62304."
+        ],
+        "correct": 2,
+        "explanation": "ISO 14971 covers application of risk management to medical devices. ISO 13485 is the quality system; IEC 62304 covers medical device software life cycle; IEC 62366 covers usability engineering."
+      },
+      {
+        "n": 83,
+        "q": "SE applied to healthcare delivery differs from traditional SE in that most healthcare-delivery projects:",
+        "options": [
+          "are functionally identical to large-scale defense acquisition programs.",
+          "always involve thousands of stakeholders and thousands of requirements.",
+          "involve only a few stakeholders and requirements in a local care process.",
+          "place essentially no emphasis on patient safety during the work."
+        ],
+        "correct": 2,
+        "explanation": "Most healthcare-delivery SE projects improve an imperfect local workflow/care process with only a few stakeholders and requirements; lean SE approaches are often successful, with strong emphasis on patient safety."
+      },
+      {
+        "n": 84,
+        "q": "In the commercial aerospace domain, ARP 4754A is referenced as describing:",
+        "options": [
+          "standard practices for road-vehicle cybersecurity engineering.",
+          "usability engineering practices for medical device design.",
+          "standard practices for verifying commercial aircraft requirements.",
+          "the international taxonomy of systems of systems types."
+        ],
+        "correct": 2,
+        "explanation": "ARP 4754A (2010) describes standard practices for verifying commercial aircraft requirements; commercial aerospace systems are complex and often part of larger SoS such as the air transport system."
+      },
+      {
+        "n": 85,
+        "q": "Future commercial aerospace systems are expected to increasingly incorporate:",
+        "options": [
+          "a single life cycle model used unchanged since the 1960s.",
+          "autonomy, AI, novel propulsion, advanced HSI, and cybersecurity.",
+          "only legacy mechanical systems that contain no software at all.",
+          "exclusively document-based engineering with no use of models."
+        ],
+        "correct": 1,
+        "explanation": "Future commercial aerospace systems will include autonomy, AI, neural networks, novel propulsion, advanced HSI, and cybersecurity; the domain uses sequential as well as incremental, evolutionary, and agile life cycle models."
+      },
+      {
+        "n": 86,
+        "q": "The handbook notes that the modern definition of Systems Engineering has its roots in:",
+        "options": [
+          "the healthcare delivery and patient-safety reforms of the 1990s.",
+          "the automotive mass-production assembly lines of the early 1900s.",
+          "twentieth-century defense systems, recognized around 1960.",
+          "the oil and gas digitalization efforts of the early 2010s."
+        ],
+        "correct": 2,
+        "explanation": "Modern SE has its roots in twentieth-century defense systems; it became recognized as a distinct activity in the late 1950s/early 1960s amid rising system complexity and the introduction of digital computers and software."
+      },
+      {
+        "n": 87,
+        "q": "For US Department of Defense projects, which standard provides a specific implementation of ISO/IEC/IEEE 15288?",
+        "options": [
+          "ARP 4754A.",
+          "ISO/SAE 21434.",
+          "IEEE 15288.1.",
+          "ISO/IEC/IEEE 42010."
+        ],
+        "correct": 2,
+        "explanation": "IEEE 15288.1 (2014) provides a specific implementation of ISO/IEC/IEEE 15288 for US DoD projects, giving a basis for selection, negotiation, agreement, and performance of SE activities, while allowing tailoring."
+      },
+      {
+        "n": 88,
+        "q": "In the infrastructure domain (Table 4.7), the SE term 'Acquirer' typically corresponds to which infrastructure term?",
+        "options": [
+          "Owner or Agency.",
+          "Milestone or decision gate.",
+          "Design Consultant or Contractor.",
+          "Scope of Work or Specification."
+        ],
+        "correct": 0,
+        "explanation": "Table 4.7 correlates SE and infrastructure terms: Acquirer ↔ Owner/Agency, Supplier ↔ Design Consultant/Contractor, Decision gate ↔ Milestone, Requirements ↔ Design Criteria/Scope of Work."
+      },
+      {
+        "n": 89,
+        "q": "The handbook identifies four key SE processes useful for introducing SE on infrastructure projects. They are:",
+        "options": [
+          "requirements and interface management, verification, and validation.",
+          "tailoring, MBSE adoption, agile methods, and lean thinking.",
+          "manufacturing, logistics, disposal, and retirement of the asset.",
+          "marketing, sales, contracting, and customer invoicing."
+        ],
+        "correct": 0,
+        "explanation": "Four key SE processes — requirements management, interface management, verification, and validation — are useful to introduce SE on infrastructure projects and to support a total life cycle view of design, construction, and asset management."
+      },
+      {
+        "n": 90,
+        "q": "A distinguishing characteristic of infrastructure projects, versus manufacturing/production, is that they:",
+        "options": [
+          "have tightly defined boundaries and very stable, fixed requirements.",
+          "produce thousands of identical units within a controlled factory setting.",
+          "always involve building a full prototype before any production begins.",
+          "build unique, large physical systems on site, usually without a prototype."
+        ],
+        "correct": 3,
+        "explanation": "Infrastructure projects build unique, large physical systems on site (not in a factory), adapted to existing environments, with loosely defined boundaries, evolving architectures, multi-decade life cycles, and usually no prototype."
+      },
+      {
+        "n": 91,
+        "q": "In the Oil & Gas domain, the greatest SE-related need has historically been in the area of:",
+        "options": [
+          "human spaceflight safety certification and crew recovery.",
+          "consumer-facing marketing and brand management activity.",
+          "system requirements definition and requirements management.",
+          "high-volume mass production of identical finished units."
+        ],
+        "correct": 2,
+        "explanation": "The greatest SE need in O&G has been in requirements definition and management; with a domain-wide focus on digitalization, industry leaders are moving to data-centric requirement sets and improving requirement quality and traceability."
+      },
+      {
+        "n": 92,
+        "q": "A challenge for SE adoption in the Oil & Gas domain is that most O&G companies:",
+        "options": [
+          "use only agile methods and have abandoned all stage-gate reviews.",
+          "follow a sequential (waterfall) stage-gate process with isolated SE pockets.",
+          "have already fully and uniformly adopted SE across the entire domain.",
+          "have essentially no requirements or supply chain that needs managing."
+        ],
+        "correct": 1,
+        "explanation": "Most O&G companies follow a sequential (waterfall) stage-gate process, so SE is implemented only where a clear case for change is demonstrated; this leaves pockets of SE maturity that do not always intersect."
+      },
+      {
+        "n": 93,
+        "q": "Power and energy systems are described as typically existing at which level, with very long life cycles?",
+        "options": [
+          "the SoS level, with 30–100+ year life cycles.",
+          "the software-only level, with no physical infrastructure involved.",
+          "the single-component level, with life cycles under one year each.",
+          "the consumer-electronics level, replaced roughly every 1–2 years."
+        ],
+        "correct": 0,
+        "explanation": "Power and energy systems are typically at the SoS level (e.g., distributed energy resources) and must remain persistently operational; they have 30–100+ year life cycles, even into thousands of years for nuclear decommissioning/waste."
+      },
+      {
+        "n": 94,
+        "q": "Compared with sectors such as defense, space, and transportation, the application of SE in power and energy is described as:",
+        "options": [
+          "completely standardized and already universally adopted everywhere.",
+          "largely immature so far this century, still needing cultural change.",
+          "entirely irrelevant to sustainability and decarbonization goals.",
+          "the most mature SE application found in any domain to date."
+        ],
+        "correct": 1,
+        "explanation": "SE in power and energy remains largely immature compared to defense, space, and transportation; a cultural shift toward shared knowledge management, portfolio management, and organizational infrastructure is needed to fully adopt SE."
+      },
+      {
+        "n": 95,
+        "q": "Because of the high cost of deploying assets into orbit, space systems typically require:",
+        "options": [
+          "essentially no verification or testing being performed before launch.",
+          "frequent on-orbit hardware replacement and routine physical repair.",
+          "low reliability that is offset by very high-volume mass production.",
+          "high reliability with little maintenance, so elements must work the first time."
+        ],
+        "correct": 3,
+        "explanation": "Space systems require high reliability with little maintenance other than software changes; all elements must work the first time or be compensated by workarounds, which strongly influences the system's risk posture."
+      },
+      {
+        "n": 96,
+        "q": "The space domain has evolved into which three main areas of interest?",
+        "options": [
+          "Directed, Acknowledged, and Virtual.",
+          "Upstream, Midstream, and Downstream.",
+          "Entry, Basic, and Advanced.",
+          "Civil, Commercial, and National Security Space."
+        ],
+        "correct": 3,
+        "explanation": "The space domain comprises Civil, Commercial, and National Security Space, each with its own motivations that influence how systems are developed and which standards are adopted."
+      },
+      {
+        "n": 97,
+        "q": "Regarding life cycle approaches in the space domain, Civil systems typically:",
+        "options": [
+          "avoid any form of integration, verification, or system validation.",
+          "use sequential Vee/waterfall, while commercial systems are incremental.",
+          "always use agile methods, deploying weekly releases to operators.",
+          "use incremental approaches, while commercial systems use waterfall."
+        ],
+        "correct": 1,
+        "explanation": "Civil space systems (government-acquired, performance-focused) tend to use sequential Vee/waterfall approaches; commercial systems, striving for profitability, are more amenable to incremental and evolutionary approaches to deploy faster."
+      },
+      {
+        "n": 98,
+        "q": "A distinctive characteristic of some telecommunication systems, such as the internet and the PSTN, is that they:",
+        "options": [
+          "operate without any constituent systems, nodes, or interconnections.",
+          "have no single owner and depend on international standards bodies.",
+          "are owned and fully controlled by exactly one private company.",
+          "transport physical packages rather than electronic information."
+        ],
+        "correct": 1,
+        "explanation": "Some telecommunication systems (internet, PSTN) have no single owner; their design depends on collaboration in international standards bodies. Telecom systems are enablers for other services and increasingly software-intensive."
+      },
+      {
+        "n": 99,
+        "q": "Which is a typical characteristic of telecommunication systems noted in the handbook?",
+        "options": [
+          "A constantly changing core set of functions that varies every day.",
+          "A single node that performs all functions entirely in isolation.",
+          "Strong interdependence between nodes; one failure may isolate others.",
+          "No geographical distribution and strictly single-party ownership."
+        ],
+        "correct": 2,
+        "explanation": "Telecom systems feature diverse geographic distribution, multi-party ownership, multiple constituent systems with independent decades-long life cycles, a small stable set of functions, many node types, and strong interdependence between nodes."
+      },
+      {
+        "n": 100,
+        "q": "Ground transportation systems are described as having long life cycles and being predominantly:",
+        "options": [
+          "purely greenfield systems that carry no legacy constraints at all.",
+          "short-lived consumer products that are replaced roughly every year.",
+          "single-owner systems with no public funding or public-trust obligation.",
+          "'in-service' brownfield systems that update while maintaining service."
+        ],
+        "correct": 3,
+        "explanation": "Ground transportation assets have 25–100+ year life cycles, often public funding, and are typically 'in-service' brownfield systems that must migrate to updated versions while maintaining service (e.g., 24/7 transit), per Section 4.3.2."
+      }
+    ]
   }
 };

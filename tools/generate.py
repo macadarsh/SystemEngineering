@@ -60,12 +60,12 @@ MODULES = [  # structure only; page content lives in content/ (see tools/BUILD.m
     {
         "file": "chapter-3.html",
         "title": "Chapter 3",
-        "lede": "This chapter is awaiting content.",
+        "lede": "Life Cycle Analyses and Methods — the quality-characteristic “-ilities” (affordability, RAM, safety, security, resilience, HSI, logistics, and more) and the cross-cutting SE methods (modelling, analysis & simulation, prototyping, traceability, interface management, architecture frameworks, patterns). Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 3.",
     },
     {
         "file": "chapter-4.html",
         "title": "Chapter 4",
-        "lede": "This chapter is awaiting content.",
+        "lede": "Tailoring and Application Considerations — adapting Systems Engineering to its context: tailoring processes to an acceptable level of risk; the MBSE, Agile, Lean, and Product Line Engineering approaches; nine system types from greenfield to enterprise; and how SE is applied across ten product sectors. Based on the INCOSE Systems Engineering Handbook, 5th Edition (2023), Chapter 4.",
     },
     {
         "file": "chapter-5.html",
@@ -329,6 +329,10 @@ SUBPAGE_LEDES = {
     (1, "detailed-review"): "A thorough, section-by-section walk through “Systems Engineering Introduction.” We cover what SE is, why it matters, the systems concepts (boundary and system of interest, emergence, interfacing/interoperating/enabling systems, the innovation ecosystem, hierarchy, states and modes, and complexity), the SE foundations, and system science and systems thinking — illustrated with all eight original handbook figures and their attributions.",
     (2, "core-concepts"): "A deeper pass through the System Life Cycle: how work is organised into stages and gated by decisions, the three families of life-cycle models and when each fits, and the ISO/IEC/IEEE 15288 process framework that turns a need into a delivered, operated, and retired system. This builds on the Quick Recap with more structure, vocabulary, and worked reasoning, and prepares the ground for the figure-by-figure Detailed Review.",
     (2, "detailed-review"): "A thorough, section-by-section walk through “System Life Cycle Concepts, Models, and Processes.” We cover life-cycle stages and decision gates, the sequential / incremental / evolutionary model families, and all thirty ISO/IEC/IEEE 15288 processes across four groups — illustrated with the original handbook figures and their attributions.",
+    (3, "core-concepts"): "A deeper, exam-weighted pass through the quality-characteristic approaches and the cross-cutting SE methods — the definitions, the representative -ilities, and the high-yield distinctions (the three availability types, ALARP, the resilience triad, the traceability types, the N² convention). Builds on the Quick Recap and prepares the figure-by-figure Detailed Review.",
+    (3, "detailed-review"): "A thorough, section-by-section walk through ‘Life Cycle Analyses and Methods’ — every quality-characteristic approach and SE method, illustrated with the original handbook figures (3.1–3.18) and their attributions.",
+    (4, "core-concepts"): "A deeper, exam-weighted pass through tailoring, the four SE methodologies/approaches, the nine system types, and the ten product-sector applications — the definitions, the key distinctions (greenfield vs. brownfield, Maier’s SoS characteristics and the four SoS types, the CPS/SoS/IoT relationship), and why context changes how SE is applied. Builds on the Quick Recap and prepares the figure-by-figure Detailed Review.",
+    (4, "detailed-review"): "A thorough, section-by-section walk through ‘Tailoring and Application Considerations’ — tailoring, the SE methodologies/approaches, the system types, and the product-sector applications, illustrated with all twelve original handbook figures (4.1–4.12) and the seven tables, with their attributions.",
 }
 
 
